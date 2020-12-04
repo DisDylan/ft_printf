@@ -1,4 +1,4 @@
-int		check_base(char *base)
+static int		check_base(char *base)
 {
 	int i;
 	int j;
@@ -23,7 +23,7 @@ int		check_base(char *base)
 	return (1);
 }
 
-void	is_neg(unsigned int *nb, int *nbr)
+static void	is_neg(unsigned int *nb, int *nbr)
 {
 	if (*nbr < 0)
 	{
@@ -35,21 +35,16 @@ void	is_neg(unsigned int *nb, int *nbr)
 		ft_putchar('0');
 }
 
-void	ft_putnbr_base(int nbr, char x)
+void	ft_putnbr_base(int nbr, char *base)
 {
 	int				i;
 	int				len;
 	int				nb_final[50];
 	unsigned int	nb;
-	char			*base;
 
 	i = -1;
 	len = 0;
 	nb = nbr;
-	if (x == 'x')
-		base = "0123456789abcdef";
-	else if (x == 'X')
-		base = "0123456789ABCDEF";
 	if (check_base(base))
 	{
 		is_neg(&nb, &nbr);

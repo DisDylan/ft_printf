@@ -23,8 +23,12 @@ void put_item(char c, va_list va_arg)
 		ft_putchar(va_arg);
 	else if (c == 's')
 		ft_putstr(va_arg);
-	else if (c == 'p' || c == 'x' || c == 'X')
-		ft_puthexa(va_arg, c);
+	else if (c == 'p')
+		// TODO
+	else if (c == 'x')
+		ft_putnbr_base(va_arg, "0123456789abcdef");
+	else if (c == 'X')
+		ft_putnbr_base(va_arg, "0123456789ABCDEF");
 	else if (c == 'd' || c == 'i')
 		ft_putnbr(va_arg);
 	else if (c == 'u')
