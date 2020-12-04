@@ -12,6 +12,36 @@
 
 #include "ft_printf.h"
 
+void put_item(char c, va_arg)
+{
+	if (c == 'c')
+		ft_putchar(1, va_arg, 1);
+	else if (c == 's')
+		ft_putstr(1, va_arg, ft_strlen(va_arg));
+	else if (c == 'p')
+		ft_puthexa(1, va_arg, ???);
+	else if (c == 'd' || c == 'i')
+		ft_putnbr(1, va_arg, ft_strlen(ft_itoa(va_arg)));
+	else if (c == 'u')
+		ft_putnbr(1, (unsigned int)va_arg, ft_strlen(ft_itoa(va_arg)));
+	else if (c == 'x' || c == 'X')
+		ft_puthexa(1, va_arg, ???);
+}
+
+int ft_chrchr(const char *str, char c)
+{
+	int i;
+
+	i = 0;
+	while (str[i])
+	{
+		if (str[i] == c)
+			return (1);
+		i++;
+	}
+	return (0);
+}
+
 int	ft_printf(const char *format, ...)
 {
 	// va_list
@@ -30,7 +60,11 @@ int	ft_printf(const char *format, ...)
 			% = affiche %
 		*/
 	// FLAGS -0.*
+	const char *conversion;
+	int i;
 
+	conversion = "cspdiuxX";
+	i = 0;
 	/*
 		while s[i] // Tant qu'il y a un truc dans la string
 			if s[i] == '%' // si le char est un modulo
@@ -42,4 +76,17 @@ int	ft_printf(const char *format, ...)
 			write(1, s[i], 1); // On écrit le char
 			i++;
 	*/
+	while (format[i])
+	{
+		if (format[i] == '%')
+		{
+			i++;
+			if (ft_chrchr(conversion, format[i]))
+				/*put_item*/(format[i], va_arg);
+			else if (format[i] == '%')
+				ft_putchar(format[i]);
+		}
+		write(1, &format[i], 1);
+		i++;
+	}
 }
