@@ -12,11 +12,6 @@
 
 #include "ft_printf.h"
 
-void ft_puthexa(va_list va_arg, char c)
-{
-
-}
-
 void put_item(char c, va_list va_arg)
 {
 	if (c == 'c')
@@ -24,7 +19,7 @@ void put_item(char c, va_list va_arg)
 	else if (c == 's')
 		ft_putstr(va_arg);
 	else if (c == 'p')
-		// TODO
+		write(1, &va_arg, 12);
 	else if (c == 'x')
 		ft_putnbr_base(va_arg, "0123456789abcdef");
 	else if (c == 'X')
