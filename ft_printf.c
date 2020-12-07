@@ -6,7 +6,7 @@
 /*   By: dpoinsu <dpoinsu@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/12/02 11:29:12 by dpoinsu           #+#    #+#             */
-/*   Updated: 2020/12/02 11:30:32 by dpoinsu          ###   ########.fr       */
+/*   Updated: 2020/12/07 11:51:22 by dpoinsu          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,19 +15,19 @@
 static void put_item(char c, va_list arg)
 {
 	if (c == 'c')
-		ft_putchar(va_arg);
+		ft_putchar(arg);
 	else if (c == 's')
-		ft_putstr(va_arg);
+		ft_putstr(arg);
 	else if (c == 'p')
-		write(1, &va_arg, 12);
+		write(1, &arg, 12);
 	else if (c == 'x')
-		ft_putnbr_base(va_arg, "0123456789abcdef");
+		ft_putnbr_base(arg, "0123456789abcdef");
 	else if (c == 'X')
-		ft_putnbr_base(va_arg, "0123456789ABCDEF");
+		ft_putnbr_base(arg, "0123456789ABCDEF");
 	else if (c == 'd' || c == 'i')
-		ft_putnbr(va_arg);
+		ft_putnbr(arg);
 	else if (c == 'u')
-		ft_putnbr((unsigned int)va_arg);
+		ft_putnbr((unsigned int)arg);
 }
 
 static int ft_chrchr(const char *str, char c)
@@ -61,12 +61,12 @@ int	ft_printf(const char *format, ...)
 		{
 			i++;
 			if (ft_chrchr(conversion, format[i]))
-				put_item(format[i], va_arg);
+				put_item(format[i], args);
 			else if (format[i] == '%')
 				ft_putchar(format[i]);
 		}
 		write(1, &format[i], 1);
 		i++;
 	}
-	va_end(args)
+	va_end(args);
 }
