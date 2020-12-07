@@ -12,7 +12,7 @@
 
 #include "ft_printf.h"
 
-void put_item(char c, va_list va_arg)
+static void put_item(char c, va_list arg)
 {
 	if (c == 'c')
 		ft_putchar(va_arg);
@@ -30,7 +30,7 @@ void put_item(char c, va_list va_arg)
 		ft_putnbr((unsigned int)va_arg);
 }
 
-int ft_chrchr(const char *str, char c)
+static int ft_chrchr(const char *str, char c)
 {
 	int i;
 
@@ -46,31 +46,15 @@ int ft_chrchr(const char *str, char c)
 
 int	ft_printf(const char *format, ...)
 {
-	// va_list
-	// va_start
-
-	// char *flag
-	// va_end
-	// CONVERSION cspdiuxX%
-		/*
-			c = int en unsigned char (putchar)
-			s = const char * (putstr)
-			p = void * (PUTHEXA)
-			d-i = int (putnbr)
-			u = unsigned int (putnbr)
-			x-X = unsigned hexadecimal (abcde-ABCDE) (PUTHEXA)
-			% = affiche %
-		*/
-	// %[parameter][flags][width][.precision][length]type
 	// FLAGS "-0"
 	// PRECISION ".*"
-	va_list *args;
-	const char *conversion;
+	va_list args;
+	char *conversion;
 	int i;
 
 	conversion = "cspdiuxX";
 	i = 0;
-	va_start(args, format)
+	va_start(args, format);
 	while (format[i])
 	{
 		if (format[i] == '%')
@@ -84,4 +68,5 @@ int	ft_printf(const char *format, ...)
 		write(1, &format[i], 1);
 		i++;
 	}
+	va_end(args)
 }
