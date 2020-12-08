@@ -12,6 +12,36 @@
 
 #include "ft_printf.h"
 
+int ft_isdigit(format)
+{
+	while isdigit
+		i *= 10 + format i
+	return i
+}
+
+int	get_flags(va_list args, const char *format, ft_flags flags, char *conversion)
+{
+	int i;
+
+	i = 0;
+	while (!(ft_chrchr(conversion, format[i])))
+	{
+		if (format[i] == '-')
+			ft_flags.minus = 1;
+		else if (format[i] == '0')
+			i++;
+			ft_flags.zero = ft_isdigit(format + i);
+		else if (format[i] == '.')
+			i++;
+			ft_flags.dot = ft_isdigit(format + i);
+		else if (format[i] == '*')
+		// GETARG
+		else
+			i++;
+		
+	}
+}
+
 static void put_item(char c, va_list arg)
 {
 	if (c == 'c')
@@ -51,6 +81,7 @@ int	ft_printf(const char *format, ...)
 	va_list args;
 	char *conversion;
 	int i;
+	ft_flags flag_list;
 
 	conversion = "cspdiuxX";
 	i = 0;
@@ -59,6 +90,7 @@ int	ft_printf(const char *format, ...)
 	{
 		if (format[i] == '%')
 		{
+			get_flags(args, format + i, flag_list, conversion);
 			i++;
 			if (ft_chrchr(conversion, format[i]))
 				put_item(format[i], args);

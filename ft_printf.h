@@ -18,6 +18,16 @@
 # include <unistd.h>
 # include <string.h>
 
+typedef struct ft_flags
+{
+	int	width = 0;
+	int	minus = 0;
+	int	zero = 0;
+	int	dot = 0;
+	int	star = 0;
+} ft_flags;
+
+
 int	ft_printf(const char *format, ...);
 
 #endif
