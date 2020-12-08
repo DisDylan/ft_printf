@@ -12,30 +12,57 @@
 
 #include "ft_printf.h"
 
-int ft_isdigit(format)
+static int ft_getdigits(const char *format)
 {
-	while isdigit
-		i *= 10 + format i
-	return i
+	int i;
+	int res;
+
+	i = 0;
+	res = 0;
+	while (ft_isdigit(format[i]))
+	{
+		i *= 10;
+		i += format[i] + 48;
+	}
+	return (i);
 }
 
-int	get_flags(va_list args, const char *format, ft_flags flags, char *conversion)
+static void	ft_star(const char *str, ft_flags flags, int pos, va_list arg)
+{
+	if (str[pos - 1] == '0')
+		flags.dot = va_arg(str, int);
+	else if (str[pos - 1] == '%')
+		flags.width = va_arg(str, int);
+	else if (str[pos - 1] == '.')
+		flags.width = va_arg(str, int);
+}
+
+static void	get_flags(va_list args, const char *format, ft_flags flags, char *conversion)
 {
 	int i;
 
 	i = 0;
-	while (!(ft_chrchr(conversion, format[i])))
+	while (!(ft_chrchr(conversion, format[i])) && format[i])
 	{
 		if (format[i] == '-')
-			ft_flags.minus = 1;
-		else if (format[i] == '0')
+		{
 			i++;
-			ft_flags.zero = ft_isdigit(format + i);
+			flags.minus = 1;
+		}
+		else if (format[i] == '0' && format[i - 1] != '-')
+		{
+			i++;
+			flags.zero = ft_isdigit(format + i);
+		}
 		else if (format[i] == '.')
+		{
 			i++;
-			ft_flags.dot = ft_isdigit(format + i);
+			flags.dot = ft_isdigit(format + i);
+		}
 		else if (format[i] == '*')
-		// GETARG
+			ft_star(format, flags, i, args);
+		else if (isdigit)
+			flags.width = ft_getdigits(format + i);
 		else
 			i++;
 		
@@ -45,19 +72,19 @@ int	get_flags(va_list args, const char *format, ft_flags flags, char *conversion
 static void put_item(char c, va_list arg)
 {
 	if (c == 'c')
-		ft_putchar(arg);
+		ft_putchar(va_arg(arg, char));
 	else if (c == 's')
-		ft_putstr(arg);
+		ft_putstr(va_arg(arg, char*));
 	else if (c == 'p')
 		write(1, &arg, 12);
 	else if (c == 'x')
-		ft_putnbr_base(arg, "0123456789abcdef");
+		ft_putnbr_base(va_arg(arg, char*), "0123456789abcdef");
 	else if (c == 'X')
-		ft_putnbr_base(arg, "0123456789ABCDEF");
+		ft_putnbr_base(va_arg(arg, char*) "0123456789ABCDEF");
 	else if (c == 'd' || c == 'i')
-		ft_putnbr(arg);
+		ft_putnbr(va_arg(arg, int));
 	else if (c == 'u')
-		ft_putnbr((unsigned int)arg);
+		ft_putnbr(va_arg(arg, unsigned int));
 }
 
 static int ft_chrchr(const char *str, char c)
@@ -76,8 +103,6 @@ static int ft_chrchr(const char *str, char c)
 
 int	ft_printf(const char *format, ...)
 {
-	// FLAGS "-0"
-	// PRECISION ".*"
 	va_list args;
 	char *conversion;
 	int i;
