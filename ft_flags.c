@@ -51,9 +51,9 @@ void		get_flags(va_list args, const char *format,
 			flags.minus = 1;
 		}
 		else if (format[i] == '0' && format[i - 1] != '-')
-			flags.zero = ft_getdigit(format + (i + 1));
+			flags.zero = ft_getdigits(format + (i + 1));
 		else if (format[i] == '.')
-			flags.dot = ft_getdigit(format + (i + 1));
+			flags.dot = ft_getdigits(format + (i + 1));
 		else if (format[i] == '*')
 			ft_star(format, flags, i, args);
 		else if (isdigit)
