@@ -1,10 +1,10 @@
-SRCS	= utils/*.c
+SRCS	= *.c
 
 OBJS	= ${SRCS:.c=.o}
 
 NAME	= libftprintf.a
 
-HEADER	= ft_printf.h
+HEADER	= includes/*.h
 
 GCC		= clang
 
