@@ -1,4 +1,4 @@
-SRCS	= srcs/ft_atoi.c srcs/ft_itoa.c srcs/ft_putchar.c srcs/ft_putendl.c srcs/ft_putnbr_base.c srcs/ft_putnbr.c srcs/ft_putstr.c srcs/ft_strdup.c srcs/ft_strlen.c
+SRCS	= utils/*.c
 
 OBJS	= ${SRCS:.c=.o}
 
@@ -16,6 +16,7 @@ CFLAGS	= -Wall -Wextra -Werror
 				${GCC} ${CFLAGS} -c $< -o ${<:.c=.o} -I ${HEADER}
 
 ${NAME}:	${OBJS}
+				${GCC} ${CFLAGS} main.c libft.a
 				ar -rc ${NAME} ${OBJS}
 				ranlib ${NAME}
 

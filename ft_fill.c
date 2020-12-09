@@ -6,7 +6,7 @@
 /*   By: dpoinsu <dpoinsu@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/12/02 11:29:12 by dpoinsu           #+#    #+#             */
-/*   Updated: 2020/12/07 11:51:22 by dpoinsu          ###   ########.fr       */
+/*   Updated: 2020/12/09 12:22:17 by dpoinsu          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,7 @@ static char *fill_zero(char *tmp, int zero)
 	newsize = zero - ft_strlen(tmp);
 	while (newsize > 0)
 	{
-		write(1, '0', 1);
+		write(1, "0", 1);
 		str[ft_strlen(str) - 1] = '0';
 		newsize--;
 	}
@@ -37,7 +37,7 @@ static char *fill_width(char *tmp, int width)
 	newsize = width - ft_strlen(tmp);
 	while (newsize > 0)
 	{
-		write(1, ' ', 1);
+		write(1, " ", 1);
 		str[ft_strlen(str) - 1] = ' ';
 		newsize--;
 	}

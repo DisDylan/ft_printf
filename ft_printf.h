@@ -6,7 +6,7 @@
 /*   By: dpoinsu <dpoinsu@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/12/02 11:30:55 by dpoinsu           #+#    #+#             */
-/*   Updated: 2020/12/02 11:31:19 by dpoinsu          ###   ########.fr       */
+/*   Updated: 2020/12/09 12:29:36 by dpoinsu          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,6 +29,6 @@ typedef struct ft_flags
 
 int	ft_printf(const char *format, ...);
 int ft_chrchr(const char *str, char c);
-void		get_flags(va_list args, const char *format, ft_flags flags, char *conversion);
+void		get_flags(va_list args, const char *format, ft_flags flags, char *conversion, int *index);
 
 #endif

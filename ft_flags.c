@@ -6,7 +6,7 @@
 /*   By: dpoinsu <dpoinsu@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/12/02 11:29:12 by dpoinsu           #+#    #+#             */
-/*   Updated: 2020/12/08 15:14:50 by dpoinsu          ###   ########.fr       */
+/*   Updated: 2020/12/09 12:27:53 by dpoinsu          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,9 +25,9 @@ static int	ft_getdigits(const char *format, va_list arg, int *pos)
 	{
 		i *= 10;
 		i += format[i] - 48;
-		&pos++;
+		pos++;
 	}
-	&pos--;
+	pos--;
 	return (i);
 }
 
@@ -49,5 +49,5 @@ void		get_flags(va_list args, const char *format,
 			flags.width = ft_getdigits(format + (i + 1), args, &i);
 		i++;
 	}
-	&index = i;
+	index = i;
 }
