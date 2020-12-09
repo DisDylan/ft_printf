@@ -23,19 +23,19 @@ static void init_flags(ft_flags flags)
 void put_item(char c, va_list arg)
 {
 	if (c == 'c')
-		ft_putstr(arg);
+		ft_putstr(va_arg(arg, char *);
 	else if (c == 's')
-		ft_putstr(arg);
+		ft_putstr(va_arg(arg, char *));
 	else if (c == 'p')
 		write(1, &arg, 12);
 	else if (c == 'x')
-		ft_putnbr_base(arg, "0123456789abcdef");
+		ft_putnbr_base(va_arg(arg, int), "0123456789abcdef");
 	else if (c == 'X')
-		ft_putnbr_base(arg, "0123456789ABCDEF");
+		ft_putnbr_base(va_arg(arg, int), "0123456789ABCDEF");
 	else if (c == 'd' || c == 'i')
-		ft_putnbr(arg);
+		ft_putnbr(va_arg(arg, int));
 	else if (c == 'u')
-		ft_putnbr(arg);
+		ft_putnbr(va_arg(arg, int));
 }
 
 int	ft_printf(const char *format, ...)
@@ -57,12 +57,17 @@ int	ft_printf(const char *format, ...)
 		{
 			get_flags(args, format + i, flag_list, conversion, &i);
 			if (ft_chrchr(conversion, format[i]))
-				write_and_size(args, flag_list, format[i]);
+				res += write_and_size(args, flag_list, format[i]);
 			else if (format[i] == '%')
+			{
 				ft_putchar(format[i]);
+				res++;
+			}
 		}
 		write(1, &format[i], 1);
 		i++;
+		res++;
 	}
 	va_end(args);
+	return (res);
 }

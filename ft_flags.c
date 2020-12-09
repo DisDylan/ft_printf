@@ -49,5 +49,5 @@ void		get_flags(va_list args, const char *format,
 			flags.width = ft_getdigits(format + (i + 1), args, &i);
 		i++;
 	}
-	index = i;
+	*index += i;
 }
