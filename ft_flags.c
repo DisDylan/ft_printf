@@ -30,19 +30,9 @@ static int	ft_getdigits(const char *format, va_list arg, int *pos)
 	&pos--;
 	return (i);
 }
-/*
-static void	ft_star(const char *str, ft_flags flags, int pos, va_list arg)
-{
-	if (str[pos - 1] == '0')
-		flags.dot = va_arg(str, int);
-	else if (str[pos - 1] == '%')
-		flags.width = va_arg(str, int);
-	else if (str[pos - 1] == '.')
-		flags.width = va_arg(str, int);
-}
-*/
+
 void		get_flags(va_list args, const char *format,
-		ft_flags flags, char *conversion)
+		ft_flags flags, char *conversion, int *index)
 {
 	int i;
 
@@ -59,6 +49,5 @@ void		get_flags(va_list args, const char *format,
 			flags.width = ft_getdigits(format + (i + 1), args, &i);
 		i++;
 	}
+	&index = i;
 }
-
-%

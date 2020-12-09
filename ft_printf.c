@@ -20,90 +20,22 @@ static void init_flags(ft_flags flags)
 	flags.dot = 0;
 }
 
-static char *fill_zero(char *tmp, int zero)
-{
-	int newsize;
-	char *str;
-
-	str = tmp;
-	newsize = zero - ft_strlen(tmp);
-	while (newsize > 0)
-	{
-		write(1, '0', 1);
-		str[ft_strlen(str) - 1] = '0';
-		newsize--;
-	}
-	return (str);
-}
-
-static char *fill_width(char *tmp, int width)
-{
-	int newsize;
-	char *str;
-
-	str = tmp;
-	newsize = width - ft_strlen(tmp);
-	while (newsize > 0)
-	{
-		write(1, ' ', 1);
-		str[ft_strlen(str) - 1] = ' ';
-		newsize--;
-	}
-	return (str);
-}
-
-static char *trunc_word(char *tmp, int limit)
-{
-	int i;
-	char *str;
-
-	i = 0;
-	while (i < limit)
-	{
-		str[i] = tmp[i];
-		i++;
-	}
-	return (str);
-}
-
-static int	write_and_size(va_list arg, ft_flags flags)
-{
-	int size;
-	int i;
-	char *tmp;
-
-	i = 0;
-	if (flags.minus == 1)
-	{
-		tmp = va_arg(arg, int);
-	}
-	else
-		if (flags.width > 0)
-			tmp = fill_width(tmp, flags.width);
-		if (flags.zero > 0)
-			tmp = fill_zero(tmp, flags.zero);
-		if (flags.dot > 0)
-			tmp = trunc_word(tmp, flags.dot);
-		tmp = ft_strjoin(tmp, va_arg(arg, int));
-	return(ft_strlen(tmp));
-}
-
-static void put_item(char c, va_list arg, const char *str)
+static void put_item(char c, va_list arg)
 {
 	if (c == 'c')
-		ft_putstr(va_arg(arg, int));
+		ft_putstr(arg);
 	else if (c == 's')
-		ft_putstr(va_arg(arg, int));
+		ft_putstr(arg);
 	else if (c == 'p')
-		write(1, &va_arg(arg, int), 12);
+		write(1, &arg, 12);
 	else if (c == 'x')
-		ft_putnbr_base(va_arg(arg, int), "0123456789abcdef");
+		ft_putnbr_base(arg, "0123456789abcdef");
 	else if (c == 'X')
-		ft_putnbr_base(va_arg(arg, int), "0123456789ABCDEF");
+		ft_putnbr_base(arg, "0123456789ABCDEF");
 	else if (c == 'd' || c == 'i')
-		ft_putnbr(va_arg(arg, int));
+		ft_putnbr(arg);
 	else if (c == 'u')
-		ft_putnbr(va_arg(arg, unsigned int));
+		ft_putnbr(arg);
 }
 
 int	ft_printf(const char *format, ...)
@@ -112,19 +44,20 @@ int	ft_printf(const char *format, ...)
 	char *conversion;
 	int i;
 	ft_flags flag_list;
+	int res;
 
 	conversion = "cspdiuxX";
 	i = 0;
+	res = 0;
 	init_flags(flag_list);
 	va_start(args, format);
 	while (format[i])
 	{
 		if (format[i] == '%')
 		{
-			get_flags(args, format + i, flag_list, conversion);
-			i++;
+			get_flags(args, format + i, flag_list, conversion, &i);
 			if (ft_chrchr(conversion, format[i]))
-				put_item(format[i], args);
+				write_and_size(args, flag_list, format[i]);
 			else if (format[i] == '%')
 				ft_putchar(format[i]);
 		}
