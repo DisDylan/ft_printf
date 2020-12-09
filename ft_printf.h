@@ -17,6 +17,7 @@
 # include <stdlib.h>
 # include <unistd.h>
 # include <string.h>
+# include "libft.h"
 
 typedef struct ft_flags
 {
@@ -30,6 +31,7 @@ typedef struct ft_flags
 int	ft_printf(const char *format, ...);
 int ft_chrchr(const char *str, char c);
 void		get_flags(va_list args, const char *format, ft_flags flags, char *conversion, int *index);
+/*
 int		ft_atoi(const char *nptr);
 void	ft_bzero(void *s, size_t n);
 void	*ft_calloc(size_t nmemb, size_t size);
@@ -65,6 +67,7 @@ void	ft_putstr_fd(char *s, int fd);
 void	ft_putendl_fd(char *s, int fd);
 void	ft_putnbr_fd(int n, int fd);
 void	put_item(char c, va_list arg);
+*/
 void	ft_putnbr_base(int nbr, char *base);
 int		write_and_size(va_list arg, ft_flags flags);
 
