@@ -67,7 +67,7 @@ int	write_and_size(va_list arg, ft_flags flags)
 	i = 0;
 	if (flags.minus == 1)
 	{
-		tmp = va_arg(arg, int);
+		tmp = ft_itoa(va_arg(arg, int));
 	}
 	else
 		if (flags.width > 0)
