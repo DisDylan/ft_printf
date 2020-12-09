@@ -63,19 +63,21 @@ int	write_and_size(va_list arg, ft_flags flags)
 	int size;
 	int i;
 	char *tmp;
+	char *str;
 
 	i = 0;
+	str = ft_itoa(va_arg(arg, int));
 	if (flags.minus == 1)
 	{
-		tmp = ft_itoa(va_arg(arg, int));
+		tmp = str;
 	}
-	else
-		if (flags.width > 0)
-			tmp = fill_width(tmp, flags.width);
-		if (flags.zero > 0)
-			tmp = fill_zero(tmp, flags.zero);
-		if (flags.dot > 0)
-			tmp = trunc_word(tmp, flags.dot);
-		tmp = ft_strjoin(tmp, put_item(va_arg(arg, int)));
+	if (flags.width > 0)
+		tmp = fill_width(tmp, flags.width);
+	if (flags.zero > 0)
+		tmp = fill_zero(tmp, flags.zero);
+	if (flags.dot > 0)
+		tmp = trunc_word(tmp, flags.dot);
+	if (flags.minus == 0)
+		tmp = ft_strjoin(tmp, str);
 	return(ft_strlen(tmp));
 }
