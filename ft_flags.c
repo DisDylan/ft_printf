@@ -51,15 +51,11 @@ void		get_flags(va_list args, const char *format,
 	{
 		if (format[i] == '-')
 			flags.minus = 1;
-		else if (format[i] == '0' && format[i - 1] != '-')
+		else if (format[i] == '0' && flags.minus != 1)
 			flags.zero = ft_getdigits(format + (i + 1), args, &i);
 		else if (format[i] == '.')
 			flags.dot = ft_getdigits(format + (i + 1), args, &i);
-			/*
-		else if (format[i] == '*')
-			ft_star(format, flags, i, args);
-			*/
-		else if (isdigit || '*')
+		else if (ft_isdigit(format[i]) || format[i] == '*')
 			flags.width = ft_getdigits(format + (i + 1), args, &i);
 		i++;
 	}

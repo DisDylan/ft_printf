@@ -12,9 +12,81 @@
 
 #include "ft_printf.h"
 
-str = flags + arg
-write str
-return ft_strlen(str)
+static void init_flags(ft_flags flags)
+{
+	flags.width = 0;
+	flags.minus = 0;
+	flags.zero = 0;
+	flags.dot = 0;
+}
+
+static char *fill_zero(char *tmp, int zero)
+{
+	int newsize;
+	char *str;
+
+	str = tmp;
+	newsize = zero - ft_strlen(tmp);
+	while (newsize > 0)
+	{
+		write(1, '0', 1);
+		str[ft_strlen(str) - 1] = '0';
+		newsize--;
+	}
+	return (str);
+}
+
+static char *fill_width(char *tmp, int width)
+{
+	int newsize;
+	char *str;
+
+	str = tmp;
+	newsize = width - ft_strlen(tmp);
+	while (newsize > 0)
+	{
+		write(1, ' ', 1);
+		str[ft_strlen(str) - 1] = ' ';
+		newsize--;
+	}
+	return (str);
+}
+
+static char *trunc_word(char *tmp, int limit)
+{
+	int i;
+	char *str;
+
+	i = 0;
+	while (i < limit)
+	{
+		str[i] = tmp[i];
+		i++;
+	}
+	return (str);
+}
+
+static int	write_and_size(va_list arg, ft_flags flags)
+{
+	int size;
+	int i;
+	char *tmp;
+
+	i = 0;
+	if (flags.minus == 1)
+	{
+		tmp = va_arg(arg, int);
+	}
+	else
+		if (flags.width > 0)
+			tmp = fill_width(tmp, flags.width);
+		if (flags.zero > 0)
+			tmp = fill_zero(tmp, flags.zero);
+		if (flags.dot > 0)
+			tmp = trunc_word(tmp, flags.dot);
+		tmp = ft_strjoin(tmp, va_arg(arg, int));
+	return(ft_strlen(tmp));
+}
 
 static void put_item(char c, va_list arg, const char *str)
 {
@@ -43,6 +115,7 @@ int	ft_printf(const char *format, ...)
 
 	conversion = "cspdiuxX";
 	i = 0;
+	init_flags(flag_list);
 	va_start(args, format);
 	while (format[i])
 	{
@@ -60,9 +133,3 @@ int	ft_printf(const char *format, ...)
 	}
 	va_end(args);
 }
-
-// Traiter la chaine
-// Quand un % est rencontré, traiter la suite
-// Si il y a un flag, modfier dans la structure
-// Quand on rencontre un char conversion, le traiter
-// AJOUTER A CHAQUE FOIS LE TOUT A UNE VAR INT pour le strlen à return

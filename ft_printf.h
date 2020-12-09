@@ -20,11 +20,10 @@
 
 typedef struct ft_flags
 {
-	int	width = 0;
-	int	minus = 0;
-	int	zero = 0;
-	int	dot = 0;
-	int	star = 0;
+	int	width;
+	int	minus;
+	int	zero;
+	int	dot;
 } ft_flags;
 
 
