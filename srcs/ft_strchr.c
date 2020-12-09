@@ -1,20 +1,29 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.c                                             :+:      :+:    :+:   */
+/*   ft_strchr.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: dpoinsu <dpoinsu@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2020/12/09 12:12:04 by dpoinsu           #+#    #+#             */
-/*   Updated: 2020/12/09 15:35:01 by dpoinsu          ###   ########.fr       */
+/*   Created: 2020/11/16 16:36:59 by dpoinsu           #+#    #+#             */
+/*   Updated: 2020/11/21 11:29:11 by dpoinsu          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "includes/ft_printf.h"
-#include <stdio.h>
+#include "libft.h"
 
-int main(void)
+char	*ft_strchr(const char *s, int c)
 {
-	printf("%d", 42);
-	ft_printf("%d", 42);
+	int	i;
+
+	i = 0;
+	while (s[i])
+	{
+		if (s[i] == (char)c)
+			return ((char*)s + i);
+		i++;
+	}
+	if (s[i] == (char)c)
+		return ((char*)(s + i));
+	return (NULL);
 }

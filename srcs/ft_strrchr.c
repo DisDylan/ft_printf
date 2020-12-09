@@ -1,20 +1,29 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.c                                             :+:      :+:    :+:   */
+/*   ft_strrchr.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: dpoinsu <dpoinsu@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2020/12/09 12:12:04 by dpoinsu           #+#    #+#             */
-/*   Updated: 2020/12/09 15:35:01 by dpoinsu          ###   ########.fr       */
+/*   Created: 2020/11/17 15:27:32 by dpoinsu           #+#    #+#             */
+/*   Updated: 2020/11/21 11:33:17 by dpoinsu          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "includes/ft_printf.h"
-#include <stdio.h>
+#include "libft.h"
 
-int main(void)
+char	*ft_strrchr(const char *s, int c)
 {
-	printf("%d", 42);
-	ft_printf("%d", 42);
+	int i;
+
+	i = 0;
+	while (s[i])
+		i++;
+	while (i >= 0)
+	{
+		if (s[i] == (char)c)
+			return ((char *)s + i);
+		i--;
+	}
+	return (NULL);
 }

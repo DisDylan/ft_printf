@@ -1,20 +1,23 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.c                                             :+:      :+:    :+:   */
+/*   ft_strlen.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: dpoinsu <dpoinsu@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2020/12/09 12:12:04 by dpoinsu           #+#    #+#             */
-/*   Updated: 2020/12/09 15:35:01 by dpoinsu          ###   ########.fr       */
+/*   Created: 2020/11/17 15:03:47 by dpoinsu           #+#    #+#             */
+/*   Updated: 2020/11/17 15:11:30 by dpoinsu          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "includes/ft_printf.h"
-#include <stdio.h>
+#include "libft.h"
 
-int main(void)
+size_t	ft_strlen(const char *s)
 {
-	printf("%d", 42);
-	ft_printf("%d", 42);
+	size_t i;
+
+	i = 0;
+	while (s[i])
+		i++;
+	return (i);
 }

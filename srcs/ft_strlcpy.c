@@ -1,20 +1,34 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.c                                             :+:      :+:    :+:   */
+/*   ft_strlcpy.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: dpoinsu <dpoinsu@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2020/12/09 12:12:04 by dpoinsu           #+#    #+#             */
-/*   Updated: 2020/12/09 15:35:01 by dpoinsu          ###   ########.fr       */
+/*   Created: 2020/11/17 14:59:42 by dpoinsu           #+#    #+#             */
+/*   Updated: 2020/11/23 14:41:56 by dpoinsu          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "includes/ft_printf.h"
-#include <stdio.h>
+#include "libft.h"
 
-int main(void)
+size_t	ft_strlcpy(char *dst, const char *src, size_t size)
 {
-	printf("%d", 42);
-	ft_printf("%d", 42);
+	size_t	i;
+
+	if (!src)
+		return (0);
+	i = 0;
+	if (size > 0)
+	{
+		while (src[i] && i < (size - 1))
+		{
+			dst[i] = src[i];
+			i++;
+		}
+		dst[i] = 0;
+	}
+	while (src[i])
+		i++;
+	return (i);
 }

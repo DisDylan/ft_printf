@@ -1,20 +1,18 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.c                                             :+:      :+:    :+:   */
+/*   ft_putchar_fd.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: dpoinsu <dpoinsu@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2020/12/09 12:12:04 by dpoinsu           #+#    #+#             */
-/*   Updated: 2020/12/09 15:35:01 by dpoinsu          ###   ########.fr       */
+/*   Created: 2020/11/19 11:01:33 by dpoinsu           #+#    #+#             */
+/*   Updated: 2020/11/19 11:03:22 by dpoinsu          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "includes/ft_printf.h"
-#include <stdio.h>
+#include "libft.h"
 
-int main(void)
+void	ft_putchar_fd(char c, int fd)
 {
-	printf("%d", 42);
-	ft_printf("%d", 42);
+	write(fd, &c, 1);
 }
