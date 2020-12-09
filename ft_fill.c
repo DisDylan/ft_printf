@@ -47,9 +47,10 @@ static char *fill_width(char *tmp, int width)
 static char *trunc_word(char *tmp, int limit)
 {
 	int i;
-	char *str;
+	char str;
 
 	i = 0;
+	str = ""
 	while (i < limit)
 	{
 		str[i] = tmp[i];
@@ -60,7 +61,6 @@ static char *trunc_word(char *tmp, int limit)
 
 int	write_and_size(va_list arg, ft_flags flags)
 {
-	int size;
 	int i;
 	char *tmp;
 	char *str;
