@@ -29,3 +29,6 @@ fclean:		clean
 				${RM} ${NAME}
 
 re:			fclean all
+
+test:
+			${GCC} ${CFLAGS} ${SRCS} -I ${HEADER} -L. -lft
