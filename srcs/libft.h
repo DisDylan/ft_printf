@@ -1,35 +1,22 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_printf.h                                        :+:      :+:    :+:   */
+/*   libft.h                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: dpoinsu <dpoinsu@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2020/12/02 11:30:55 by dpoinsu           #+#    #+#             */
-/*   Updated: 2020/12/09 14:43:47 by dpoinsu          ###   ########.fr       */
+/*   Created: 2020/11/17 09:30:14 by dpoinsu           #+#    #+#             */
+/*   Updated: 2020/11/20 14:19:52 by dpoinsu          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef FT_PRINTF_H
-# define FT_PRINTF_H
+#ifndef LIBFT_H
+# define LIBFT_H
 
-# include <stdarg.h>
 # include <stdlib.h>
 # include <unistd.h>
 # include <string.h>
 
-typedef struct ft_flags
-{
-	int	width;
-	int	minus;
-	int	zero;
-	int	dot;
-} ft_flags;
-
-
-int	ft_printf(const char *format, ...);
-int ft_chrchr(const char *str, char c);
-void		get_flags(va_list args, const char *format, ft_flags flags, char *conversion, int *index);
 int		ft_atoi(const char *nptr);
 void	ft_bzero(void *s, size_t n);
 void	*ft_calloc(size_t nmemb, size_t size);
@@ -64,8 +51,5 @@ void	ft_putchar_fd(char c, int fd);
 void	ft_putstr_fd(char *s, int fd);
 void	ft_putendl_fd(char *s, int fd);
 void	ft_putnbr_fd(int n, int fd);
-void	put_item(char c, va_list arg);
-void	ft_putnbr_base(int nbr, char *base);
-int		write_and_size(va_list arg, ft_flags flags);
 
 #endif

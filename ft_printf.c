@@ -6,7 +6,7 @@
 /*   By: dpoinsu <dpoinsu@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/12/02 11:29:12 by dpoinsu           #+#    #+#             */
-/*   Updated: 2020/12/07 11:51:22 by dpoinsu          ###   ########.fr       */
+/*   Updated: 2020/12/09 14:42:46 by dpoinsu          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,9 +23,9 @@ static void init_flags(ft_flags flags)
 void put_item(char c, va_list arg)
 {
 	if (c == 'c')
-		ft_putstr(va_arg(arg, char *);
+		ft_putstr_fd(va_arg(arg, char *), 1);
 	else if (c == 's')
-		ft_putstr(va_arg(arg, char *));
+		ft_putstr_fd(va_arg(arg, char *), 1);
 	else if (c == 'p')
 		write(1, &arg, 12);
 	else if (c == 'x')
@@ -33,9 +33,9 @@ void put_item(char c, va_list arg)
 	else if (c == 'X')
 		ft_putnbr_base(va_arg(arg, int), "0123456789ABCDEF");
 	else if (c == 'd' || c == 'i')
-		ft_putnbr(va_arg(arg, int));
+		ft_putnbr_fd(va_arg(arg, int), 1);
 	else if (c == 'u')
-		ft_putnbr(va_arg(arg, int));
+		ft_putnbr_fd(va_arg(arg, int), 1);
 }
 
 int	ft_printf(const char *format, ...)
@@ -60,7 +60,7 @@ int	ft_printf(const char *format, ...)
 				res += write_and_size(args, flag_list, format[i]);
 			else if (format[i] == '%')
 			{
-				ft_putchar(format[i]);
+				ft_putchar_fd(format[i], 1);
 				res++;
 			}
 		}

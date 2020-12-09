@@ -6,7 +6,7 @@
 /*   By: dpoinsu <dpoinsu@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/12/02 11:29:12 by dpoinsu           #+#    #+#             */
-/*   Updated: 2020/12/09 12:22:17 by dpoinsu          ###   ########.fr       */
+/*   Updated: 2020/12/09 14:40:00 by dpoinsu          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,7 +34,7 @@ static char *fill_width(char *tmp, int width)
 	char *str;
 
 	str = tmp;
-	newsize = width - ft_strlen(tmp);
+	newsize = width - (int)ft_strlen(tmp);
 	while (newsize > 0)
 	{
 		write(1, " ", 1);
