@@ -12,18 +12,22 @@
 
 #include "ft_printf.h"
 
+str = flags + arg
+write str
+return ft_strlen(str)
+
 static void put_item(char c, va_list arg, const char *str)
 {
 	if (c == 'c')
-		ft_putchar(va_arg(arg, char));
+		ft_putstr(va_arg(arg, int));
 	else if (c == 's')
-		ft_putstr(va_arg(arg, char*));
+		ft_putstr(va_arg(arg, int));
 	else if (c == 'p')
 		write(1, &va_arg(arg, int), 12);
 	else if (c == 'x')
-		ft_putnbr_base(va_arg(arg, char*), "0123456789abcdef");
+		ft_putnbr_base(va_arg(arg, int), "0123456789abcdef");
 	else if (c == 'X')
-		ft_putnbr_base(va_arg(arg, char*), "0123456789ABCDEF");
+		ft_putnbr_base(va_arg(arg, int), "0123456789ABCDEF");
 	else if (c == 'd' || c == 'i')
 		ft_putnbr(va_arg(arg, int));
 	else if (c == 'u')

@@ -24,7 +24,7 @@ static int	ft_getdigits(const char *format, va_list arg, int *pos)
 	while (ft_isdigit(format[i]))
 	{
 		i *= 10;
-		i += format[i] + 48;
+		i += format[i] - 48;
 		&pos++;
 	}
 	&pos--;
@@ -59,8 +59,10 @@ void		get_flags(va_list args, const char *format,
 		else if (format[i] == '*')
 			ft_star(format, flags, i, args);
 			*/
-		else if (isdigit)
+		else if (isdigit || '*')
 			flags.width = ft_getdigits(format + (i + 1), args, &i);
 		i++;
 	}
 }
+
+%
