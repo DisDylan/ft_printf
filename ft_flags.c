@@ -12,21 +12,25 @@
 
 #include "ft_printf.h"
 
-static int	ft_getdigits(const char *format)
+static int	ft_getdigits(const char *format, va_list arg, int *pos)
 {
 	int i;
 	int res;
 
 	i = 0;
 	res = 0;
+	if (format[i] == '*')
+		return (va_arg(arg, int));
 	while (ft_isdigit(format[i]))
 	{
 		i *= 10;
 		i += format[i] + 48;
+		&pos++;
 	}
+	&pos--;
 	return (i);
 }
-
+/*
 static void	ft_star(const char *str, ft_flags flags, int pos, va_list arg)
 {
 	if (str[pos - 1] == '0')
@@ -36,7 +40,7 @@ static void	ft_star(const char *str, ft_flags flags, int pos, va_list arg)
 	else if (str[pos - 1] == '.')
 		flags.width = va_arg(str, int);
 }
-
+*/
 void		get_flags(va_list args, const char *format,
 		ft_flags flags, char *conversion)
 {
@@ -46,18 +50,17 @@ void		get_flags(va_list args, const char *format,
 	while (!(ft_chrchr(conversion, format[i])) && format[i])
 	{
 		if (format[i] == '-')
-		{
-			i++;
 			flags.minus = 1;
-		}
 		else if (format[i] == '0' && format[i - 1] != '-')
-			flags.zero = ft_getdigits(format + (i + 1));
+			flags.zero = ft_getdigits(format + (i + 1), args, &i);
 		else if (format[i] == '.')
-			flags.dot = ft_getdigits(format + (i + 1));
+			flags.dot = ft_getdigits(format + (i + 1), args, &i);
+			/*
 		else if (format[i] == '*')
 			ft_star(format, flags, i, args);
+			*/
 		else if (isdigit)
-			flags.width = ft_getdigits(format + (i + 1));
+			flags.width = ft_getdigits(format + (i + 1), args, &i);
 		i++;
 	}
 }

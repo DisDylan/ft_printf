@@ -6,7 +6,7 @@
 /*   By: dpoinsu <dpoinsu@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/12/02 11:29:12 by dpoinsu           #+#    #+#             */
-/*   Updated: 2020/12/08 15:19:12 by dpoinsu          ###   ########.fr       */
+/*   Updated: 2020/12/07 11:51:22 by dpoinsu          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,33 +15,19 @@
 static void put_item(char c, va_list arg, const char *str)
 {
 	if (c == 'c')
-		ft_putchar(va_arg(str, char));
+		ft_putchar(va_arg(arg, char));
 	else if (c == 's')
-		ft_putstr(va_arg(str, char*));
+		ft_putstr(va_arg(arg, char*));
 	else if (c == 'p')
-		write(1, &arg, 12);
+		write(1, &va_arg(arg, int), 12);
 	else if (c == 'x')
-		ft_putnbr_base(va_arg(str, char*), "0123456789abcdef");
+		ft_putnbr_base(va_arg(arg, char*), "0123456789abcdef");
 	else if (c == 'X')
-		ft_putnbr_base(va_arg(str, char*) "0123456789ABCDEF");
+		ft_putnbr_base(va_arg(arg, char*), "0123456789ABCDEF");
 	else if (c == 'd' || c == 'i')
-		ft_putnbr(va_arg(str, int));
+		ft_putnbr(va_arg(arg, int));
 	else if (c == 'u')
-		ft_putnbr(va_arg(str, unsigned int));
-}
-
-static int ft_chrchr(const char *str, char c)
-{
-	int i;
-
-	i = 0;
-	while (str[i])
-	{
-		if (str[i] == c)
-			return (1);
-		i++;
-	}
-	return (0);
+		ft_putnbr(va_arg(arg, unsigned int));
 }
 
 int	ft_printf(const char *format, ...)
@@ -70,3 +56,9 @@ int	ft_printf(const char *format, ...)
 	}
 	va_end(args);
 }
+
+// Traiter la chaine
+// Quand un % est rencontré, traiter la suite
+// Si il y a un flag, modfier dans la structure
+// Quand on rencontre un char conversion, le traiter
+// AJOUTER A CHAQUE FOIS LE TOUT A UNE VAR INT pour le strlen à return
