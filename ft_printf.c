@@ -20,7 +20,7 @@ static void init_flags(ft_flags flags)
 	flags.dot = 0;
 }
 
-static void put_item(char c, va_list arg)
+void put_item(char c, va_list arg)
 {
 	if (c == 'c')
 		ft_putstr(arg);

@@ -64,5 +64,6 @@ void	ft_putchar(char c);
 void	ft_putstr(char *s);
 void	ft_putendl(char *s);
 void	ft_putnbr(int n);
+void	put_item(char c, va_list arg)
 
 #endif
