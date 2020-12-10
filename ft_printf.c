@@ -63,6 +63,7 @@ int	ft_printf(const char *format, ...)
 			{
 				put_item(format[i], args)
 				res += write_and_size(args, flag_list);
+				i++;
 			}
 			else if (format[i] == '%')
 			{
@@ -70,9 +71,12 @@ int	ft_printf(const char *format, ...)
 				res++;
 			}
 		}
-		write(1, &format[i], 1);
-		i++;
-		res++;
+		else
+		{
+			write(1, &format[i], 1);
+			i++;
+			res++;
+		}
 	}
 	va_end(args);
 	return (res);

@@ -65,7 +65,6 @@ int	write_and_size(va_list arg, ft_flags flags)
 	char *tmp;
 	char *str;
 
-	i = 0;
 	str = ft_itoa(va_arg(arg, int));
 	if (flags.minus == 1)
 	{
@@ -79,5 +78,6 @@ int	write_and_size(va_list arg, ft_flags flags)
 		tmp = trunc_word(tmp, flags.dot);
 	if (flags.minus == 0)
 		tmp = ft_strjoin(tmp, str);
-	return(ft_strlen(tmp));
+	i = ft_strlen(tmp);
+	return(i);
 }
