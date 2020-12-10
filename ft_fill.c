@@ -102,11 +102,11 @@ char	*write_and_size(char *str, ft_flags flags)
 	tmp = str;
 	printf("\n\n----width:%d-----\n\n", flags.width);
 	if (flags.width > (int)ft_strlen(str))
-		tmp = fill_width(str, flags.width, *index);
+		tmp = fill_width(str, flags.width);
 	if (flags.dot < (int)ft_strlen(str) && flags.dot > 0)
-		tmp = trunc_word(str, flags.dot, *index);
+		tmp = trunc_word(str, flags.dot);
 	if (flags.zero > (int)ft_strlen(str) && flags.minus == 0)
-		tmp = fill_zero(str, flags.zero, *index);
+		tmp = fill_zero(str, flags.zero);
 	if (flags.minus == 1)
 		tmp = rev_str(str, tmp);
 	return (tmp);
