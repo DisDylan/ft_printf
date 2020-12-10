@@ -28,10 +28,12 @@ char *put_item(char c, va_list arg)
 	char *str;
 
 	str = "";
-	if (c == 'c')
-		str = va_arg(arg, char);
+	if (c == 'c' || c == 's')
+		str = va_arg(arg, char*);
+		/*
 	else if (c == 's')
 		str = va_arg(arg, char*);
+		*/
 	else if (c == 'p')
 		str = va_arg(arg, int);
 	else if (c == 'x')
@@ -43,7 +45,7 @@ char *put_item(char c, va_list arg)
 	else if (c == 'd' || c == 'i')
 		str = ft_itoa(va_arg(arg, int));
 	else if (c == 'u')
-		str = va_arg(arg, unsigned int);
+		str = ft_itoa(va_arg(arg, unsigned int));
 	ft_putstr_fd(str, 1);
 	return (str);
 }
