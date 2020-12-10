@@ -36,7 +36,7 @@ void		get_flags(va_list args, const char *format,
 {
 	int i;
 
-	i = 0;
+	i = 1;
 	while (!(ft_chrchr(conversion, format[i])))
 	{
 		if (format[i] == '-')
