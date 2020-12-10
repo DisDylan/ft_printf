@@ -23,7 +23,7 @@ static ft_flags init_flags(void)
 	return (flags);
 }
 
-char *put_item(char c, va_list arg)
+static int *put_item(char c, va_list arg)
 {
 	char *str;
 
@@ -47,7 +47,7 @@ char *put_item(char c, va_list arg)
 	else if (c == 'u')
 		str = ft_itoa(va_arg(arg, unsigned int));
 	ft_putstr_fd(str, 1);
-	return (str);
+	return (ft_strlen(str));
 }
 
 int	ft_printf(const char *format, ...)
