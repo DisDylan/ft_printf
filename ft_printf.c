@@ -29,9 +29,9 @@ char *put_item(char c, va_list arg)
 
 	str = "";
 	if (c == 'c')
-		str = va_arg(arg, char *);
-	else if (c == 's')
 		str = va_arg(arg, char);
+	else if (c == 's')
+		str = va_arg(arg, char*);
 	else if (c == 'p')
 		str = va_arg(arg, int);
 	else if (c == 'x')
