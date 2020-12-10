@@ -27,7 +27,7 @@ static int	ft_getdigits(const char *format, va_list arg, int *pos)
 		printf("res vaut : %d\n", res);
 		res *= 10;
 		res += format[i] - 48;
-		*pos++;
+		*pos += 1;
 		i++;
 	}
 	return (res);
