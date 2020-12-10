@@ -35,6 +35,7 @@ static char *fill_width(char *tmp, int width)
 	char *str;
 	int i;
 
+	str = NULL;
 	ft_bzero(str, width);
 	i = 0;
 	printf("Dans fill_width, str vaut %s et tmp %s\n", str, tmp);
