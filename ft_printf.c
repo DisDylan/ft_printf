@@ -80,7 +80,7 @@ int	ft_printf(const char *format, ...)
 			{
 				printit = put_item(format[i], args);
 				res += ft_strlen(printit);
-				//printit = write_and_size(printit, flag_list);
+				printit = write_and_size(printit, flag_list);
 				ft_putstr_fd(printit, 1);
 				i++;
 			}

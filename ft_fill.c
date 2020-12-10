@@ -91,7 +91,7 @@ char	*write_and_size(char *str, ft_flags flags)
 	char *tmp;
 
 	tmp = str;
-	if (flags.dot < (int)ft_strlen(str))
+	if (flags.dot < (int)ft_strlen(str) && flags.dot > 0)
 		tmp = trunc_word(str, flags.dot);
 	if (flags.width > (int)ft_strlen(str))
 		tmp = fill_width(str, flags.width);
