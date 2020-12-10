@@ -38,11 +38,13 @@ static char *fill_width(char *tmp, int width)
 	str = tmp;
 	i = 0;
 	newsize = width - (int)ft_strlen(tmp);
+	printf("ça passe içi");
 	while (i < newsize)
 	{
 		str[i] = ' ';
 		i++;
 	}
+	printf("ça passe içi");
 	return (str);
 }
 
