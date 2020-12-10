@@ -46,7 +46,7 @@ void		get_flags(va_list args, const char *format,
 		else if (format[i] == '.')
 			flags.dot = ft_getdigits(format + (i + 1), args, &i);
 		else if (ft_isdigit(format[i]) || format[i] == '*')
-			flags.width = ft_getdigits(format + (i + 1), args, &i);
+			flags.width = ft_getdigits(format + i, args, &i);
 		i++;
 	}
 	*index += i;
