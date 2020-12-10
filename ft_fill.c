@@ -48,7 +48,7 @@ static char *trunc_word(char *tmp, int limit)
 	char *str;
 
 	i = 0;
-	str = "";
+	str = NULL;
 	while (i < limit)
 	{
 		str[i] = tmp[i];
