@@ -41,12 +41,12 @@ void		get_flags(va_list args, const char *format,
 	{
 		if (format[i] == '-')
 			flags->minus = 1;
-		else if (format[i] == '0' && flags->minus != 1)
+		else if (format[i] == '0' && flags.minus != 1)
 			flags->zero = ft_getdigits(format + (i + 1), args, &i);
 		else if (format[i] == '.')
 			flags->dot = ft_getdigits(format + (i + 1), args, &i);
 		else if (ft_isdigit(format[i]) || format[i] == '*')
-			flags->width = ft_getdigits(format + (i + 1), args, &i);
+			flags->width = ft_getdigits(format + i, args, &i);
 		i++;
 	}
 	*index += i;
