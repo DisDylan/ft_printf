@@ -34,7 +34,7 @@ static int put_item(char c, va_list arg)
 	c = '';
 	// FONCTION CHECK CHARS && CHECK INT && CHECK BASE
 	if (c == 'c')
-		c = va_arg(arg, char);
+		c = va_arg(arg, int);
 	if (c == 's')
 		str = va_arg(arg, char*);
 	else if (c == 'p')
