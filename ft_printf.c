@@ -95,6 +95,7 @@ ft_treat_flags(const char *format, char *printable, int *index, va_list argument
 	}
 }
 
+// Fonction principale où l'on va parcourir le format à la recherche d'un signe % pour effectuer une conversion
 int	ft_printf(const char *format, ...)
 {
 	va_list arguments;
