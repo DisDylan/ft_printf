@@ -31,10 +31,12 @@ static int put_item(char c, va_list arg)
 
 	nb = 0;
 	str = NULL;
-	c = NULL;
+	c = '';
 	// FONCTION CHECK CHARS && CHECK INT && CHECK BASE
-	if (c == 'c' || c == 's')
-		str = va_arg(arg, (char*)char);
+	if (c == 'c')
+		c = va_arg(arg, char);
+	if (c == 's')
+		str = va_arg(arg, char*);
 	else if (c == 'p')
 		nb = va_arg(arg, int);
 	else if (c == 'x')
@@ -51,6 +53,12 @@ static int put_item(char c, va_list arg)
 	{
 		ft_putstr_fd(str, 1);
 		return ((int)ft_strlen(str));
+	}
+	if (c != '')
+	{		
+		ft_putchar_fd(c, 1);
+		ft_putchar_fd('\0', 1);
+		return (1);
 	}
 	ft_putnbr_fd(nb, 1);
 	return ((int)ft_strlen(ft_itoa(nb)));
