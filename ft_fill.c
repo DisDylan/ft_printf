@@ -37,6 +37,7 @@ static char *fill_width(char *tmp, int width)
 
 	str = tmp;
 	i = 0;
+	printf("Dans fill_width, str vaut %s et tmp %s\n", str, tmp);
 	newsize = width - (int)ft_strlen(tmp);
 	while (i < newsize)
 	{
@@ -49,10 +50,10 @@ static char *fill_width(char *tmp, int width)
 static char *trunc_word(char *tmp, int limit)
 {
 	int i;
-	char *str;
+	char str[limit];
 
 	i = 0;
-	str = NULL;
+	printf("Dans trunc_word, tmp vaut %s et tmp %s\n", tmp);
 	while (i < limit)
 	{
 		str[i] = tmp[i];
