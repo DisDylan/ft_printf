@@ -31,7 +31,7 @@ typedef struct ft_flags
 
 int	ft_printf(const char *format, ...);
 int ft_chrchr(const char *str, char c);
-void		get_flags(va_list args, const char *format, ft_flags flags, char *conversion, int *index);
+void		get_flags(va_list args, const char *format, ft_flags *flags, char *conversion, int *index);
 void	ft_putnbr_base(int nbr, char *base);
 char		*write_and_size(char *str, ft_flags flags);
 
