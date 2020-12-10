@@ -81,6 +81,7 @@ static char *rev_str(char *origin, char *actual)
 		swap[j - i] = actual[i];
 		i--;
 	}
+	return (swap);
 }
 
 
