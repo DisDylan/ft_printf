@@ -32,14 +32,20 @@ static char *fill_zero(char *tmp, int zero)
 static char *fill_width(char *tmp, int width)
 {
 	int newsize;
-	void *str;
+	char *str;
 	int i;
 
-	str = NULL;
-	ft_bzero(str, width);
+	str = tmp;
 	i = 0;
 	printf("Dans fill_width, str vaut %s et tmp %s\n", str, tmp);
 	newsize = width - (int)ft_strlen(tmp);
+	printf("Newsize ok : %d\n", newsize);
+	while (i < newsize)
+	{
+		printf("OKOK\n");
+		str[i] = ':';
+		i++;
+	}
 	printf("Dans fill_width, str vaut a la fin %s\n", str);
 	return (str);
 }
