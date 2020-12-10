@@ -26,18 +26,16 @@ static ft_flags init_flags(void)
 static int put_item(char c, va_list arg)
 {
 	char *str;
+	int nb;
 
-	str = "";
+	nb = NULL;
+	str = NULL;
 	if (c == 'c' || c == 's')
 		str = va_arg(arg, char*);
-		/*
-	else if (c == 's')
-		str = va_arg(arg, char*);
-		*/
 	else if (c == 'p')
 		str = va_arg(arg, int);
 	else if (c == 'x')
-		str = va_arg(arg, int);
+		str = ft_itoa(va_arg(arg, int));
 	//ft_putnbr_base(va_arg(arg, int), "0123456789abcdef");
 	else if (c == 'X')
 		str = va_arg(arg, int);
@@ -46,8 +44,13 @@ static int put_item(char c, va_list arg)
 		str = ft_itoa(va_arg(arg, int));
 	else if (c == 'u')
 		str = ft_itoa(va_arg(arg, unsigned int));
-	ft_putstr_fd(str, 1);
-	return ((int)ft_strlen(str));
+	if (str != NULL)
+	{
+		ft_putstr_fd(str, 1);
+		return ((int)ft_strlen(str));
+	}
+	ft_putnbr_fd(nb, 1);
+	return ((int)ft_strlen(ft_itoa(nb)));
 }
 
 int	ft_printf(const char *format, ...)
