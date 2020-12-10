@@ -75,7 +75,7 @@ int	ft_printf(const char *format, ...)
 		if (format[i] == '%')
 		{
 			flag_list = init_flags();
-			get_flags(args, format + i, &flag_list, conversion, &i);
+			get_flags(args, format + i, flag_list, conversion, &i);
 			printf("\n\nFLAGS VALUE:\n------%d %d %d\n", flag_list.dot, flag_list.width, flag_list.zero);
 			if (ft_chrchr(conversion, format[i]))
 			{
