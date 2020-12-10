@@ -76,6 +76,7 @@ int	ft_printf(const char *format, ...)
 		{
 			flag_list = init_flags();
 			get_flags(args, format + i, flag_list, conversion, &i);
+			printf("\n\n%d %d %d", flag_list.dot, flag.width, flag.zero);
 			if (ft_chrchr(conversion, format[i]))
 			{
 				printit = put_item(format[i], args);
