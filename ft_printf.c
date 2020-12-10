@@ -27,7 +27,7 @@ char *put_item(char c, va_list arg)
 {
 	char *str;
 
-	
+	str = "";
 	if (c == 'c')
 		str = va_arg(arg, char *);
 	else if (c == 's')
