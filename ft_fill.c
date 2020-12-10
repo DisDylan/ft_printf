@@ -67,6 +67,7 @@ static char *rev_str(char *origin, char *actual)
 	int j;
 
 	i = 0;
+	tmp = NULL;
 	swap = actual;
 	last_index = (int)ft_strlen(actual) - (int)ft_strlen(origin);
 	j = last_index;
