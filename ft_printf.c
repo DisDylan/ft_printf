@@ -76,11 +76,11 @@ int	ft_printf(const char *format, ...)
 		{
 			flag_list = init_flags();
 			get_flags(args, format + i, &flag_list, conversion, &i);
-			printf("\n\n____________________\nFLAGS VALUE:\n------%d dot %d width %d zero\n___________________\n", flag_list.dot, flag_list.width, flag_list.zero);
+			//printf("\n\n____________________\nFLAGS VALUE:\n------%d dot %d width %d zero\n___________________\n", flag_list.dot, flag_list.width, flag_list.zero);
 			if (ft_chrchr(conversion, format[i]))
 			{
 				printit = put_item(format[i], args);
-				printit = write_and_size(printit, flag_list);
+				printit = write_and_size(printit, &flag_list);
 				res += ft_strlen(printit);
 				ft_putstr_fd(printit, 1);
 				i++;
