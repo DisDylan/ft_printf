@@ -59,13 +59,18 @@ static char *trunc_word(char *tmp, int limit)
 	return (str);
 }
 
-int	write_and_size(va_list arg, ft_flags flags)
+int	write_and_size(va_list arg, ft_flags flags, char c)
 {
 	int i;
 	char *tmp;
 	char *str;
 
-	str = ft_itoa(va_arg(arg, int));
+	if (c == 's')
+		str = va_arg(arg, char*));
+	else if (c == 'c')
+		str = va_arg(arg, char);
+	else
+		str = va_arg(arg, int);
 	printf("\n\n!!!!! Valeur de str: %s\n\n", str);
 	if (flags.minus == 1)
 	{

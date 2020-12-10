@@ -38,7 +38,7 @@ void put_item(char c, va_list arg)
 	else if (c == 'd' || c == 'i')
 		ft_putnbr_fd(va_arg(arg, int), 1);
 	else if (c == 'u')
-		ft_putnbr_fd(va_arg(arg, int), 1);
+		ft_putnbr_fd(va_arg(arg, unsigned int), 10);
 }
 
 int	ft_printf(const char *format, ...)
@@ -62,7 +62,7 @@ int	ft_printf(const char *format, ...)
 			if (ft_chrchr(conversion, format[i]))
 			{
 				put_item(format[i], args);
-				res += write_and_size(args, flag_list);
+				res += write_and_size(args, flag_list, format[i]);
 				printf("VALEUR DE RES APRES WRITE: %d\n", res);
 				i++;
 			}
