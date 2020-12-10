@@ -53,7 +53,11 @@ void		get_flags(va_list args, const char *format,
 			i++;
 			flags->dot = ft_getdigits(format + i, args, &i);
 		}
-		i++;
+		else
+		{
+			i = 0;
+		}
+		
 	}
 	*index += i;
 }
