@@ -50,7 +50,7 @@ static char *fill_width(char *tmp, int width)
 static char *trunc_word(char *tmp, int limit)
 {
 	int i;
-	char *str[limit];
+	char *str;
 
 	i = 0;
 	printf("Dans trunc_word, tmp vaut %s\n", tmp);
