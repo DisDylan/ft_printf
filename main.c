@@ -30,10 +30,13 @@ int main(void)
 	pf = printf("%c\n", 'c');
 	pft = ft_printf("%c\n", 'c');
 	printf("%d pour printf et %d pour ft\n", pf, pft);
+	pf = printf("%10s\n", "abcedef");
+	pft = ft_printf("%10s\n", "abcedef");
+	printf("%d pour printf et %d pour ft\n", pf, pft);
+	pf = printf("%.5s\n", "abcdef");
+	pft = ft_printf("%.5\n", "abcdef");
+	printf("%d pour printf et %d pour ft\n", pf, pft);
 	pf = printf("%10.5s\n", "abcedef");
 	pft = ft_printf("%10.5s\n", "abcedef");
-	printf("%d pour printf et %d pour ft\n", pf, pft);
-	pf = printf("%c\n", 'c');
-	pft = ft_printf("%c\n", 'c');
 	printf("%d pour printf et %d pour ft\n", pf, pft);
 }
