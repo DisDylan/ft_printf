@@ -53,11 +53,13 @@ static char *trunc_word(char *tmp, int limit)
 
 	i = 0;
 	str = NULL;
+	printf("ça passe içi");
 	while (i < limit)
 	{
 		str[i] = tmp[i];
 		i++;
 	}
+	printf("ça passe içi");
 	return (str);
 }
 
