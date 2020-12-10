@@ -53,7 +53,7 @@ static char *trunc_word(char *tmp, int limit)
 	char str[limit];
 
 	i = 0;
-	printf("Dans trunc_word, tmp vaut %s et tmp %s\n", tmp);
+	printf("Dans trunc_word, tmp vaut %s\n", tmp);
 	while (i < limit)
 	{
 		str[i] = tmp[i];
