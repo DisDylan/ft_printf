@@ -23,7 +23,7 @@ static ft_flags init_flags(void)
 	return (flags);
 }
 
-static int put_item(char c, va_list arg)
+static char *put_item(char c, va_list arg)
 {
 	char *str;
 	int nb;
@@ -52,16 +52,17 @@ static int put_item(char c, va_list arg)
 	if (str != NULL)
 	{
 		ft_putstr_fd(str, 1);
-		return ((int)ft_strlen(str));
+		return (str);
 	}
 	if (ch != 0)
 	{		
 		ft_putchar_fd(ch, 1);
 		ft_putchar_fd('\0', 1);
-		return (1);
+		str[0] = ch;
+		return (str);
 	}
 	ft_putnbr_fd(nb, 1);
-	return ((int)ft_strlen(ft_itoa(nb)));
+	return (ft_itoa(nb));
 }
 
 int	ft_printf(const char *format, ...)
@@ -71,7 +72,9 @@ int	ft_printf(const char *format, ...)
 	int i;
 	ft_flags flag_list;
 	int res;
+	char *printit;
 
+	printit = NULL;
 	conversion = "cspdiuxX";
 	i = 0;
 	res = 0;
@@ -84,7 +87,8 @@ int	ft_printf(const char *format, ...)
 			get_flags(args, format + i, flag_list, conversion, &i);
 			if (ft_chrchr(conversion, format[i]))
 			{
-				res += put_item(format[i], args);
+				printit = put_item(format[i], args);
+				res += ft_strlen(printit);
 				//res += write_and_size(args, flag_list, format[i]);
 				i++;
 			}

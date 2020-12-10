@@ -65,13 +65,14 @@ int	write_and_size(va_list arg, ft_flags flags, char c)
 	char *tmp;
 	char *str;
 
+	str = NULL;
+	tmp = NULL;
 	if (c == 's')
 		str = va_arg(arg, char*);
 	else if (c == 'c')
 		str = va_arg(arg, char);
 	else
 		str = va_arg(arg, int);
-	printf("\n\n!!!!! Valeur de str: %s\n\n", str);
 	if (flags.minus == 1)
 	{
 		tmp = str;
@@ -85,8 +86,6 @@ int	write_and_size(va_list arg, ft_flags flags, char c)
 	if (flags.minus == 0)
 		tmp = ft_strjoin(tmp, str);
 	i = ft_strlen(tmp);
-	printf("CONTENU DE TMP: %s\n", tmp);
-	printf("VALEUR DE I W&S: %d\n", i);
 	return(i);
 }
 */
