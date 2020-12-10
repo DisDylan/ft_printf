@@ -36,7 +36,7 @@ void		get_flags(va_list args, const char *format,
 {
 	int i;
 
-	i = 0;
+	i = 1;
 	printf("format dans get flags vaut : %s\n", format);
 	while (!(ft_chrchr(conversion, format[i])) && format[i])
 	{
