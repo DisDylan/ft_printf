@@ -100,6 +100,7 @@ char	*write_and_size(char *str, ft_flags flags)
 
 	tmp = str;
 	printf("yo\n");
+	printf("%d", flags.width);
 	if (flags.width > (int)ft_strlen(str))
 	{
 		printf("yoyo\n");
