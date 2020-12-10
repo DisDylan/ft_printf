@@ -21,4 +21,10 @@ int main(void)
 	pf = printf("%d\n", 42);
 	pft = ft_printf("%d\n", 42);
 	printf("%d pour printf et %d pour ft", pf, pft);
+	pf = printf("%u\n", -42);
+	pft = ft_printf("%u\n", -42);
+	printf("%d pour printf et %d pour ft", pf, pft);
+	pf = printf("%s\n", "42");
+	pft = ft_printf("%s\n", "42");
+	printf("%d pour printf et %d pour ft", pf, pft);
 }
