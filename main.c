@@ -34,7 +34,7 @@ int main(void)
 	pft = ft_printf("FT_printf:%10s\n", "abcedef");
 	printf("%d pour printf et %d pour ft\n", pf, pft);
 	pf = printf("PRINTF:%.5s\n", "abcdef");
-	pft = ft_printf("FT_printf:%.5\n", "abcdef");
+	pft = ft_printf("FT_printf:%.5s\n", "abcdef");
 	printf("%d pour printf et %d pour ft\n", pf, pft);
 	pf = printf("PRINTF:%10.5s\n", "abcedef");
 	pft = ft_printf("FT_printf:%10.5s\n", "abcedef");
