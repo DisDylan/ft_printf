@@ -81,7 +81,7 @@ void ft_get_flag(const char *format, ft_flags *flags, va_liste arguments, int *i
 }
 
 // On parcours les flags dans une boucle, tant que ce ne sont pas des caractères à convertir on y reste
-ft_treat_flags(const char *format, char *printable, int *index, va_list arguments)
+void ft_treat_flags(const char *format, char *printable, int *index, va_list arguments)
 {
 	ft_flags flags;
 	int new_index;
@@ -93,6 +93,21 @@ ft_treat_flags(const char *format, char *printable, int *index, va_list argument
 		ft_get_flag(format + new_index, &flags, arguments, *index);
 		new_index++;
 	}
+	*index += new_index;
+}
+
+ft_treat_convert(const char *format, char *printable)
+{
+	char c;
+
+	c = format[0];
+	if (c == 'c')
+	if (c == 's')
+	if (c == 'p')
+	if (c == 'd' || c == 'i')
+	if (c == 'u')
+	if (c == 'x')
+	if (c == 'X')
 }
 
 // Fonction principale où l'on va parcourir le format à la recherche d'un signe % pour effectuer une conversion
@@ -110,12 +125,17 @@ int	ft_printf(const char *format, ...)
 		{
 			//TRAITEMENT DE LA CHAINE
 			index++;
+			if (format[index] == '%')
+			{
+				index++;
+				ft_putchar_fd('%', 1);
+			}
 			ft_treat_flags(format + index, printable, &index, arguments);
-			ft_treat_convert();
+			ft_treat_convert(format + index);
 		}
 		else
 			printable[index] = format[index];
-		i++;
+		index++;
 	va_end(arguments);
 	return (ft_strlen(printable));
 }
