@@ -61,7 +61,6 @@ static char *trunc_word(char *tmp, int limit)
 		str[i] = tmp[i];
 		i++;
 	}
-	*index += i - 1;
 	printf("ça passe içi");
 	return (str);
 }
