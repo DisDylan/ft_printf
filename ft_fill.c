@@ -16,6 +16,7 @@ static char *fill_zero(char *tmp, int zero)
 {
 	int newsize;
 	char *str;
+	int i;
 
 	str = tmp;
 	newsize = zero - ft_strlen(tmp);
