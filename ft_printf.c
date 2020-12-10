@@ -31,7 +31,7 @@ static int put_item(char c, va_list arg)
 
 	nb = 0;
 	str = NULL;
-	c = '';
+	c = 0;
 	// FONCTION CHECK CHARS && CHECK INT && CHECK BASE
 	if (c == 'c')
 		c = va_arg(arg, int);
@@ -54,7 +54,7 @@ static int put_item(char c, va_list arg)
 		ft_putstr_fd(str, 1);
 		return ((int)ft_strlen(str));
 	}
-	if (c != '')
+	if (c != 0)
 	{		
 		ft_putchar_fd(c, 1);
 		ft_putchar_fd('\0', 1);
