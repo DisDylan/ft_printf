@@ -60,7 +60,10 @@ int	ft_printf(const char *format, ...)
 		{
 			get_flags(args, format + i, flag_list, conversion, &i);
 			if (ft_chrchr(conversion, format[i]))
+			{
+				put_item(format[i], args)
 				res += write_and_size(args, flag_list);
+			}
 			else if (format[i] == '%')
 			{
 				ft_putchar_fd(format[i], 1);
