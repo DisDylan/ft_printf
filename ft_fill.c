@@ -43,7 +43,6 @@ static char *fill_width(char *tmp, int width)
 		str[i] = ':';
 		i++;
 	}
-	printf("Dans fill_width, str vaut a la fin %s\n", str);
 	return (str);
 }
 
@@ -54,7 +53,6 @@ static char *trunc_word(char *tmp, int limit)
 
 	i = 0;
 	str = NULL;
-	printf("Dans trunc_word, tmp vaut %s\n", tmp);
 	while (i < limit)
 	{
 		str[i] = tmp[i];
@@ -97,7 +95,6 @@ char	*write_and_size(char *str, ft_flags *flags)
 	char *tmp;
 
 	tmp = str;
-	printf("len de str avant les flags : %d\n", (int)ft_strlen(str));
 	if (flags->width > (int)ft_strlen(str))
 		tmp = fill_width(str, flags->width);
 	if (flags->dot < (int)ft_strlen(str) && flags->dot > 0)
