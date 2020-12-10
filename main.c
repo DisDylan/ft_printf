@@ -31,6 +31,10 @@ int main(void)
 	pft = ft_printf("FT_printf:%s\n", "une string");
 	printf("%d pour printf et %d pour ft\n", pf, pft);
 	printf("|||||||||||||||||||||||NEW TEST|||||||||||||||||||||\n");
+	pf = printf("PRINTF:%%\n");
+	pft = ft_printf("FT_printf:%%\n");
+	printf("%d pour printf et %d pour ft\n", pf, pft);
+	printf("|||||||||||||||||||||||NEW TEST|||||||||||||||||||||\n");
 	pf = printf("PRINTF:%c\n", 'c');
 	pft = ft_printf("FT_printf:%c\n", 'c');
 	printf("%d pour printf et %d pour ft\n", pf, pft);
@@ -45,9 +49,5 @@ int main(void)
 	printf("|||||||||||||||||||||||NEW TEST|||||||||||||||||||||\n");
 	pf = printf("PRINTF:%10.5s\n", "abcedef");
 	pft = ft_printf("FT_printf:%10.5s\n", "abcedef");
-	printf("%d pour printf et %d pour ft\n", pf, pft);
-	printf("|||||||||||||||||||||||NEW TEST|||||||||||||||||||||\n");
-	pf = printf("PRINTF:%%\n");
-	pft = ft_printf("FT_printf:%%\n");
 	printf("%d pour printf et %d pour ft\n", pf, pft);
 }
