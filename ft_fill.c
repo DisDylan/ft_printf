@@ -39,7 +39,7 @@ static char *fill_width(char *tmp, int width)
 	i = 0;
 	printf("Dans fill_width, str vaut %s et tmp %s\n", str, tmp);
 	newsize = width - (int)ft_strlen(tmp);
-	while (i < newsize)
+	while (i <= newsize)
 	{
 		str[i] = ':';
 		i++;
