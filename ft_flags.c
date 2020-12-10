@@ -19,19 +19,14 @@ static int	ft_getdigits(const char *format, va_list arg, int *pos)
 
 	i = 0;
 	res = 0;
-	printf("[STR] == %s", format);
 	if (format[i] == '*')
 		return (va_arg(arg, int));
 	while (ft_isdigit(format[i]))
 	{
-		printf("i vaut : %d\n", i);
-		printf("res vaut : %d\n", res);
 		res *= 10;
 		res += format[i] - 48;
 		*pos += 1;
 		i++;
-		printf("i vaut : %d\n", i);
-		printf("res vaut : %d\n", res);
 	}
 	return (res);
 }
@@ -41,7 +36,7 @@ void		get_flags(va_list args, const char *format,
 {
 	int i;
 
-	i = 0;
+	i = index;
 	while (!(ft_chrchr(conversion, format[i])) && format[i])
 	{
 		if (format[i] == '-')
