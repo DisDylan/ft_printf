@@ -12,6 +12,7 @@
 !SAVE!
 #include "includes/ft_printf.h"
 
+// Initialisation de ma structure de flags
 static ft_flags init_flags(void)
 {
 	ft_flags flags;
@@ -23,6 +24,7 @@ static ft_flags init_flags(void)
 	return (flags);
 }
 
+// On recherche si le caractère est un de ceux que l'on doit convertir
 int ft_chrchr(char format_letter)
 {
 	char *conversion;
@@ -39,6 +41,7 @@ int ft_chrchr(char format_letter)
 	return (0);
 }
 
+// On retourne soit la valeur d'un des arguments si *, sinon le nombre passé en paramètre
 int ft_star_or_digit(const char *format, va_list arguments, int *index)
 {
 	int count;
@@ -59,6 +62,7 @@ int ft_star_or_digit(const char *format, va_list arguments, int *index)
 	return (flag_many)
 }
 
+// On assigne les valeurs passées en paramètres aux flags et/ou la width
 void ft_get_flag(const char *format, ft_flags *flags, va_liste arguments, int *index)
 {
 	char flag;
@@ -76,6 +80,7 @@ void ft_get_flag(const char *format, ft_flags *flags, va_liste arguments, int *i
 		flag->width = ft_star_or_digit(format, arguments, *index);
 }
 
+// On parcours les flags dans une boucle, tant que ce ne sont pas des caractères à convertir on y reste
 ft_treat_flags(const char *format, char *printable, int *index, va_list arguments)
 {
 	ft_flags flags;
