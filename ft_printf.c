@@ -23,22 +23,28 @@ static ft_flags init_flags(void)
 	return (flags);
 }
 
-void put_item(char c, va_list arg)
+char *put_item(char c, va_list arg)
 {
+	char *str;
+
+	
 	if (c == 'c')
-		ft_putstr_fd(va_arg(arg, char *), 1);
+		str = va_arg(arg, char *);
 	else if (c == 's')
-		ft_putstr_fd(va_arg(arg, char *), 1);
+		str = va_arg(arg, char);
 	else if (c == 'p')
-		write(1, &arg, 12);
+		str = va_arg(arg, int);
 	else if (c == 'x')
-		ft_putnbr_base(va_arg(arg, int), "0123456789abcdef");
+		str = va_arg(arg, int);
+	//ft_putnbr_base(va_arg(arg, int), "0123456789abcdef");
 	else if (c == 'X')
-		ft_putnbr_base(va_arg(arg, int), "0123456789ABCDEF");
+		str = va_arg(arg, int);
+	//ft_putnbr_base(va_arg(arg, int), "0123456789ABCDEF");
 	else if (c == 'd' || c == 'i')
-		ft_putnbr_fd(va_arg(arg, int), 1);
+		str = va_arg(arg, int);
 	else if (c == 'u')
-		ft_putnbr_fd(va_arg(arg, unsigned int), 10);
+		str = va_arg(arg, unsigned int);
+	
 }
 
 int	ft_printf(const char *format, ...)
