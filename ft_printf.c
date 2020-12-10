@@ -92,7 +92,6 @@ int	ft_printf(const char *format, ...)
 					printit = write_and_size(printit, &flag_list);
 					res += ft_strlen(printit);
 					ft_putstr_fd(printit, 1);
-					i++;
 				}
 			}
 		}
