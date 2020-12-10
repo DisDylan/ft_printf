@@ -12,7 +12,7 @@
 
 #include "includes/ft_printf.h"
 
-static char *fill_zero(char *tmp, int zero)
+static char *fill_zero(char *tmp, int zero, int *index)
 {
 	int newsize;
 	char *str;
@@ -26,10 +26,11 @@ static char *fill_zero(char *tmp, int zero)
 		str[i] = '0';
 		i++;
 	}
+	*index += i - 1;
 	return (str);
 }
 
-static char *fill_width(char *tmp, int width)
+static char *fill_width(char *tmp, int width, int *index)
 {
 	int newsize;
 	char *str;
@@ -44,11 +45,12 @@ static char *fill_width(char *tmp, int width)
 		str[i] = ' ';
 		i++;
 	}
+	*index += i - 1;
 	printf("ça passe içi");
 	return (str);
 }
 
-static char *trunc_word(char *tmp, int limit)
+static char *trunc_word(char *tmp, int limit, int *index)
 {
 	int i;
 	char *str;
@@ -61,6 +63,7 @@ static char *trunc_word(char *tmp, int limit)
 		str[i] = tmp[i];
 		i++;
 	}
+	*index += i - 1;
 	printf("ça passe içi");
 	return (str);
 }
@@ -94,18 +97,18 @@ static char *rev_str(char *origin, char *actual)
 
 
 
-char	*write_and_size(char *str, ft_flags flags)
+char	*write_and_size(char *str, ft_flags flags, int *index)
 {
 	char *tmp;
 
 	tmp = str;
 	printf("\n\n----width:%d-----\n\n", flags.width);
 	if (flags.width > (int)ft_strlen(str))
-		tmp = fill_width(str, flags.width);
+		tmp = fill_width(str, flags.width, *index);
 	if (flags.dot < (int)ft_strlen(str) && flags.dot > 0)
-		tmp = trunc_word(str, flags.dot);
+		tmp = trunc_word(str, flags.dot, *index);
 	if (flags.zero > (int)ft_strlen(str) && flags.minus == 0)
-		tmp = fill_zero(str, flags.zero);
+		tmp = fill_zero(str, flags.zero, *index);
 	if (flags.minus == 1)
 		tmp = rev_str(str, tmp);
 	return (tmp);
