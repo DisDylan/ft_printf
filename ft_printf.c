@@ -28,17 +28,17 @@ static int put_item(char c, va_list arg)
 	char *str;
 	int nb;
 
-	nb = NULL;
+	nb = 0;
 	str = NULL;
 	if (c == 'c' || c == 's')
 		str = va_arg(arg, char*);
 	else if (c == 'p')
-		str = va_arg(arg, int);
+		nb = va_arg(arg, int);
 	else if (c == 'x')
 		str = ft_itoa(va_arg(arg, int));
 	//ft_putnbr_base(va_arg(arg, int), "0123456789abcdef");
 	else if (c == 'X')
-		str = va_arg(arg, int);
+		str = ft_itoa(va_arg(arg, int));
 	//ft_putnbr_base(va_arg(arg, int), "0123456789ABCDEF");
 	else if (c == 'd' || c == 'i')
 		str = ft_itoa(va_arg(arg, int));
