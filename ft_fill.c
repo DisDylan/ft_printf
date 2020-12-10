@@ -35,15 +35,10 @@ static char *fill_width(char *tmp, int width)
 	char *str;
 	int i;
 
-	str = ft_strdup(tmp);
+	str = ft_memset((void*)str, ' ', width);
 	i = 0;
 	printf("Dans fill_width, str vaut %s et tmp %s\n", str, tmp);
 	newsize = width - (int)ft_strlen(tmp);
-	while (i <= newsize)
-	{
-		str[i] = ':';
-		i++;
-	}
 	printf("Dans fill_width, str vaut a la fin %s\n", str);
 	return (str);
 }
