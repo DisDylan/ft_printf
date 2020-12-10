@@ -12,7 +12,7 @@
 
 #include "includes/ft_printf.h"
 
-static char *fill_zero(char *tmp, int zero, int *index)
+static char *fill_zero(char *tmp, int zero)
 {
 	int newsize;
 	char *str;
@@ -29,7 +29,7 @@ static char *fill_zero(char *tmp, int zero, int *index)
 	return (str);
 }
 
-static char *fill_width(char *tmp, int width, int *index)
+static char *fill_width(char *tmp, int width)
 {
 	int newsize;
 	char *str;
@@ -48,7 +48,7 @@ static char *fill_width(char *tmp, int width, int *index)
 	return (str);
 }
 
-static char *trunc_word(char *tmp, int limit, int *index)
+static char *trunc_word(char *tmp, int limit)
 {
 	int i;
 	char *str;
@@ -95,7 +95,7 @@ static char *rev_str(char *origin, char *actual)
 
 
 
-char	*write_and_size(char *str, ft_flags flags, int *index)
+char	*write_and_size(char *str, ft_flags flags)
 {
 	char *tmp;
 
