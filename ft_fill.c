@@ -32,7 +32,7 @@ static char *fill_zero(char *tmp, int zero)
 static char *fill_width(char *tmp, int width)
 {
 	int newsize;
-	char *str;
+	void *str;
 	int i;
 
 	str = NULL;
