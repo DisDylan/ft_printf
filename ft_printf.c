@@ -58,7 +58,7 @@ static int put_item(char c, va_list arg)
 	{		
 		ft_putchar_fd(ch, 1);
 		ft_putchar_fd('\0', 1);
-		return (2);
+		return (1);
 	}
 	ft_putnbr_fd(nb, 1);
 	return ((int)ft_strlen(ft_itoa(nb)));
