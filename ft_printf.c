@@ -41,10 +41,11 @@ char *put_item(char c, va_list arg)
 		str = va_arg(arg, int);
 	//ft_putnbr_base(va_arg(arg, int), "0123456789ABCDEF");
 	else if (c == 'd' || c == 'i')
-		str = va_arg(arg, int);
+		str = ft_itoa(va_arg(arg, int));
 	else if (c == 'u')
 		str = va_arg(arg, unsigned int);
-	
+	ft_putstr_fd(str, 1);
+	return (str);
 }
 
 int	ft_printf(const char *format, ...)
@@ -67,8 +68,8 @@ int	ft_printf(const char *format, ...)
 			get_flags(args, format + i, flag_list, conversion, &i);
 			if (ft_chrchr(conversion, format[i]))
 			{
-				put_item(format[i], args);
-				res += write_and_size(args, flag_list, format[i]);
+				res += put_item(format[i], args);
+				//res += write_and_size(args, flag_list, format[i]);
 				printf("VALEUR DE RES APRES WRITE: %d\n", res);
 				i++;
 			}
