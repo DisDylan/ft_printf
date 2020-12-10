@@ -66,7 +66,7 @@ int	write_and_size(va_list arg, ft_flags flags, char c)
 	char *str;
 
 	if (c == 's')
-		str = va_arg(arg, char*));
+		str = va_arg(arg, char*);
 	else if (c == 'c')
 		str = va_arg(arg, char);
 	else
