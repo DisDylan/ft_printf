@@ -6,7 +6,7 @@
 /*   By: dpoinsu <dpoinsu@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/12/02 11:29:12 by dpoinsu           #+#    #+#             */
-/*   Updated: 2020/12/09 14:42:46 by dpoinsu          ###   ########.fr       */
+/*   Updated: 2020/12/09 16:58:37 by dpoinsu          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -52,7 +52,7 @@ int	ft_printf(const char *format, ...)
 	conversion = "cspdiuxX";
 	i = 0;
 	res = 0;
-	flag_list = init_flags(flag_list);
+	flag_list = init_flags();
 	va_start(args, format);
 	while (format[i])
 	{
