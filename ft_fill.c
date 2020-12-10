@@ -99,11 +99,12 @@ char	*write_and_size(char *str, ft_flags flags)
 	char *tmp;
 
 	tmp = str;
-	printf("yo");
+	printf("yo\n");
 	if (flags.width > (int)ft_strlen(str))
 	{
+		printf("yoyo\n");
 		tmp = fill_width(str, flags.width);
-		printf("yo");
+		printf("yo\n");
 	}
 	if (flags.dot < (int)ft_strlen(str) && flags.dot > 0)
 		tmp = trunc_word(str, flags.dot);
