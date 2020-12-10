@@ -40,7 +40,7 @@ static char *fill_width(char *tmp, int width)
 	printf("Dans fill_width, str vaut %s et tmp %s\n", str, tmp);
 	newsize = width - (int)ft_strlen(tmp);
 	printf("Newsize ok : %d\n", newsize);
-	while (i < newsize)
+	while (i < width)
 	{
 		printf("OKOK\n");
 		str[i] = ':';
