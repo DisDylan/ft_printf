@@ -36,7 +36,7 @@ void		get_flags(va_list args, const char *format,
 {
 	int i;
 
-	i = 1;
+	i = 0;
 	while (!(ft_chrchr(conversion, format[i])))
 	{
 		if (format[i] == '-')
@@ -55,6 +55,5 @@ void		get_flags(va_list args, const char *format,
 		}
 		i++;
 	}
-	i++;
 	*index += i;
 }
