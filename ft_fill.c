@@ -76,7 +76,10 @@ static char *rev_str(char *origin, char *actual)
 	while(tmp[++i])
 		swap[i] = tmp[i];
 	while(i >= 0)
-		swap[j - i] = actual[i--];
+	{
+		swap[j - i] = actual[i];
+		i--;
+	}
 }
 
 
