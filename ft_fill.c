@@ -68,9 +68,9 @@ static char *rev_str(char *origin, char *actual)
 
 	i = 0;
 	swap = actual;
-	last_index = ft_strlen(actual) - ft_strlen(origin);
+	last_index = (int)ft_strlen(actual) - (int)ft_strlen(origin);
 	j = last_index;
-	while (j < ft_strlen(actual))
+	while (j < (int)ft_strlen(actual))
 		tmp[i++] = swap[j++];
 	i = -1;
 	while(tmp[++i])
@@ -86,11 +86,11 @@ char	*write_and_size(char *str, ft_flags flags)
 	char *tmp;
 
 	tmp = str;
-	if (flags.dot < ft_strlen(str))
+	if (flags.dot < (int)ft_strlen(str))
 		tmp = trunc_word(str, flags.dot);
-	if (flags.width > ft_strlen(str))
+	if (flags.width > (int)ft_strlen(str))
 		tmp = fill_width(str, flags.width);
-	if (flags.zero > ft_strlen(str) && flasg.minus == 0)
+	if (flags.zero > (int)ft_strlen(str) && flags.minus == 0)
 		tmp = fill_zero(str, flags.zero);
 	if (flags.minus == 1)
 		tmp = rev_str(str, tmp);

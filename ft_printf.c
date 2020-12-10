@@ -51,8 +51,8 @@ static char *put_item(char c, va_list arg)
 		str = ft_itoa(va_arg(arg, unsigned int));
 	if (str != NULL)
 		return (str);
-	if (ch != 0)
-		return (ch);
+	//if (ch != 0)
+	//	return (ch);
 	return (ft_itoa(nb));
 }
 
