@@ -38,13 +38,11 @@ static char *fill_width(char *tmp, int width)
 	str = tmp;
 	i = 0;
 	newsize = width - (int)ft_strlen(tmp);
-	printf("ça passe içi");
 	while (i < newsize)
 	{
 		str[i] = ' ';
 		i++;
 	}
-	printf("ça passe içi");
 	return (str);
 }
 
@@ -55,13 +53,11 @@ static char *trunc_word(char *tmp, int limit)
 
 	i = 0;
 	str = NULL;
-	printf("ça passe içi");
 	while (i < limit)
 	{
 		str[i] = tmp[i];
 		i++;
 	}
-	printf("ça passe içi");
 	return (str);
 }
 
@@ -99,7 +95,6 @@ char	*write_and_size(char *str, ft_flags flags)
 	char *tmp;
 
 	tmp = str;
-	printf("\n\n----width:%d-----\n\n", flags.width);
 	if (flags.width > (int)ft_strlen(str))
 		tmp = fill_width(str, flags.width);
 	if (flags.dot < (int)ft_strlen(str) && flags.dot > 0)
