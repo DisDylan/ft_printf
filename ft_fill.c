@@ -58,7 +58,7 @@ static char *trunc_word(char *tmp, int limit)
 	}
 	return (str);
 }
-
+/*
 int	write_and_size(va_list arg, ft_flags flags, char c)
 {
 	int i;
@@ -89,3 +89,4 @@ int	write_and_size(va_list arg, ft_flags flags, char c)
 	printf("VALEUR DE I W&S: %d\n", i);
 	return(i);
 }
+*/
