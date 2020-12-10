@@ -63,7 +63,7 @@ int	ft_printf(const char *format, ...)
 			{
 				put_item(format[i], args);
 				res += write_and_size(args, flag_list);
-				printf("VALEUR DE RES APRES WRITE: %d", res);
+				printf("VALEUR DE RES APRES WRITE: %d\n", res);
 				i++;
 			}
 			else if (format[i] == '%')
@@ -77,7 +77,7 @@ int	ft_printf(const char *format, ...)
 			write(1, &format[i], 1);
 			i++;
 			res++;
-			printf("VALEUR DE RES APRES WRITE SANS MODULO: %d", res);
+			printf("VALEUR DE RES APRES WRITE SANS MODULO: %d\n", res);
 		}
 	}
 	va_end(args);

@@ -79,7 +79,7 @@ int	write_and_size(va_list arg, ft_flags flags)
 	if (flags.minus == 0)
 		tmp = ft_strjoin(tmp, str);
 	i = ft_strlen(tmp);
-	printf("CONTENU DE TMP: %s", tmp);
-	printf("VALEUR DE I W&S: %d", i);
+	printf("CONTENU DE TMP: %s\n", tmp);
+	printf("VALEUR DE I W&S: %d\n", i);
 	return(i);
 }
