@@ -9,7 +9,7 @@
 /*   Updated: 2020/12/09 14:40:00 by dpoinsu          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
-/*
+
 #include "includes/ft_printf.h"
 
 static char *fill_zero(char *tmp, int zero)
@@ -21,7 +21,6 @@ static char *fill_zero(char *tmp, int zero)
 	newsize = zero - ft_strlen(tmp);
 	while (newsize > 0)
 	{
-		write(1, "0", 1);
 		str[ft_strlen(str) - 1] = '0';
 		newsize--;
 	}
@@ -37,7 +36,6 @@ static char *fill_width(char *tmp, int width)
 	newsize = width - (int)ft_strlen(tmp);
 	while (newsize > 0)
 	{
-		write(1, " ", 1);
 		str[ft_strlen(str) - 1] = ' ';
 		newsize--;
 	}
@@ -59,33 +57,42 @@ static char *trunc_word(char *tmp, int limit)
 	return (str);
 }
 
-int	write_and_size(va_list arg, ft_flags flags, char c)
-{
-	int i;
-	char *tmp;
-	char *str;
 
-	str = NULL;
-	tmp = NULL;
-	if (c == 's')
-		str = va_arg(arg, char*);
-	else if (c == 'c')
-		str = va_arg(arg, char);
-	else
-		str = va_arg(arg, int);
-	if (flags.minus == 1)
-	{
-		tmp = str;
-	}
-	if (flags.width > 0)
-		tmp = fill_width(tmp, flags.width);
-	if (flags.zero > 0)
-		tmp = fill_zero(tmp, flags.zero);
-	if (flags.dot > 0)
-		tmp = trunc_word(tmp, flags.dot);
-	if (flags.minus == 0)
-		tmp = ft_strjoin(tmp, str);
-	i = ft_strlen(tmp);
-	return(i);
+static char *rev_str(char *origin, char *actual)
+{
+	char *swap;
+	char *tmp;
+	int last_index;
+	int i;
+	int j;
+
+	i = 0;
+	swap = actual;
+	last_index = ft_strlen(actual) - ft_strlen(origin);
+	j = last_index;
+	while (j < ft_strlen(actual))
+		tmp[i++] = swap[j++];
+	i = -1;
+	while(tmp[++i])
+		swap[i] = tmp[i];
+	while(i >= 0)
+		swap[j - i] = actual[i--];
 }
-*/
+
+
+
+char	*write_and_size(char *str, ft_flags flags)
+{
+	char *tmp;
+
+	tmp = str;
+	if (flags.dot < ft_strlen(str))
+		tmp = trunc_word(str, flags.dot);
+	if (flags.width > ft_strlen(str))
+		tmp = fill_width(str, flags.width);
+	if (flags.zero > ft_strlen(str) && flasg.minus == 0)
+		tmp = fill_zero(str, flags.zero);
+	if (flags.minus == 1)
+		tmp = rev_str(str, tmp);
+	return (tmp);
+}

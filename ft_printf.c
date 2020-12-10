@@ -41,27 +41,18 @@ static char *put_item(char c, va_list arg)
 		nb = va_arg(arg, int);
 	else if (c == 'x')
 		str = ft_itoa(va_arg(arg, int));
-	//ft_putnbr_base(va_arg(arg, int), "0123456789abcdef");
+	//str = ft_nbr_base(va_arg(arg, int), "0123456789abcdef");
 	else if (c == 'X')
 		str = ft_itoa(va_arg(arg, int));
-	//ft_putnbr_base(va_arg(arg, int), "0123456789ABCDEF");
+	//str = ft_nbr_base(va_arg(arg, int), "0123456789ABCDEF");
 	else if (c == 'd' || c == 'i')
 		str = ft_itoa(va_arg(arg, int));
 	else if (c == 'u')
 		str = ft_itoa(va_arg(arg, unsigned int));
 	if (str != NULL)
-	{
-		ft_putstr_fd(str, 1);
 		return (str);
-	}
 	if (ch != 0)
-	{		
-		ft_putchar_fd(ch, 1);
-		ft_putchar_fd('\0', 1);
-		str[0] = (char)ch;
-		return (str);
-	}
-	ft_putnbr_fd(nb, 1);
+		return (ch);
 	return (ft_itoa(nb));
 }
 
@@ -78,18 +69,19 @@ int	ft_printf(const char *format, ...)
 	conversion = "cspdiuxX";
 	i = 0;
 	res = 0;
-	flag_list = init_flags();
 	va_start(args, format);
 	while (format[i])
 	{
 		if (format[i] == '%')
 		{
+			flag_list = init_flags();
 			get_flags(args, format + i, flag_list, conversion, &i);
 			if (ft_chrchr(conversion, format[i]))
 			{
 				printit = put_item(format[i], args);
 				res += ft_strlen(printit);
-				//res += write_and_size(args, flag_list, format[i]);
+				printit = write_and_size(printit, flag_list);
+				ft_putstr_fd(printit, 1);
 				i++;
 			}
 			else if (format[i] == '%')
