@@ -9,7 +9,7 @@
 /*   Updated: 2020/12/09 14:40:00 by dpoinsu          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
-
+/*
 #include "includes/ft_printf.h"
 
 static char *fill_zero(char *tmp, int zero)
@@ -58,7 +58,7 @@ static char *trunc_word(char *tmp, int limit)
 	}
 	return (str);
 }
-/*
+
 int	write_and_size(va_list arg, ft_flags flags, char c)
 {
 	int i;
