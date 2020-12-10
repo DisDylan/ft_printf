@@ -27,4 +27,7 @@ int main(void)
 	pf = printf("%s\n", "une string");
 	pft = ft_printf("%s\n", "une string");
 	printf("%d pour printf et %d pour ft\n", pf, pft);
+	pf = printf("%c\n", 'c');
+	pft = ft_printf("%c\n", 'c');
+	printf("%d pour printf et %d pour ft\n", pf, pft);
 }
