@@ -86,7 +86,7 @@ int	ft_printf(const char *format, ...)
 				get_flags(args, format + i, &flag_list, conversion, &i);
 				if (ft_chrchr(conversion, format[i]))
 				{
-					printf("ok");
+					i++;
 					printit = put_item(format[i], args);
 					printit = write_and_size(printit, &flag_list);
 					res += ft_strlen(printit);
