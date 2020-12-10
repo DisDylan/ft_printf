@@ -53,6 +53,7 @@ static char *trunc_word(char *tmp, int limit)
 	char *str;
 
 	i = 0;
+	str = NULL;
 	printf("Dans trunc_word, tmp vaut %s\n", tmp);
 	while (i < limit)
 	{
