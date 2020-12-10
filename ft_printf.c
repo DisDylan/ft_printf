@@ -58,7 +58,7 @@ static char *put_item(char c, va_list arg)
 	{		
 		ft_putchar_fd(ch, 1);
 		ft_putchar_fd('\0', 1);
-		str = ch;
+		str = (char*)ch;
 		return (str);
 	}
 	ft_putnbr_fd(nb, 1);
