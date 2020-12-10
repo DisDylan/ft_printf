@@ -79,6 +79,7 @@ int	ft_printf(const char *format, ...)
 			printf("\n\n____________________\nFLAGS VALUE:\n------%d dot %d width %d zero\n___________________\n", flag_list.dot, flag_list.width, flag_list.zero);
 			if (ft_chrchr(conversion, format[i]))
 			{
+				printf("ok\n")
 				printit = put_item(format[i], args);
 				printit = write_and_size(printit, &flag_list);
 				res += ft_strlen(printit);
