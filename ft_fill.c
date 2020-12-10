@@ -66,6 +66,7 @@ int	write_and_size(va_list arg, ft_flags flags)
 	char *str;
 
 	str = ft_itoa(va_arg(arg, int));
+	printf("\n\n!!!!! Valeur de str: %s\n\n", str);
 	if (flags.minus == 1)
 	{
 		tmp = str;
