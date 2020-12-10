@@ -74,23 +74,20 @@ int	ft_printf(const char *format, ...)
 	{
 		if (format[i] == '%')
 		{
-			i++;
-			if (format[i] == '%')
+			flag_list = init_flags();
+			get_flags(args, format + i, &flag_list, conversion, &i);
+			if (ft_chrchr(conversion, format[i]))
+			{
+				printit = put_item(format[i], args);
+				printit = write_and_size(printit, &flag_list);
+				res += ft_strlen(printit);
+				ft_putstr_fd(printit, 1);
+				i++;
+			}
+			else if (format[i] == '%')
 			{
 				ft_putchar_fd(format[i], 1);
 				res++;
-			}
-			else
-			{
-				flag_list = init_flags();
-				get_flags(args, format + i, &flag_list, conversion, &i);
-				if (ft_chrchr(conversion, format[i]))
-				{
-					printit = put_item(format[i], args);
-					printit = write_and_size(printit, &flag_list);
-					res += ft_strlen(printit);
-					ft_putstr_fd(printit, 1);
-				}
 			}
 		}
 		else
