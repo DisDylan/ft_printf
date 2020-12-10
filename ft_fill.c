@@ -26,7 +26,6 @@ static char *fill_zero(char *tmp, int zero, int *index)
 		str[i] = '0';
 		i++;
 	}
-	*index += i - 1;
 	return (str);
 }
 
@@ -45,7 +44,6 @@ static char *fill_width(char *tmp, int width, int *index)
 		str[i] = ' ';
 		i++;
 	}
-	*index += i - 1;
 	printf("ça passe içi");
 	return (str);
 }
