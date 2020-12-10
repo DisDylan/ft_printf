@@ -56,5 +56,6 @@ void		get_flags(va_list args, const char *format,
 		}
 		i++;
 	}
+	i++;
 	*index += i;
 }
