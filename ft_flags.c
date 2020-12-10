@@ -37,7 +37,7 @@ static int	ft_getdigits(const char *format, va_list arg, int *pos)
 }
 
 void		get_flags(va_list args, const char *format,
-		ft_flags flags, char *conversion, int *index)
+		ft_flags *flags, char *conversion, int *index)
 {
 	int i;
 
