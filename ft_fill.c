@@ -94,7 +94,7 @@ static char *rev_str(char *origin, char *actual)
 
 
 
-char	*write_and_size(char *str, ft_flags flags)
+char	*write_and_size(char *str, ft_flags *flags)
 {
 	char *tmp;
 
