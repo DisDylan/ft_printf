@@ -41,9 +41,10 @@ static char *fill_width(char *tmp, int width)
 	newsize = width - (int)ft_strlen(tmp);
 	while (i < newsize)
 	{
-		str[i] = ' ';
+		str[i] = ':';
 		i++;
 	}
+	printf("Dans fill_width, str vaut a la fin %s\n", str);
 	return (str);
 }
 
