@@ -19,10 +19,11 @@ static char *fill_zero(char *tmp, int zero)
 
 	str = tmp;
 	newsize = zero - ft_strlen(tmp);
+	i = 0;
 	while (newsize > 0)
 	{
-		str[ft_strlen(str) - 1] = '0';
-		newsize--;
+		str[i] = '0';
+		i++;
 	}
 	return (str);
 }
@@ -31,13 +32,15 @@ static char *fill_width(char *tmp, int width)
 {
 	int newsize;
 	char *str;
+	int i;
 
 	str = tmp;
+	i = 0;
 	newsize = width - (int)ft_strlen(tmp);
-	while (newsize > 0)
+	while (i < newsize)
 	{
-		str[ft_strlen(str) - 1] = ' ';
-		newsize--;
+		str[i] = ' ';
+		i++;
 	}
 	return (str);
 }
