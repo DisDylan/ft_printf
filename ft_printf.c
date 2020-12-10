@@ -84,7 +84,7 @@ int	ft_printf(const char *format, ...)
 				ft_putstr_fd(printit, 1);
 				i++;
 			}
-			else if (format[++i] == '%')
+			else if (format[i] == '%')
 			{
 				ft_putchar_fd(format[i], 1);
 				res++;
