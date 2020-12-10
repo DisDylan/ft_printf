@@ -23,9 +23,11 @@ static int	ft_getdigits(const char *format, va_list arg, int *pos)
 		return (va_arg(arg, int));
 	while (ft_isdigit(format[i]))
 	{
+		printf("i vaut : %d\n", i);
+		printf("res vaut : %d\n", res);
 		res *= 10;
 		res += format[i] - 48;
-		pos++;
+		*pos++;
 		i++;
 	}
 	return (res);
