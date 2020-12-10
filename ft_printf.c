@@ -79,8 +79,8 @@ int	ft_printf(const char *format, ...)
 			if (ft_chrchr(conversion, format[i]))
 			{
 				printit = put_item(format[i], args);
-				res += ft_strlen(printit);
 				printit = write_and_size(printit, flag_list);
+				res += ft_strlen(printit);
 				ft_putstr_fd(printit, 1);
 				i++;
 			}
