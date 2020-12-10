@@ -27,11 +27,14 @@ static int put_item(char c, va_list arg)
 {
 	char *str;
 	int nb;
+	char c;
 
 	nb = 0;
 	str = NULL;
+	c = NULL;
+	// FONCTION CHECK CHARS && CHECK INT && CHECK BASE
 	if (c == 'c' || c == 's')
-		str = va_arg(arg, char*);
+		str = va_arg(arg, (char*)char);
 	else if (c == 'p')
 		nb = va_arg(arg, int);
 	else if (c == 'x')
