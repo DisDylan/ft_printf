@@ -35,7 +35,7 @@ static char *fill_width(char *tmp, int width)
 	char *str;
 	int i;
 
-	str = ft_memset((void*)str, ' ', width);
+	ft_bzero(str, width);
 	i = 0;
 	printf("Dans fill_width, str vaut %s et tmp %s\n", str, tmp);
 	newsize = width - (int)ft_strlen(tmp);
