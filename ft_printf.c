@@ -151,16 +151,16 @@ static char *ft_treat_all(char *str, ft_flags flags)
 	printf("FT_TREAT_ALL: nstr vaut %s\n", str);
 
 	size = ft_strlen(str);
-	if (flags.dot < size)
+	if (flags.dot < size && flags.dot > 0)
 		newstr = ft_substr(str, 0, flags.dot);
 	else
 		newstr = ft_strdup(str);
-	if (flags.width > (int)ft_strlen(newstr))
+	if (flags.width > size)
 	{
 		free(newstr);
 		newstr = ft_fill(str, ' ', flags.width);
 	}
-	if (flags.zero > (int)ft_strlen(newstr))
+	if (flags.zero > size)
 	{
 		free(newstr);
 		newstr = ft_fill(str, ' ', flags.width);
@@ -195,6 +195,7 @@ int	ft_printf(const char *format, ...)
 				index++;
 			}
 			ft_treat_flags(format + index, &index, arguments, &flags);
+			printf
 			printf("treat_flags OK\n");
 			tmp = ft_treat_all(ft_treat_convert(format + index, arguments), flags);
 			printf("treat all OK\n");
