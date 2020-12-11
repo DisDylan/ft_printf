@@ -126,8 +126,8 @@ int main(void)
 	max++;
 
 	printf("\nTEST: 10.*s\n");
-	pf = printf("PRINTF:%10.*s$\n", "abcedef", 5);
-	pft = ft_printf("FT_ptf:%10.*s$\n", "abcedef", 5);
+	pf = printf("PRINTF:%10.*s$\n", 5, "abcedef");
+	pft = ft_printf("FT_ptf:%10.*s$\n", 5, "abcedef");
 	if (pf == pft)
 	{
 		note++;
