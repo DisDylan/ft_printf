@@ -17,16 +17,8 @@ int main(void)
 {
 	int pf;
 	int pft;
-
-	printf("\n\n|||||||||||||||||||||||NEW TEST|||||||||||||||||||||\n");
-	pf = printf("PRINTF:%d$\n", 42);
-	pft = ft_printf("FT_ptf:%d$\n", 42);
-	if (pf == pft)
-		printf(GREEN "| OK |\n" RESET);
-	else
-		printf(RED "| KO |\n" RESET);
 	
-	printf("\n\n|||||||||||||||||||||||NEW TEST|||||||||||||||||||||\n");
+	printf("\nTEST: d\n");
 	pf = printf("PRINTF:%d Hello l'ami$\n", 42);
 	pft = ft_printf("FT_ptf:%d Hello l'ami$\n", 42);
 	if (pf == pft)
@@ -34,7 +26,7 @@ int main(void)
 	else
 		printf(RED "| KO |\n" RESET);
 
-	printf("\n\n\n\n|||||||||||||||||||||||NEW TEST|||||||||||||||||||||\n");
+	printf("\nTEST: u\n");
 	pf = printf("PRINTF:%u$\n", -42);
 	pft = ft_printf("FT_ptf:%u$\n", -42);
 	if (pf == pft)
@@ -42,7 +34,7 @@ int main(void)
 	else
 		printf(RED "| KO |\n" RESET);
 
-	printf("\n\n|||||||||||||||||||||||NEW TEST|||||||||||||||||||||\n");
+	printf("\nTEST: s\n");
 	pf = printf("PRINTF:%s$\n", "une string");
 	pft = ft_printf("FT_ptf:%s$\n", "une string");
 	if (pf == pft)
@@ -50,7 +42,7 @@ int main(void)
 	else
 		printf(RED "| KO |\n" RESET);
 
-	printf("\n\n\n\n|||||||||||||||||||||||NEW TEST|||||||||||||||||||||\n");
+	printf("\nTEST: %%\n");
 	pf = printf("PRINTF:%%$\n");
 	pft = ft_printf("FT_ptf:%%$\n");
 	if (pf == pft)
@@ -67,7 +59,7 @@ int main(void)
 	else
 		printf(RED "| KO |\n" RESET);*/
 
-	printf("\n\n|||||||||||||||||||||||NEW TEST|||||||||||||||||||||\n");
+	printf("\nTEST: 10s\n");
 	pf = printf("PRINTF:%10s$\n", "abcedef");
 	pft = ft_printf("FT_ptf:%10s$\n", "abcedef");
 	if (pf == pft)
@@ -75,7 +67,7 @@ int main(void)
 	else
 		printf(RED "| KO |\n" RESET);
 
-	printf("\n\n|||||||||||||||||||||||NEW TEST|||||||||||||||||||||\n");
+	printf("\nTEST: .5s\n");
 	pf = printf("PRINTF:%.5s$\n", "abcdef");
 	pft = ft_printf("FT_ptf:%.5s$\n", "abcdef");
 	if (pf == pft)
@@ -83,7 +75,7 @@ int main(void)
 	else
 		printf(RED "| KO |\n" RESET);
 
-	printf("\n\n|||||||||||||||||||||||NEW TEST|||||||||||||||||||||\n");
+	printf("\nTEST: 10.5s\n");
 	pf = printf("PRINTF:%10.5s$\n", "abcedef");
 	pft = ft_printf("FT_ptf:%10.5s$\n", "abcedef");
 	if (pf == pft)
