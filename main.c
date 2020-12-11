@@ -68,8 +68,8 @@ int main(void)
 		printf(RED "| KO |\n" RESET);*/
 
 	printf("\n\n\n\n|||||||||||||||||||||||NEW TEST|||||||||||||||||||||\n");
-	pf = printf("PRINTF: %10s$\n", "abcedef");
-	pft = ft_printf("FT_ptf: %10s$\n", "abcedef");
+	pf = printf("PRINTF:%10s$\n", "abcedef");
+	pft = ft_printf("FT_ptf:%10s$\n", "abcedef");
 	if (pf == pft)
 		printf(GREEN "| OK |\n" RESET);
 	else

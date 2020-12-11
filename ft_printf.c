@@ -173,6 +173,7 @@ int	ft_printf(const char *format, ...)
 			if (format[index] != '%')
 			{
 				ft_get_flag(format, &index, arguments, &flags);
+				printf("value width: %d, dot: %d, zero: %d", flags.width, flags.dot, flags.zero);
 				tmp = ft_treat_all(ft_treat_convert(format, &index, arguments), flags);
 				ft_putstr_fd(tmp, 1);
 				size += (int)ft_strlen(tmp);
