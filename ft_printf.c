@@ -174,6 +174,7 @@ int	ft_printf(const char *format, ...)
 	tmp = NULL;	
 	va_start(arguments, format);
 	// FONCTIONS TRAITEMENT DE LA CHAINE
+	/*
 	while (format[index])
 	{
 		if (format[index] == '%')
@@ -194,6 +195,7 @@ int	ft_printf(const char *format, ...)
 			printable[index] = format[index];
 		index++;
 	}
+	*/
 	va_end(arguments);
 	ft_putstr_fd(printable, 1);
 	return (ft_strlen(printable));
