@@ -102,7 +102,6 @@ static char *ft_treat_convert(const char *format, int *index, va_list arguments)
 	char *str;
 
 	c = format[*index];
-	printf("ok içi\n");
 	//if (c == 'c')
 	//	str = ft_strdup(va_arg(arguments, int));
 	if (c == 's')
@@ -193,6 +192,7 @@ int	ft_printf(const char *format, ...)
 				ft_putstr_fd(tmp, 1);
 				size += (int)ft_strlen(tmp);
 				free(tmp);
+				index++;
 			}
 		}
 		ft_putchar_fd(format[index], 1);
