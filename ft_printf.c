@@ -168,13 +168,13 @@ static char *ft_treat_all(char *str, ft_flags flags)
 		newstr = ft_strdup(str);
 	if (flags.width > size)
 	{
-		tmp = ft_strdup(newstr)
+		tmp = ft_strdup(newstr);
 		free(newstr);
 		newstr = ft_fill(tmp, ' ', flags.width);
 	}
 	if (flags.zero > size)
 	{
-		tmp = ft_strdup(newstr)
+		tmp = ft_strdup(newstr);
 		free(newstr);
 		newstr = ft_fill(tmp, '0', flags.width);
 	}
