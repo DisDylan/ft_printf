@@ -64,10 +64,9 @@ static void ft_get_flag(const char *format, int *index, va_list arguments, ft_fl
 {
 	char flag;
 
-	flag = format[*index];
 	while (!(ft_chrchr(format[*index])))
 	{
-		printf("index post if: %d\n", *index);
+		flag = format[*index];
 		if (flag == '0' || flag == '.' || flag == '-')
 			*index += 1;
 		if (flag == '0')
@@ -78,8 +77,6 @@ static void ft_get_flag(const char *format, int *index, va_list arguments, ft_fl
 			flags->minus = 1;
 		else if (ft_isdigit(flag) || flag == '*')
 			flags->width = ft_star_or_digit(format, arguments, index);
-		printf("index post if: %d\n", *index);
-		printf("\n_________\nFLAGS VALUES\nwidth: %d\ndot: %d\nzero: %d\n_________\n", flags->width, flags->dot, flags->zero);
 	}
 }
 
