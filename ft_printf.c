@@ -175,7 +175,7 @@ int	ft_printf(const char *format, ...)
 	va_start(arguments, format);
 	// FONCTIONS TRAITEMENT DE LA CHAINE
 	printf("post boucle ok \n");
-	while (format[index])
+	while (format[index] != '\0')
 	{
 		printf("Entrée dans la boucle ok");
 		if (format[index] == '%')
