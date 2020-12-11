@@ -124,7 +124,7 @@ static char *ft_fill(char *str, char c, int nb)
 	char *strfilled;
 	int i;
 
-	strfilled = (char*)malloc(sizeof(strfilled) * (nb + 1));
+	strfilled = (char*)malloc(sizeof(*strfilled) * nb + 1);
 	i = 0;
 	while (str[i])
 	{
