@@ -151,11 +151,11 @@ static char *ft_treat_all(char *str, ft_flags flags)
 		newstr = ft_substr(str, 0, flags.dot);
 	else
 		newstr = ft_strdup(str);
-	free(str);
 	if (flags.width > (int)ft_strlen(newstr))
 		newstr = ft_strdup((const char*)ft_fill(str, ' ', flags.width));
 	if (flags.zero > (int)ft_strlen(newstr))
 		newstr = ft_strdup((const char*)ft_fill(str, ' ', flags.width));
+	free(str);
 	return (newstr);
 }
 
@@ -174,7 +174,6 @@ int	ft_printf(const char *format, ...)
 	tmp = NULL;	
 	va_start(arguments, format);
 	// FONCTIONS TRAITEMENT DE LA CHAINE
-	/*
 	while (format[index])
 	{
 		if (format[index] == '%')
@@ -186,8 +185,10 @@ int	ft_printf(const char *format, ...)
 				printable[index] = '%';
 				index++;
 			}
-			//ft_treat_flags(format + index, &index, arguments, &flags);
-			//tmp = ft_treat_all(ft_treat_convert(format + index, arguments), flags);
+			ft_treat_flags(format + index, &index, arguments, &flags);
+			printf("treat_flags OK\n")
+			tmp = ft_treat_all(ft_treat_convert(format + index, arguments), flags);
+			printf("treat all OK\n")
 			printable = ft_strjoin(printable, tmp);
 			index++;
 		}
@@ -195,8 +196,7 @@ int	ft_printf(const char *format, ...)
 			printable[index] = format[index];
 		index++;
 	}
-	*/
 	va_end(arguments);
-	//ft_putstr_fd(printable, 1);
+	ft_putstr_fd(printable, 1);
 	return ((int)ft_strlen(printable));
 }
