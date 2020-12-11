@@ -165,17 +165,16 @@ int	ft_printf(const char *format, ...)
 	ft_flags flags;
 	va_list arguments;
 	int index;
-	char *printable;
+	int count;
 	char *tmp;
 
 	flags = init_flags();
-	printable = NULL;
 	index = 0;
 	tmp = NULL;	
 	va_start(arguments, format);
 	// FONCTIONS TRAITEMENT DE LA CHAINE
 	printf("post boucle ok \n");
-	while (format[index] != '\0')
+	while (format[index])
 	{
 		printf("Entrée dans la boucle ok");
 		if (format[index] == '%')
@@ -191,14 +190,15 @@ int	ft_printf(const char *format, ...)
 			printf("treat_flags OK\n");
 			tmp = ft_treat_all(ft_treat_convert(format + index, arguments), flags);
 			printf("treat all OK\n");
-			printable = ft_strjoin(printable, tmp);
 			index++;
 		}
+		/*
 		else
 			printable[index] = format[index];
+			*/
 		index++;
 	}
 	va_end(arguments);
-	ft_putstr_fd(printable, 1);
-	return ((int)ft_strlen(printable));
+	//ft_putstr_fd(printable, 1);
+	return (index);
 }
