@@ -19,7 +19,9 @@ int main(void)
 	int pft;
 	int max;
 	int note;
-	
+
+	max = 0;
+	note = 0;
 	printf("\nTEST: d\n");
 	pf = printf("PRINTF:%d Hello l'ami$\n", 42);
 	pft = ft_printf("FT_ptf:%d Hello l'ami$\n", 42);
