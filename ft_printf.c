@@ -146,6 +146,7 @@ static char *ft_treat_all(char *str, ft_flags flags)
 	int size;
 	char *newstr;
 
+	printf("ici ca colle");
 	size = ft_strlen(str);
 	if (flags.dot < size && flags.dot > 0)
 		newstr = ft_substr(str, 0, flags.dot);
