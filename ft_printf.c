@@ -161,8 +161,8 @@ static char *ft_treat_all(char *str, ft_flags flags)
 		free(newstr);
 		newstr = ft_fill(str, ' ', flags.width);
 	}
-	free(str);
 	printf("ici ca colle");
+	free(str);
 	return (newstr);
 }
 
