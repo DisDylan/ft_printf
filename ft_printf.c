@@ -163,7 +163,6 @@ static char *ft_treat_all(char *str, ft_flags flags)
 		free(newstr);
 		newstr = ft_fill(str, ' ', flags.width);
 	}
-	printf("ici ca colle");
 	free(str);
 	return (newstr);
 }
@@ -190,8 +189,8 @@ int	ft_printf(const char *format, ...)
 			if (format[index] != '%')
 			{
 				ft_get_flag(format, &index, arguments, &flags);
-				tmp = ft_treat_all(ft_treat_convert(format, &index, arguments), flags);
 				printf("ok içi\n");
+				tmp = ft_treat_all(ft_treat_convert(format, &index, arguments), flags);
 				ft_putstr_fd(tmp, 1);
 				size += (int)ft_strlen(tmp);
 				free(tmp);
