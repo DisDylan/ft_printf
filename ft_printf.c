@@ -60,10 +60,10 @@ static int ft_star_or_digit(const char *format, va_list arguments, int *index)
 }
 
 // On assigne les valeurs passées en paramètres aux flags et/ou la width
-static ft_flags ft_get_flag(const char *format, int *index, va_list arguments)
+static void ft_get_flag(const char *format, int *index, va_list arguments, ft_flags *flags)
 {
 	char flag;
-	ft_flags flags;
+	//ft_flags flags;
 
 	flag = format[*index];
 	while (!(ft_chrchr(format[*index])))
@@ -71,15 +71,15 @@ static ft_flags ft_get_flag(const char *format, int *index, va_list arguments)
 		if (flag == '0' || flag == '.' || flag == '-')
 			*index += 1;
 		if (flag == '0')
-			flags.zero = ft_star_or_digit(format, arguments, index);
+			flags->zero = ft_star_or_digit(format, arguments, index);
 		if (flag == '.')
-			flags.dot = ft_star_or_digit(format, arguments, index);
+			flags->dot = ft_star_or_digit(format, arguments, index);
 		if (flag == '-')
-			flags.minus = 1;
+			flags->minus = 1;
 		if (ft_isdigit(flag) || flag == '*')
-			flags.width = ft_star_or_digit(format, arguments, index);
+			flags->width = ft_star_or_digit(format, arguments, index);
 	}
-	return (flags);
+	//return (flags);
 }
 
 // On rempli la chaîne avec le caractère passé en paramètre sur n caractères
@@ -209,7 +209,7 @@ int	ft_printf(const char *format, ...)
 			index++;
 			if (format[index] != '%')
 			{
-				flags = ft_get_flag(format, &index, arguments);
+				ft_get_flag(format, &index, arguments, &flags);
 				tmp = ft_treat_all(ft_treat_convert(format, &index, arguments), flags);
 				ft_putstr_fd(tmp, 1);
 				size += (int)ft_strlen(tmp);
