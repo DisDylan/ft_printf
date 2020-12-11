@@ -71,13 +71,13 @@ static ft_flags ft_get_flag(const char *format, int *index, va_list arguments)
 		if (flag == '0' || flag == '.' || flag == '-')
 			*index += 1;
 		if (flag == '0')
-			flags->zero = ft_star_or_digit(format, arguments, index);
+			flags.zero = ft_star_or_digit(format, arguments, index);
 		if (flag == '.')
-			flags->dot = ft_star_or_digit(format, arguments, index);
+			flags.dot = ft_star_or_digit(format, arguments, index);
 		if (flag == '-')
-			flags->minus = 1;
+			flags.minus = 1;
 		if (ft_isdigit(flag) || flag == '*')
-			flags->width = ft_star_or_digit(format, arguments, index);
+			flags.width = ft_star_or_digit(format, arguments, index);
 	}
 	return (flags);
 }
