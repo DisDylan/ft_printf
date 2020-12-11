@@ -68,7 +68,7 @@ static char *ft_fill(char *str, char c, int nb)
 	char *strfilled;
 	int i;
 
-	ft_bzero(strfilled, (size_t)nb)
+	ft_bzero(strfilled, (size_t)nb);
 	while (str[i])
 	{
 		strfilled[i] = str[i];
@@ -150,9 +150,9 @@ static char *ft_treat_all(char *str, ft_flags flags)
 	else
 		newstr = ft_strdup(str);
 	free(str);
-	if (flags.width > ft_strlen(newstr))
+	if (flags.width > (int)ft_strlen(newstr))
 		newstr = ft_strdup((const char*)ft_fill(str, ' ', flags.width));
-	if (flags.zero > ft_strlen(newstr))
+	if (flags.zero > (int)ft_strlen(newstr))
 		newstr = ft_strdup((const char*)ft_fill(str, ' ', flags.width));
 	return (newstr);
 }
@@ -171,7 +171,7 @@ int	ft_printf(const char *format, ...)
 	tmp = NULL;	
 	va_start(arguments, format);
 	// FONCTIONS TRAITEMENT DE LA CHAINE
-	while format[index]
+	while (format[index])
 		if (format[index] == '%')
 		{
 			//TRAITEMENT DE LA CHAINE
@@ -190,6 +190,6 @@ int	ft_printf(const char *format, ...)
 			printable[index] = format[index];
 		index++;
 	va_end(arguments);
-	ft_putstr_fd(printable)
+	ft_putstr_fd(printable, 1);
 	return (ft_strlen(printable));
 }
