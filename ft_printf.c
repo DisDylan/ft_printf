@@ -63,7 +63,6 @@ static int ft_star_or_digit(const char *format, va_list arguments, int *index)
 static void ft_get_flag(const char *format, int *index, va_list arguments, ft_flags *flags)
 {
 	char flag;
-	//ft_flags flags;
 
 	flag = format[*index];
 	while (!(ft_chrchr(format[*index])))
@@ -79,7 +78,6 @@ static void ft_get_flag(const char *format, int *index, va_list arguments, ft_fl
 		if (ft_isdigit(flag) || flag == '*')
 			flags->width = ft_star_or_digit(format, arguments, index);
 	}
-	//return (flags);
 }
 
 // On rempli la chaîne avec le caractère passé en paramètre sur n caractères
@@ -207,7 +205,9 @@ int	ft_printf(const char *format, ...)
 			if (format[index] != '%')
 			{
 				ft_get_flag(format, &index, arguments, &flags);
-				tmp = ft_treat_all(ft_treat_convert(format, &index, arguments), &flags);
+				printf("\n_________\nFLAGS VALUES\nwidth: %d\ndot: %d\nzero: %d\n_________\n", flags.width, flags.dot, flags.zero);
+				tmp = ft_treat_all(
+					ft_treat_convert(format, &index, arguments), &flags);
 				ft_putstr_fd(tmp, 1);
 				size += (int)ft_strlen(tmp);
 				free(tmp);
