@@ -90,12 +90,9 @@ static char *ft_fill(char *str, char c, int nb)
 	size_fill = nb - (int)ft_strlen(str);
 	strfilled = (char*)malloc(sizeof(*strfilled) * (nb + 1));
 	i = 0;
-	printf("c = %c\n", c);
-	printf("nb = %d & size_fill = %d\n", nb, size_fill);
 	while (i <= size_fill)
 	{
 		strfilled[i] = (unsigned char)c;
-		printf("strfilled[i] = |%c|\n", strfilled[i]);
 		i++;
 	}
 	i = 0;
@@ -103,7 +100,6 @@ static char *ft_fill(char *str, char c, int nb)
 	{
 		strfilled[size_fill] = str[i];
 		size_fill++;
-		printf("strfilled[i] = |%c|\n", strfilled[size_fill]);
 		i++;
 	}
 	strfilled[size_fill] = '\0';
@@ -172,15 +168,14 @@ static char *ft_treat_all(char *str, ft_flags *flags)
 	{
 		tmp = ft_strdup(newstr);
 		free(newstr);
-		newstr = ft_fill(tmp, (unsigned char)' ', flags->width);
+		newstr = ft_fill(tmp, ' ', flags->width);
 		free(tmp);
 	}
 	if (flags->zero > size)
 	{
 		tmp = ft_strdup(newstr);
-		printf("tmp vaut %s\n", tmp);
 		free(newstr);
-		newstr = ft_fill(tmp, (unsigned char)'0', flags->width);
+		newstr = ft_fill(tmp, '0', flags->zero);
 		free(tmp);
 	}
 	free(str);
