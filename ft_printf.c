@@ -80,7 +80,7 @@ static char *ft_fill(char *str, char c, int nb)
 		strfilled[i] = c;
 		i++;
 	}
-	strfilled[i] = '\0';
+	strfilled[i] = 
 	return (strfilled);
 }
 
@@ -146,6 +146,8 @@ static char *ft_treat_all(char *str, ft_flags flags)
 	int size;
 	char *newstr;
 
+	printf("FT_TREAT_ALL: nstr vaut %s\n", str);
+
 	size = ft_strlen(str);
 	if (flags.dot < size)
 		newstr = ft_substr(str, 0, flags.dot);
@@ -162,7 +164,7 @@ static char *ft_treat_all(char *str, ft_flags flags)
 		newstr = ft_fill(str, ' ', flags.width);
 	}
 	free(str);
-	printf("FT_TREAT_ALL: str vaut %s\n", newstr);
+	printf("FT_TREAT_ALL: newstr vaut %s\n", newstr);
 	return (newstr);
 }
 
