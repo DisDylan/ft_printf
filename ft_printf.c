@@ -199,6 +199,7 @@ int	ft_printf(const char *format, ...)
 	//flags = init_flags();
 	index = 0;
 	size = 0;
+	flags = init_flags();
 	va_start(arguments, format);
 	// FONCTIONS TRAITEMENT DE LA CHAINE
 	while (format[index])
