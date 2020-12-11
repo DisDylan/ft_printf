@@ -68,8 +68,7 @@ static char *ft_fill(char *str, char c, int nb)
 	char *strfilled;
 	int i;
 
-	strfilled = NULL;
-	ft_bzero(strfilled, (size_t)nb);
+	strfilled = (char*)malloc(sizeof(strfilled) * nb + 1);
 	i = 0;
 	while (str[i])
 	{
@@ -79,7 +78,9 @@ static char *ft_fill(char *str, char c, int nb)
 	while (i < nb)
 	{
 		strfilled[i] = c;
+		i++;
 	}
+	strfilled[i] = '\0';
 	return (strfilled);
 }
 
@@ -153,12 +154,12 @@ static char *ft_treat_all(char *str, ft_flags flags)
 	if (flags.width > (int)ft_strlen(newstr))
 	{
 		free(newstr);
-		newstr = ft_strdup((const char*)ft_fill(str, ' ', flags.width));
+		newstr = ft_fill(str, ' ', flags.width);
 	}
 	if (flags.zero > (int)ft_strlen(newstr))
 	{
 		free(newstr);
-		newstr = ft_strdup((const char*)ft_fill(str, ' ', flags.width));
+		newstr = ft_fill(str, ' ', flags.width);
 	}
 	free(str);
 	printf("FT_TREAT_ALL: str vaut %s\n", newstr);
