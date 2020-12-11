@@ -198,5 +198,5 @@ int	ft_printf(const char *format, ...)
 	*/
 	va_end(arguments);
 	//ft_putstr_fd(printable, 1);
-	return (ft_strlen(printable));
+	return ((int)ft_strlen(printable));
 }
