@@ -64,10 +64,10 @@ static void ft_get_flag(const char *format, int *index, va_list arguments, ft_fl
 {
 	char flag;
 
-	printf("OK\n");
 	flag = format[*index];
 	while (!(ft_chrchr(format[*index])))
 	{
+		printf("OK\n");
 		if (flag == '0' || flag == '.' || flag == '-')
 			*index += 1;
 		if (flag == '0')
