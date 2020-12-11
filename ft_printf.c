@@ -53,7 +53,7 @@ static int ft_star_or_digit(const char *format, va_list arguments, int *index)
 	}
 	else
 	{
-		*index += (int)ft_strlen(ft_itoa(ft_atoi(format + index))) - 1;
+		*index += (int)ft_strlen(ft_itoa(ft_atoi(format + *index))) - 1;
 		printf("%d", *index);
 		flag_many = ft_atoi(format);
 	}
