@@ -71,13 +71,13 @@ static void ft_get_flag(const char *format, ft_flags *flags, va_list arguments, 
 	if (flag == '0' || flag == '.' || flag == '-')
 		*index += 1;
 	if (flag == '0')
-		flag->zero = ft_star_or_digit(format + 1, arguments, &index);
+		flag->zero = ft_star_or_digit(format + 1, arguments, **index);
 	if (flag == '.')
-		flag->dot = ft_star_or_digit(format + 1, arguments, &index);
+		flag->dot = ft_star_or_digit(format + 1, arguments, **index);
 	if (flag == '-')
 		flag->minus = 1;
 	if (ft_isdigit(flag) || flag == '*')
-		flag->width = ft_star_or_digit(format, arguments, &index);
+		flag->width = ft_star_or_digit(format, arguments, **index);
 }
 
 // On parcours les flags dans une boucle, tant que ce ne sont pas des caractères à convertir on y reste
@@ -88,7 +88,7 @@ static void ft_treat_flags(const char *format, char *printable, int *index, va_l
 	new_index = 0;
 	while (!(ft_chrchr(format[new_index])))
 	{
-		ft_get_flag(format + new_index, **flags, arguments, *index);
+		ft_get_flag(format + new_index, **flags, arguments, &*index);
 		new_index++;
 	}
 	*index += new_index;
