@@ -67,7 +67,7 @@ static void ft_get_flag(const char *format, int *index, va_list arguments, ft_fl
 	flag = format[*index];
 	while (!(ft_chrchr(format[*index])))
 	{
-		printf("%d\n", index);
+		printf("%d\n", *index);
 		if (flag == '0' || flag == '.' || flag == '-')
 			*index += 1;
 		if (flag == '0')
