@@ -178,7 +178,7 @@ int	ft_printf(const char *format, ...)
 	{
 		if (format[index] == '%')
 		{
-			printf("Entrée dans le if OK");
+			printf("Entrée dans le if OK\n");
 			index++;
 			if (format[index] == '%')
 			{
