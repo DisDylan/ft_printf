@@ -98,9 +98,11 @@ static char *ft_fill(char *str, char c, int nb)
 		strfilled[i] = c;
 		i++;
 	}
-	while (i < nb)
+	i = 0;
+	while (size_fill < nb)
 	{
-		strfilled[i] = c;
+		strfilled[size_fill] = str[i];
+		size_fill++;
 		i++;
 	}
 	strfilled[i] = '\0';
