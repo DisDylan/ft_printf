@@ -46,7 +46,7 @@ static int ft_star_or_digit(const char *format, va_list arguments, int *index)
 {
 	int flag_many;
 
-	if (format[index] == '*')
+	if (format[*index] == '*')
 	{
 		*index += 1;
 		flag_many = va_arg(arguments, int);
@@ -64,8 +64,8 @@ static void ft_get_flag(const char *format, int *index, va_list arguments, ft_fl
 {
 	char flag;
 
-	flag = format[index];
-	while (!(ft_chrchr(format[index])))
+	flag = format[*index];
+	while (!(ft_chrchr(format[*index])))
 	{
 		if (flag == '0' || flag == '.' || flag == '-')
 			*index += 1;
