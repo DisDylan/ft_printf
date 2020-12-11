@@ -92,6 +92,7 @@ static void ft_treat_flags(const char *format, int *index, va_list arguments, ft
 	new_index = 0;
 	while (!(ft_chrchr(format[new_index])))
 	{
+		printf("ok dans la boucle\n");
 		ft_get_flag(format + new_index, &*flags, arguments, &*index, &new_index);
 		new_index++;
 	}
