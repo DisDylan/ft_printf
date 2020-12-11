@@ -172,7 +172,7 @@ static char *ft_treat_all(char *str, ft_flags *flags)
 	{
 		tmp = ft_strdup(newstr);
 		free(newstr);
-		newstr = ft_fill(tmp, ' ', flags->width);
+		newstr = ft_fill(tmp, (unsigned char)' ', flags->width);
 		free(tmp);
 	}
 	if (flags->zero > size)
@@ -180,7 +180,7 @@ static char *ft_treat_all(char *str, ft_flags *flags)
 		tmp = ft_strdup(newstr);
 		printf("tmp vaut %s\n", tmp);
 		free(newstr);
-		newstr = ft_fill(tmp, '0', flags->width);
+		newstr = ft_fill(tmp, (unsigned char)'0', flags->width);
 		free(tmp);
 	}
 	free(str);
