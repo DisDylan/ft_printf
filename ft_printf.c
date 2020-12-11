@@ -154,6 +154,7 @@ static char *ft_treat_all(char *str, ft_flags flags)
 		newstr = ft_strdup(str);
 	if (flags.width > size)
 	{
+		printf("OK\n");
 		free(newstr);
 		newstr = ft_fill(str, ' ', flags.width);
 	}

@@ -21,7 +21,6 @@ int main(void)
 	printf("\n\n\n\n|||||||||||||||||||||||NEW TEST|||||||||||||||||||||\n");
 	pf = printf("PRINTF:%d$\n", 42);
 	pft = ft_printf("FT_ptf:%d$\n", 42);
-	printf("%d pour printf et %d pour ft\n", pf, pft);
 	if (pf == pft)
 		printf(GREEN "| OK |\n" RESET);
 	else
@@ -30,7 +29,6 @@ int main(void)
 	printf("\n\n\n\n|||||||||||||||||||||||NEW TEST|||||||||||||||||||||\n");
 	pf = printf("PRINTF:%d Hello l'ami\n", 42);
 	pft = ft_printf("FT_ptf:%d Hello l'ami\n", 42);
-	printf("%d pour printf et %d pour ft\n", pf, pft);
 	if (pf == pft)
 		printf(GREEN "| OK |\n" RESET);
 	else
@@ -39,7 +37,6 @@ int main(void)
 	printf("\n\n\n\n|||||||||||||||||||||||NEW TEST|||||||||||||||||||||\n");
 	pf = printf("PRINTF:%u$\n", -42);
 	pft = ft_printf("FT_ptf:%u$\n", -42);
-	printf("%d pour printf et %d pour ft\n", pf, pft);
 	if (pf == pft)
 		printf(GREEN "| OK |\n" RESET);
 	else
@@ -48,7 +45,6 @@ int main(void)
 	printf("\n\n\n\n|||||||||||||||||||||||NEW TEST|||||||||||||||||||||\n");
 	pf = printf("PRINTF:%s$\n", "une string");
 	pft = ft_printf("FT_ptf:%s$\n", "une string");
-	printf("%d pour printf et %d pour ft\n", pf, pft);
 	if (pf == pft)
 		printf(GREEN "| OK |\n" RESET);
 	else
@@ -57,7 +53,6 @@ int main(void)
 	printf("\n\n\n\n|||||||||||||||||||||||NEW TEST|||||||||||||||||||||\n");
 	pf = printf("PRINTF:%%$\n");
 	pft = ft_printf("FT_ptf:%%$\n");
-	printf("%d pour printf et %d pour ft\n", pf, pft);
 	if (pf == pft)
 		printf(GREEN "| OK |\n" RESET);
 	else
@@ -75,7 +70,6 @@ int main(void)
 	printf("\n\n\n\n|||||||||||||||||||||||NEW TEST|||||||||||||||||||||\n");
 	pf = printf("PRINTF: %10s$\n", "abcedef");
 	pft = ft_printf("FT_ptf: %10s$\n", "abcedef");
-	printf("%d pour printf et %d pour ft\n", pf, pft);
 	if (pf == pft)
 		printf(GREEN "| OK |\n" RESET);
 	else
@@ -84,7 +78,6 @@ int main(void)
 	printf("\n\n\n\n|||||||||||||||||||||||NEW TEST|||||||||||||||||||||\n");
 	pf = printf("PRINTF:%.5s\n", "abcdef");
 	pft = ft_printf("FT_printf:%.5s\n", "abcdef");
-	printf("%d pour printf et %d pour ft\n", pf, pft);
 	if (pf == pft)
 		printf(GREEN "| OK |\n" RESET);
 	else
@@ -93,7 +86,6 @@ int main(void)
 	printf("\n\n\n\n|||||||||||||||||||||||NEW TEST|||||||||||||||||||||\n");
 	pf = printf("PRINTF:%10.5s\n", "abcedef");
 	pft = ft_printf("FT_printf:%10.5s\n", "abcedef");
-	printf("%d pour printf et %d pour ft\n", pf, pft);
 	if (pf == pft)
 		printf(GREEN "| OK |\n" RESET);
 	else
