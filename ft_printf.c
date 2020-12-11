@@ -77,8 +77,6 @@ static void ft_get_flag(const char *format, int *index, va_list arguments, ft_fl
 			flags->minus = 1;
 		if (ft_isdigit(flag) || flag == '*')
 			flags->width = ft_star_or_digit(format, arguments, index);
-		*index++;
-		*index--;
 	}
 }
 
