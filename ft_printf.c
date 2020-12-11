@@ -101,7 +101,8 @@ static char *ft_treat_convert(const char *format, int *index, va_list arguments)
 	char c;
 	char *str;
 
-	c = format[0];
+	c = format[*index];
+	printf("ok içi\n");
 	//if (c == 'c')
 	//	str = ft_strdup(va_arg(arguments, int));
 	if (c == 's')
@@ -116,7 +117,6 @@ static char *ft_treat_convert(const char *format, int *index, va_list arguments)
 		str = ft_strdup(ft_itoa(va_arg(arguments, int)));
 	if (c == 'X')
 		str = ft_strdup(ft_itoa(va_arg(arguments, int)));
-	printf("str vaut %s\n", str);
 	return (str);
 }
 
@@ -189,7 +189,6 @@ int	ft_printf(const char *format, ...)
 			if (format[index] != '%')
 			{
 				ft_get_flag(format, &index, arguments, &flags);
-				printf("ok içi\n");
 				tmp = ft_treat_all(ft_treat_convert(format, &index, arguments), flags);
 				ft_putstr_fd(tmp, 1);
 				size += (int)ft_strlen(tmp);
