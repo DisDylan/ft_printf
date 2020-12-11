@@ -195,7 +195,6 @@ int	ft_printf(const char *format, ...)
 				index++;
 			}
 			ft_treat_flags(format + index, &index, arguments, &flags);
-			printf
 			printf("treat_flags OK\n");
 			tmp = ft_treat_all(ft_treat_convert(format + index, arguments), flags);
 			printf("treat all OK\n");
