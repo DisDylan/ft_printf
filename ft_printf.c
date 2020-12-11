@@ -161,7 +161,7 @@ static char *ft_treat_all(char *str, ft_flags flags)
 		newstr = ft_strdup((const char*)ft_fill(str, ' ', flags.width));
 	}
 	free(str);
-	printf("FT_TREAT_ALL: str vaut %s\n", str);
+	printf("FT_TREAT_ALL: str vaut %s\n", newstr);
 	return (newstr);
 }
 
@@ -176,7 +176,6 @@ int	ft_printf(const char *format, ...)
 
 	flags = init_flags();
 	index = 0;
-	tmp = NULL;	
 	va_start(arguments, format);
 	// FONCTIONS TRAITEMENT DE LA CHAINE
 	printf("post boucle ok \n");
