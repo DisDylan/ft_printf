@@ -9,7 +9,7 @@
 /*   Updated: 2020/12/09 16:58:37 by dpoinsu          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
-!SAVE!
+
 #include "includes/ft_printf.h"
 
 // Initialisation de ma structure de flags
@@ -51,19 +51,19 @@ int ft_star_or_digit(const char *format, va_list arguments, int *index)
 	if (format[0] == '*')
 	{
 		count += 1;
-		flag_many = va_arg(arg int)
+		flag_many = va_arg(arguments, int);
 	}
 	else
 	{
-		count += ft_atoi(ft_strlen(ft_itoa(ft_atoi(format))));
+		count += (int)ft_strlen(ft_itoa(ft_atoi(format)));
 		flag_many = ft_atoi(format);
 	}
 	*index += count;
-	return (flag_many)
+	return (flag_many);
 }
 
 // On assigne les valeurs passées en paramètres aux flags et/ou la width
-void ft_get_flag(const char *format, ft_flags *flags, va_liste arguments, int *index)
+void ft_get_flag(const char *format, ft_flags *flags, va_list arguments, int *index)
 {
 	char flag;
 
