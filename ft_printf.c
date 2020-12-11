@@ -169,7 +169,7 @@ int	ft_printf(const char *format, ...)
 	char *tmp;
 
 	flags = init_flags();
-	printable = NULL;
+	printable = " ";
 	index = 0;
 	tmp = NULL;	
 	va_start(arguments, format);
@@ -197,6 +197,6 @@ int	ft_printf(const char *format, ...)
 	}
 	*/
 	va_end(arguments);
-	//ft_putstr_fd(printable, 1);
-	return (ft_strlen("hello"));
+	ft_putstr_fd(printable, 1);
+	return (ft_strlen(printable));
 }
