@@ -66,6 +66,7 @@ static void ft_get_flag(const char *format, int *index, va_list arguments, ft_fl
 
 	while (!(ft_chrchr(format[*index])))
 	{
+		printf("flag.width = %d\n", flags->width);
 		flag = format[*index];
 		if (flag == '0' || flag == '.' || flag == '-')
 			*index += 1;
@@ -77,6 +78,7 @@ static void ft_get_flag(const char *format, int *index, va_list arguments, ft_fl
 			flags->minus = 1;
 		else if (ft_isdigit(flag) || flag == '*')
 			flags->width = ft_star_or_digit(format, arguments, index);
+		printf("flag.width = %d\n", flags->width);
 	}
 }
 
