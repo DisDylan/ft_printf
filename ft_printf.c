@@ -115,7 +115,6 @@ static char *ft_treat_convert(const char *format, va_list arguments)
 		str = ft_strdup(ft_itoa(va_arg(arguments, int)));
 	if (c == 'X')
 		str = ft_strdup(ft_itoa(va_arg(arguments, int)));
-		printf("len: %d", (int)ft_strlen(str));
 	return (str);
 }
 
@@ -190,7 +189,7 @@ int	ft_printf(const char *format, ...)
 				ft_treat_flags(format + index, &index, arguments, &flags);
 				tmp = ft_treat_all(ft_treat_convert(format + index, arguments), flags);
 				ft_putstr_fd(tmp, 1);
-				size += (int)ft_strlen(tmp) - 1;
+				size += (int)ft_strlen(tmp);
 				free(tmp);
 				index++;
 			}
