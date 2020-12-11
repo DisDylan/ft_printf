@@ -96,6 +96,7 @@ static char *ft_fill(char *str, char c, int nb)
 	{
 		printf("i=%d\n", i);
 		strfilled[i] = c;
+		printf("strfilled[i]:%c\n", strfilled[i]);
 		i++;
 	}
 	i = 0;
@@ -103,7 +104,7 @@ static char *ft_fill(char *str, char c, int nb)
 	{
 		printf("sizefill=%d/i=%d/nb=%d/str[i]=%c\n", size_fill, i, nb, str[i]);
 		strfilled[size_fill] = str[i];
-		printf("strfilled[size_fill]:%c", strfilled[size_fill]);
+		printf("strfilled[size_fill]:%c\n", strfilled[size_fill]);
 		size_fill++;
 		i++;
 	}
