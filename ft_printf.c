@@ -88,7 +88,7 @@ static void ft_treat_flags(const char *format, char *printable, int *index, va_l
 	new_index = 0;
 	while (!(ft_chrchr(format[new_index])))
 	{
-		ft_get_flag(format + new_index, **flags, arguments, &*index);
+		ft_get_flag(format + new_index, &*flags, arguments, &*index);
 		new_index++;
 	}
 	*index += new_index;
