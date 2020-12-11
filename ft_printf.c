@@ -170,6 +170,7 @@ int	ft_printf(const char *format, ...)
 
 	flags = init_flags();
 	printable = NULL;
+	index = 0;
 	tmp = NULL;	
 	va_start(arguments, format);
 	// FONCTIONS TRAITEMENT DE LA CHAINE
