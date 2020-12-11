@@ -147,7 +147,6 @@ static char *ft_treat_all(char *str, ft_flags flags)
 	int size;
 	char *newstr;
 
-	printf("OK\n");
 	size = ft_strlen(str);
 	if (flags.dot < size && flags.dot > 0)
 		newstr = ft_substr(str, 0, flags.dot);
@@ -189,6 +188,7 @@ int	ft_printf(const char *format, ...)
 			if (format[index] != '%')
 			{
 				ft_get_flag(format, &index, arguments, &flags);
+				printf("OK\n");
 				tmp = ft_treat_all(ft_treat_convert(format, &index, arguments), flags);
 				ft_putstr_fd(tmp, 1);
 				size += (int)ft_strlen(tmp);
