@@ -62,28 +62,6 @@ static int ft_star_or_digit(const char *format, va_list arguments, int *index)
 	return (flag_many);
 }
 
-// On rempli la chaîne avec le caractère passé en paramètre sur n caractères
-static char *ft_fill(char *str, char c, int nb)
-{
-	char *strfilled;
-	int i;
-
-	strfilled = (char*)malloc(sizeof(strfilled) * (nb + 1));
-	i = 0;
-	while (str[i])
-	{
-		strfilled[i] = str[i];
-		i++;
-	}
-	while (i < nb)
-	{
-		strfilled[i] = c;
-		i++;
-	}
-	strfilled[i] = '$';
-	return (strfilled);
-}
-
 // On assigne les valeurs passées en paramètres aux flags et/ou la width
 static void ft_get_flag(const char *format, ft_flags *flags, va_list arguments, int *index)
 {
@@ -138,6 +116,30 @@ static char *ft_treat_convert(const char *format, va_list arguments)
 	if (c == 'X')
 		str = ft_strdup(ft_itoa(va_arg(arguments, int)));
 	return (str);
+}
+
+// On rempli la chaîne avec le caractère passé en paramètre sur n caractères
+static char *ft_fill(char *str, char c, int nb)
+{
+	char *strfilled;
+	int i;
+
+	printf("DANS FILL STR VAUT %s\n", str);
+	strfilled = (char*)malloc(sizeof(strfilled) * (nb + 1));
+	i = 0;
+	while (str[i])
+	{
+		strfilled[i] = str[i];
+		i++;
+	}
+	printf("Après la première boucle strfilled vaut %s\n", strfilled);
+	while (i < nb)
+	{
+		strfilled[i] = c;
+		i++;
+	}
+	strfilled[i] = '$';
+	return (strfilled);
 }
 
 // Fonction où l'on va modifier la chaine de caractères en fonction des flags
