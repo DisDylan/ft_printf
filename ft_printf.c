@@ -90,11 +90,12 @@ static char *ft_fill(char *str, char c, int nb)
 	size_fill = nb - (int)ft_strlen(str);
 	strfilled = (char*)malloc(sizeof(*strfilled) * (nb + 1));
 	i = 0;
-	printf(str);
+	printf("c = %c\n", c);
 	while (i <= size_fill)
 	{
 		strfilled[i] = (unsigned char)c;
 		i++;
+		printf("strfilled[i] = %c", c);
 	}
 	i = 0;
 	while (size_fill <= nb)
@@ -102,6 +103,7 @@ static char *ft_fill(char *str, char c, int nb)
 		strfilled[size_fill] = str[i];
 		size_fill++;
 		i++;
+		printf("strfilled[i] = %c", c);
 	}
 	strfilled[size_fill] = '\0';
 	return (strfilled);
