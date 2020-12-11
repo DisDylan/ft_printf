@@ -145,7 +145,6 @@ static char *ft_treat_all(char *str, ft_flags flags)
 	int size;
 	char *newstr;
 
-	printf("FT_TREAT_ALL: str vaut %s\n", str);
 	size = ft_strlen(str);
 	if (flags.dot < size)
 		newstr = ft_substr(str, 0, flags.dot);
@@ -162,6 +161,7 @@ static char *ft_treat_all(char *str, ft_flags flags)
 		newstr = ft_strdup((const char*)ft_fill(str, ' ', flags.width));
 	}
 	free(str);
+	printf("FT_TREAT_ALL: str vaut %s\n", str);
 	return (newstr);
 }
 
