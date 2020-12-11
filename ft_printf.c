@@ -176,7 +176,6 @@ int	ft_printf(const char *format, ...)
 	printf("post boucle ok \n");
 	while (format[index])
 	{
-		printf("Entrée dans la boucle ok");
 		if (format[index] == '%')
 		{
 			printf("Entrée dans le if OK");
