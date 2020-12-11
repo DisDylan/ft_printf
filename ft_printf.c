@@ -42,7 +42,7 @@ static int ft_chrchr(char format_letter)
 }
 
 // On retourne soit la valeur d'un des arguments si *, sinon le nombre passé en paramètre
-static int ft_star_or_digit(const char *format, va_list arguments, int **index)
+static int ft_star_or_digit(const char *format, va_list arguments, int **index, int **nindex)
 {
 	int count;
 	int flag_many;
@@ -59,31 +59,43 @@ static int ft_star_or_digit(const char *format, va_list arguments, int **index)
 		flag_many = ft_atoi(format);
 	}
 	**index += count;
+	**nindex += count;
 	return (flag_many);
 }
 
 // On assigne les valeurs passées en paramètres aux flags et/ou la width
-static void ft_get_flag(const char *format, ft_flags *flags, va_list arguments, int *index)
+static void ft_get_flag(const char *format, ft_flags *flags, va_list arguments, int *index, int *nindex)
 {
 	char flag;
 
 	flag = format[0];
 	if (flag == '0' || flag == '.' || flag == '-')
+	{
 		*index += 1;
+		*nindex += 1;
+	}
 	if (flag == '0')
-		flags->zero = ft_star_or_digit(format + 1, arguments, &*index);
+		flags->zero = ft_star_or_digit(format + 1, arguments, &*index, &*nindex);
 	if (flag == '.')
-		flags->dot = ft_star_or_digit(format + 1, arguments, &*index);
+		flags->dot = ft_star_or_digit(format + 1, arguments, &*index, &*nindex);
 	if (flag == '-')
 		flags->minus = 1;
 	if (ft_isdigit(flag) || flag == '*')
+		flags->width = ft_star_or_digit(format, arguments, &*index), &*nindex);
+}
+
+// On parcours les flags dans une boucle, tant que ce ne sont pas des caractères à convertir on y reste
+static void ft_treat_flags(const char *format, int *index, va_list arguments, ft_flags *flags)
+{
+	int new_index;
+
+	new_index = 0;
+	while (!(ft_chrchr(format[new_index])))
 	{
-		printf("condition verifiee pour width\n");
-		printf("index avant %d\n", *index);
-		flags->width = ft_star_or_digit(format, arguments, &*index);
-		printf("index après %d\n", *index);
-		printf("%d\n", flags->width)
+		ft_get_flag(format + new_index, &*flags, arguments, &*index, &new_index);
+		new_index++;
 	}
+	*index += new_index;
 }
 
 // On traite le caractère à convertir
@@ -180,7 +192,7 @@ int	ft_printf(const char *format, ...)
 			index++;
 			if (format[index] != '%')
 			{
-				ft_get_flags(format + index, &index, arguments, &flags);
+				ft_treat_flags(format + index, &index, arguments, &flags);
 				printf("flags %d width\n", flags.width);
 				tmp = ft_treat_all(ft_treat_convert(format + index, arguments), flags);
 				ft_putstr_fd(tmp, 1);
