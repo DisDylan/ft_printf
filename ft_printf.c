@@ -137,7 +137,7 @@ static char *ft_fill(char *str, char c, int nb)
 		strfilled[i] = c;
 		i++;
 	}
-	strfilled[i] = '$';
+	strfilled[i] = '\0';
 	return (strfilled);
 }
 
