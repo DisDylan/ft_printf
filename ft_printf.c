@@ -101,7 +101,7 @@ static char *ft_fill(char *str, char c, int nb)
 	i = 0;
 	while (size_fill <= nb)
 	{
-		printf("sizefill=%d/i=%d/nb=%d\n", size_fill, i, nb);
+		printf("sizefill=%d/i=%d/nb=%d/str[i]=%c\n", size_fill, i, nb, str[i]);
 		strfilled[size_fill] = str[i];
 		size_fill++;
 		i++;
