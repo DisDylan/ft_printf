@@ -42,7 +42,7 @@ static int ft_chrchr(char format_letter)
 }
 
 // On retourne soit la valeur d'un des arguments si *, sinon le nombre passé en paramètre
-static int ft_star_or_digit(const char *format, va_list arguments, int *index)
+static int ft_star_or_digit(const char *format, va_list arguments, int **index)
 {
 	int count;
 	int flag_many;
@@ -58,7 +58,7 @@ static int ft_star_or_digit(const char *format, va_list arguments, int *index)
 		count += (int)ft_strlen(ft_itoa(ft_atoi(format)));
 		flag_many = ft_atoi(format);
 	}
-	*index += count;
+	**index += count;
 	return (flag_many);
 }
 
@@ -83,15 +83,7 @@ static void ft_get_flag(const char *format, ft_flags *flags, va_list arguments, 
 // On parcours les flags dans une boucle, tant que ce ne sont pas des caractères à convertir on y reste
 static void ft_treat_flags(const char *format, int *index, va_list arguments, ft_flags *flags)
 {
-	int new_index;
-
-	new_index = 0;
-	while (!(ft_chrchr(format[new_index])))
-	{
-		ft_get_flag(format + new_index, &*flags, arguments, &*index);
-		new_index++;
-	}
-	*index += new_index;
+	ft_get_flag(format + new_index, &*flags, arguments, &*index);
 }
 
 // On traite le caractère à convertir
