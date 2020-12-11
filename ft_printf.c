@@ -91,7 +91,7 @@ static char *ft_fill(char *str, char c, int nb)
 	strfilled = (char*)malloc(sizeof(*strfilled) * (nb + 1));
 	i = 0;
 	printf("c = %c\n", c);
-	printf("nb = %d\n", nb);
+	printf("nb = %d & size_fill = %d\n", nb, size_fill);
 	while (i <= size_fill)
 	{
 		strfilled[i] = (unsigned char)c;
@@ -178,6 +178,7 @@ static char *ft_treat_all(char *str, ft_flags *flags)
 	if (flags->zero > size)
 	{
 		tmp = ft_strdup(newstr);
+		printf("tmp vaut %s\n", tmp);
 		free(newstr);
 		newstr = ft_fill(tmp, '0', flags->width);
 		free(tmp);
