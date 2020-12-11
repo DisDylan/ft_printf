@@ -77,13 +77,13 @@ static void ft_get_flag(const char *format, ft_flags *flags, va_list arguments, 
 	if (flag == '-')
 		flags->minus = 1;
 	if (ft_isdigit(flag) || flag == '*')
+	{
+		printf("condition verifiee pour width\n");
+		printf("index avant %d\n", *index);
 		flags->width = ft_star_or_digit(format, arguments, &*index);
-}
-
-// On parcours les flags dans une boucle, tant que ce ne sont pas des caractères à convertir on y reste
-static void ft_treat_flags(const char *format, int *index, va_list arguments, ft_flags *flags)
-{
-	ft_get_flag(format + new_index, &*flags, arguments, &*index);
+		printf("index après %d\n", *index);
+		printf("%d\n", flags->width)
+	}
 }
 
 // On traite le caractère à convertir
@@ -180,7 +180,7 @@ int	ft_printf(const char *format, ...)
 			index++;
 			if (format[index] != '%')
 			{
-				ft_treat_flags(format + index, &index, arguments, &flags);
+				ft_get_flags(format + index, &index, arguments, &flags);
 				printf("flags %d width\n", flags.width);
 				tmp = ft_treat_all(ft_treat_convert(format + index, arguments), flags);
 				ft_putstr_fd(tmp, 1);
