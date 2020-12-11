@@ -56,6 +56,7 @@ static int ft_star_or_digit(const char *format, va_list arguments, int *index)
 		flag_many = ft_atoi(format + *index);
 		*index += (int)ft_strlen(ft_itoa(ft_atoi(format + *index)));
 	}
+	printf("flag_many = %d\n", flag_many);
 	return (flag_many);
 }
 
@@ -66,7 +67,7 @@ static void ft_get_flag(const char *format, int *index, va_list arguments, ft_fl
 
 	while (!(ft_chrchr(format[*index])))
 	{
-		printf("flag.width = %d\n", flags->width);
+		printf("flag.zero = %d\n", flags->zero);
 		flag = format[*index];
 		if (flag == '0' || flag == '.' || flag == '-')
 			*index += 1;
@@ -78,7 +79,7 @@ static void ft_get_flag(const char *format, int *index, va_list arguments, ft_fl
 			flags->minus = 1;
 		else if (ft_isdigit(flag) || flag == '*')
 			flags->width = ft_star_or_digit(format, arguments, index);
-		printf("flag.width = %d\n", flags->width);
+		printf("flag.zero = %d\n", flags->zero);
 	}
 }
 
