@@ -162,6 +162,7 @@ static char *ft_treat_all(char *str, ft_flags flags)
 	char *tmp;
 
 	size = ft_strlen(str);
+	printf("dot = %d\n", flags.dot);
 	if (flags.dot < size && flags.dot > 0)
 		newstr = ft_substr(str, 0, flags.dot);
 	else
