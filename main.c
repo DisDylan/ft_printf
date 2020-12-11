@@ -19,23 +19,23 @@ int main(void)
 	int pft;
 
 	printf("\n\n\n\n|||||||||||||||||||||||NEW TEST|||||||||||||||||||||\n");
-	pf = printf("PRINTF:%d\n", 42);
-	pft = ft_printf("FT_printf:%d\n", 42);
+	pf = printf("PRINTF:%d$\n", 42);
+	pft = ft_printf("FT_ptf:%d$\n", 42);
 	printf("%d pour printf et %d pour ft\n", pf, pft);
 
 	printf("\n\n\n\n|||||||||||||||||||||||NEW TEST|||||||||||||||||||||\n");
-	pf = printf("PRINTF:%u\n", -42);
-	pft = ft_printf("FT_printf:%u\n", -42);
+	pf = printf("PRINTF:%u$\n", -42);
+	pft = ft_printf("FT_ptf:%u$\n", -42);
 	printf("%d pour printf et %d pour ft\n", pf, pft);
 
 	printf("\n\n\n\n|||||||||||||||||||||||NEW TEST|||||||||||||||||||||\n");
-	pf = printf("PRINTF:%s\n", "une string");
-	pft = ft_printf("FT_printf:%s\n", "une string");
+	pf = printf("PRINTF:%s$\n", "une string");
+	pft = ft_printf("FT_ptf:%s$\n", "une string");
 	printf("%d pour printf et %d pour ft\n", pf, pft);
 
 	printf("\n\n\n\n|||||||||||||||||||||||NEW TEST|||||||||||||||||||||\n");
-	pf = printf("PRINTF:%%\n");
-	pft = ft_printf("FT_printf:%%\n");
+	pf = printf("PRINTF:%%$\n");
+	pft = ft_printf("FT_ptf:%%$\n");
 	printf("%d pour printf et %d pour ft\n", pf, pft);
 
 	/*printf("\n\n\n\n|||||||||||||||||||||||NEW TEST|||||||||||||||||||||\n");
@@ -44,8 +44,8 @@ int main(void)
 	printf("%d pour printf et %d pour ft\n", pf, pft);*/
 
 	printf("\n\n\n\n|||||||||||||||||||||||NEW TEST|||||||||||||||||||||\n");
-	pf = printf("PRINTF: %10s\n", "abcedef");
-	pft = ft_printf("FT_printf: %10s\n", "abcedef");
+	pf = printf("PRINTF: %10s$\n", "abcedef");
+	pft = ft_printf("FT_ptf: %10s$\n", "abcedef");
 	printf("%d pour printf et %d pour ft\n", pf, pft);
 
 	printf("\n\n\n\n|||||||||||||||||||||||NEW TEST|||||||||||||||||||||\n");
