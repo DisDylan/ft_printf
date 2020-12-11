@@ -63,6 +63,7 @@ static int ft_star_or_digit(const char *format, va_list arguments, int *index)
 static ft_flags ft_get_flag(const char *format, int *index, va_list arguments)
 {
 	char flag;
+	ft_flags flags;
 
 	flag = format[*index];
 	while (!(ft_chrchr(format[*index])))
@@ -78,6 +79,7 @@ static ft_flags ft_get_flag(const char *format, int *index, va_list arguments)
 		if (ft_isdigit(flag) || flag == '*')
 			flags->width = ft_star_or_digit(format, arguments, index);
 	}
+	return (flags);
 }
 
 // On traite le caractère à convertir
