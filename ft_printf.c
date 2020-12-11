@@ -115,6 +115,7 @@ static char *ft_treat_convert(const char *format, va_list arguments)
 		str = ft_strdup(ft_itoa(va_arg(arguments, int)));
 	if (c == 'X')
 		str = ft_strdup(ft_itoa(va_arg(arguments, int)));
+	printf("str vaut %s\n", str);
 	return (str);
 }
 
