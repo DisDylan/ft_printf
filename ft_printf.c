@@ -92,12 +92,11 @@ static char *ft_fill(char *str, char c, int nb)
 	i = 0;
 	printf("c = %c\n", c);
 	printf("nb = %d\n", nb);
-	printf("strfilled[i] = |%c|\n", strfilled[i]);
 	while (i <= size_fill)
 	{
 		strfilled[i] = (unsigned char)c;
-		i++;
 		printf("strfilled[i] = |%c|\n", strfilled[i]);
+		i++;
 	}
 	i = 0;
 	while (size_fill <= nb)
