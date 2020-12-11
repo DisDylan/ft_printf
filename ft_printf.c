@@ -155,7 +155,7 @@ static char *ft_fill_minus(char *str, char c, int nb)
 }
 
 // Fonction où l'on va modifier la chaine de caractères en fonction des flags
-static char *ft_treat_all(char *str, ft_flags flags)
+static char *ft_treat_all(char *str, ft_flags *flags)
 {
 	int size;
 	char *newstr;
@@ -210,7 +210,7 @@ int	ft_printf(const char *format, ...)
 			if (format[index] != '%')
 			{
 				ft_get_flag(format, &index, arguments, &flags);
-				tmp = ft_treat_all(ft_treat_convert(format, &index, arguments), flags);
+				tmp = ft_treat_all(ft_treat_convert(format, &index, arguments), &flags);
 				ft_putstr_fd(tmp, 1);
 				size += (int)ft_strlen(tmp);
 				free(tmp);
