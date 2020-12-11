@@ -79,22 +79,7 @@ static void ft_get_flag(const char *format, int *index, va_list arguments, ft_fl
 			flags->width = ft_star_or_digit(format, arguments, index);
 	}
 }
-/*
-// On parcours les flags dans une boucle, tant que ce ne sont pas des caractères à convertir on y reste
-static void ft_treat_flags(const char *format, int *index, va_list arguments, ft_flags *flags)
-{
-	int new_index;
 
-	new_index = 0;
-	while (!(ft_chrchr(format[new_index])))
-	{
-		printf("ok dans la boucle\n");
-		ft_get_flag(format + new_index, &*flags, arguments, &index, &new_index);
-		printf("ok après get flag");
-	}
-	*index += new_index;
-}
-*/
 // On traite le caractère à convertir
 static char *ft_treat_convert(const char *format, int *index, va_list arguments)
 {

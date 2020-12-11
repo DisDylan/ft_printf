@@ -27,8 +27,8 @@ int main(void)
 		printf(RED "| KO |\n" RESET);
 	
 	printf("\n\n\n\n|||||||||||||||||||||||NEW TEST|||||||||||||||||||||\n");
-	pf = printf("PRINTF:%d Hello l'ami\n", 42);
-	pft = ft_printf("FT_ptf:%d Hello l'ami\n", 42);
+	pf = printf("PRINTF:%d Hello l'ami$\n", 42);
+	pft = ft_printf("FT_ptf:%d Hello l'ami$\n", 42);
 	if (pf == pft)
 		printf(GREEN "| OK |\n" RESET);
 	else
@@ -76,16 +76,16 @@ int main(void)
 		printf(RED "| KO |\n" RESET);
 
 	printf("\n\n\n\n|||||||||||||||||||||||NEW TEST|||||||||||||||||||||\n");
-	pf = printf("PRINTF:%.5s\n", "abcdef");
-	pft = ft_printf("FT_printf:%.5s\n", "abcdef");
+	pf = printf("PRINTF:%.5s$\n", "abcdef");
+	pft = ft_printf("FT_printf:%.5s$\n", "abcdef");
 	if (pf == pft)
 		printf(GREEN "| OK |\n" RESET);
 	else
 		printf(RED "| KO |\n" RESET);
 
 	printf("\n\n\n\n|||||||||||||||||||||||NEW TEST|||||||||||||||||||||\n");
-	pf = printf("PRINTF:%10.5s\n", "abcedef");
-	pft = ft_printf("FT_printf:%10.5s\n", "abcedef");
+	pf = printf("PRINTF:%10.5s$\n", "abcedef");
+	pft = ft_printf("FT_printf:%10.5s$\n", "abcedef");
 	if (pf == pft)
 		printf(GREEN "| OK |\n" RESET);
 	else
