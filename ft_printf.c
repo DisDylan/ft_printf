@@ -92,14 +92,13 @@ static char *ft_fill(char *str, char c, int nb)
 	size_fill = nb - (int)ft_strlen(str) - 1;
 	strfilled = (char*)malloc(sizeof(*strfilled) * nb + 1);
 	i = 0;
-	while (i < size_fill)
+	while (i <= size_fill)
 	{
 		strfilled[i] = c;
 		i++;
 	}
 	i = 0;
-	size_fill -= 1;
-	while (size_fill < nb)
+	while (size_fill <= nb)
 	{
 		strfilled[size_fill] = str[i];
 		size_fill++;
@@ -169,12 +168,12 @@ static char *ft_treat_all(char *str, ft_flags flags)
 	if (flags.width > size)
 	{
 		free(newstr);
-		newstr = ft_fill(str, ' ', flags.width);
+		newstr = ft_fill(str, '$', flags.width);
 	}
 	if (flags.zero > size)
 	{
 		free(newstr);
-		newstr = ft_fill(str, ' ', flags.width);
+		newstr = ft_fill(str, '0', flags.width);
 	}
 	free(str);
 	return (newstr);
