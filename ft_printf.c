@@ -98,6 +98,7 @@ static char *ft_fill(char *str, char c, int nb)
 		i++;
 	}
 	i = 0;
+	printf("sizefill = %d & nb = %d\n", size_fill, nb);
 	while (size_fill <= nb)
 	{
 		strfilled[size_fill] = str[i];
