@@ -176,11 +176,12 @@ int	ft_printf(const char *format, ...)
 	ft_flags flags;
 	va_list arguments;
 	int index;
-	int count;
+	int size;
 	char *tmp;
 
 	flags = init_flags();
 	index = 0;
+	size = 0;
 	va_start(arguments, format);
 	// FONCTIONS TRAITEMENT DE LA CHAINE
 	printf("post boucle ok \n");
@@ -188,10 +189,11 @@ int	ft_printf(const char *format, ...)
 	{
 		if (format[index] == '%')
 		{
-			printf("Entrée dans le if OK\n");
+			size++;
 			index++;
 			if (format[index] == '%')
 			{
+				size++;
 				index++;
 			}
 			ft_treat_flags(format + index, &index, arguments, &flags);
@@ -199,16 +201,16 @@ int	ft_printf(const char *format, ...)
 			tmp = ft_treat_all(ft_treat_convert(format + index, arguments), flags);
 			printf("treat all OK\n");
 			printf("tmp vaut %s\n", tmp);
+			ft_putstr_fd(tmp, 1);
+			size += (int)ft_strlen(tmp) - 1;
 			free(tmp);
 			index++;
 		}
-		/*
-		else
-			printable[index] = format[index];
-			*/
+		ft_putchar_fd(format[i], 1);
 		index++;
+		size++;
 	}
 	va_end(arguments);
 	//ft_putstr_fd(printable, 1);
-	return (index);
+	return (size);
 }
