@@ -183,7 +183,6 @@ int	ft_printf(const char *format, ...)
 	{
 		if (format[index] == '%')
 		{
-			size++;
 			index++;
 			if (format[index] != '%')
 			{
@@ -200,6 +199,5 @@ int	ft_printf(const char *format, ...)
 		size++;
 	}
 	va_end(arguments);
-	//ft_putstr_fd(printable, 1);
 	return (size);
 }
