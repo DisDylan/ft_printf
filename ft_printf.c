@@ -25,7 +25,7 @@ static ft_flags init_flags(void)
 }
 
 // On recherche si le caractère est un de ceux que l'on doit convertir
-int ft_chrchr(char format_letter)
+static int ft_chrchr(char format_letter)
 {
 	char *conversion;
 	int i;
@@ -42,7 +42,7 @@ int ft_chrchr(char format_letter)
 }
 
 // On retourne soit la valeur d'un des arguments si *, sinon le nombre passé en paramètre
-int ft_star_or_digit(const char *format, va_list arguments, int *index)
+static int ft_star_or_digit(const char *format, va_list arguments, int *index)
 {
 	int count;
 	int flag_many;
@@ -63,7 +63,7 @@ int ft_star_or_digit(const char *format, va_list arguments, int *index)
 }
 
 // On assigne les valeurs passées en paramètres aux flags et/ou la width
-void ft_get_flag(const char *format, ft_flags *flags, va_list arguments, int *index)
+static void ft_get_flag(const char *format, ft_flags *flags, va_list arguments, int *index)
 {
 	char flag;
 
@@ -71,31 +71,31 @@ void ft_get_flag(const char *format, ft_flags *flags, va_list arguments, int *in
 	if (flag == '0' || flag == '.' || flag == '-')
 		*index += 1;
 	if (flag == '0')
-		flag->zero = ft_star_or_digit(format + 1, arguments, *index);
+		flag->zero = ft_star_or_digit(format + 1, arguments, &index);
 	if (flag == '.')
-		flag->dot = ft_star_or_digit(format + 1, arguments, *index);
+		flag->dot = ft_star_or_digit(format + 1, arguments, &index);
 	if (flag == '-')
 		flag->minus = 1;
 	if (ft_isdigit(flag) || flag == '*')
-		flag->width = ft_star_or_digit(format, arguments, *index);
+		flag->width = ft_star_or_digit(format, arguments, &index);
 }
 
 // On parcours les flags dans une boucle, tant que ce ne sont pas des caractères à convertir on y reste
-void ft_treat_flags(const char *format, char *printable, int *index, va_list arguments, ft_flags *flags)
+static void ft_treat_flags(const char *format, char *printable, int *index, va_list arguments, ft_flags *flags)
 {
 	int new_index;
 
 	new_index = 0;
 	while (!(ft_chrchr(format[new_index])))
 	{
-		ft_get_flag(format + new_index, &flags, arguments, *index);
+		ft_get_flag(format + new_index, **flags, arguments, *index);
 		new_index++;
 	}
 	*index += new_index;
 }
 
 // On traite le caractère à convertir
-char *ft_treat_convert(const char *format, char *printable, va_list arguments)
+static char *ft_treat_convert(const char *format, char *printable, va_list arguments)
 {
 	char c;
 	char *str;
@@ -119,7 +119,7 @@ char *ft_treat_convert(const char *format, char *printable, va_list arguments)
 }
 
 // Fonction où l'on va modifier la chaine de caractères en fonction des flags
-char *ft_treat_all(char *str, ft_flags flags)
+static char *ft_treat_all(char *str, ft_flags flags)
 {
 	int size;
 	char *newstr;
@@ -139,7 +139,7 @@ char *ft_treat_all(char *str, ft_flags flags)
 }
 
 // On rempli la chaîne avec le caractère passé en paramètre sur n caractères
-char *ft_fill(char *str, char c, int nb)
+static char *ft_fill(char *str, char c, int nb)
 {
 	char *strfilled;
 	int i;
