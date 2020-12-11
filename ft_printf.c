@@ -168,7 +168,7 @@ static char *ft_treat_all(char *str, ft_flags flags)
 	if (flags.width > size)
 	{
 		free(newstr);
-		newstr = ft_fill(str, '$', flags.width);
+		newstr = ft_fill(str, ' ', flags.width);
 	}
 	if (flags.zero > size)
 	{
