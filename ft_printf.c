@@ -162,12 +162,10 @@ static char *ft_treat_all(char *str, ft_flags *flags)
 	char *tmp;
 
 	size = ft_strlen(str);
-	printf("dot = %d\n", flags->dot);
 	if (flags->dot < size && flags->dot > 0)
 		newstr = ft_substr(str, 0, flags->dot);
 	else
 		newstr = ft_strdup(str);
-	printf("newstr: %s\n", newstr);
 	if (flags->width > size)
 	{
 		tmp = ft_strdup(newstr);
@@ -182,7 +180,6 @@ static char *ft_treat_all(char *str, ft_flags *flags)
 		newstr = ft_fill(tmp, '0', flags->width);
 		free(tmp);
 	}
-	printf("newstr: %s\n", newstr);
 	free(str);
 	return (newstr);
 }
