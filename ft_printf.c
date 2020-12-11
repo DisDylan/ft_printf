@@ -68,7 +68,9 @@ static char *ft_fill(char *str, char c, int nb)
 	char *strfilled;
 	int i;
 
+	strfilled = NULL;
 	ft_bzero(strfilled, (size_t)nb);
+	i = 0;
 	while (str[i])
 	{
 		strfilled[i] = str[i];
@@ -181,7 +183,7 @@ int	ft_printf(const char *format, ...)
 				printable[index] = '%';
 				index++;
 			}
-			ft_treat_flags(format + index, printable, &index, arguments, &flags);
+			ft_treat_flags(format + index, &index, arguments, &flags);
 			tmp = ft_treat_all(ft_treat_convert(format + index, printable, arguments), flag);
 			printable = ft_strjoin(printable, tmp);
 			index++;
