@@ -60,7 +60,7 @@ static int ft_star_or_digit(const char *format, va_list arguments, int *index)
 }
 
 // On assigne les valeurs passées en paramètres aux flags et/ou la width
-static void ft_get_flag(const char *format, int *index, va_list arguments, ft_flags *flags)
+static ft_flags ft_get_flag(const char *format, int *index, va_list arguments)
 {
 	char flag;
 
@@ -172,7 +172,7 @@ int	ft_printf(const char *format, ...)
 			index++;
 			if (format[index] != '%')
 			{
-				ft_get_flag(format, &index, arguments, &flags);
+				flags = ft_get_flag(format, &index, arguments);
 				printf("value width: %d, dot: %d, zero: %d", flags.width, flags.dot, flags.zero);
 				tmp = ft_treat_all(ft_treat_convert(format, &index, arguments), flags);
 				ft_putstr_fd(tmp, 1);
