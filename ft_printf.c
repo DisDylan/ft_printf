@@ -176,9 +176,10 @@ int	ft_printf(const char *format, ...)
 	// FONCTIONS TRAITEMENT DE LA CHAINE
 	while (format[index])
 	{
+		printf("Entrée dans la boucle ok");
 		if (format[index] == '%')
 		{
-			//TRAITEMENT DE LA CHAINE
+			printf("Entrée dans le if OK");
 			index++;
 			if (format[index] == '%')
 			{
