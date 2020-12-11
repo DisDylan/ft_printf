@@ -81,7 +81,7 @@ static void ft_get_flag(const char *format, ft_flags *flags, va_list arguments, 
 }
 
 // On parcours les flags dans une boucle, tant que ce ne sont pas des caractères à convertir on y reste
-static void ft_treat_flags(const char *format, char *printable, int *index, va_list arguments, ft_flags *flags)
+static void ft_treat_flags(const char *format, int *index, va_list arguments, ft_flags *flags)
 {
 	int new_index;
 
