@@ -38,10 +38,10 @@ int main(void)
 	pft = ft_printf("FT_printf:%%\n");
 	printf("%d pour printf et %d pour ft\n", pf, pft);
 
-	printf("\n\n\n\n|||||||||||||||||||||||NEW TEST|||||||||||||||||||||\n");
+	/*printf("\n\n\n\n|||||||||||||||||||||||NEW TEST|||||||||||||||||||||\n");
 	pf = printf("PRINTF:%c\n", 'c');
 	pft = ft_printf("FT_printf:%c\n", 'c');
-	printf("%d pour printf et %d pour ft\n", pf, pft);
+	printf("%d pour printf et %d pour ft\n", pf, pft);*/
 
 	printf("\n\n\n\n|||||||||||||||||||||||NEW TEST|||||||||||||||||||||\n");
 	pf = printf("PRINTF: %10s\n", "abcedef");
