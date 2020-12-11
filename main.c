@@ -22,6 +22,11 @@ int main(void)
 	pf = printf("PRINTF:%d$\n", 42);
 	pft = ft_printf("FT_ptf:%d$\n", 42);
 	printf("%d pour printf et %d pour ft\n", pf, pft);
+	
+	printf("\n\n\n\n|||||||||||||||||||||||NEW TEST|||||||||||||||||||||\n");
+	pf = printf("PRINTF:%d Hello l'ami\n", 42);
+	pft = ft_printf("FT_ptf:%d Hello l'ami\n", 42);
+	printf("%d pour printf et %d pour ft\n", pf, pft);
 
 	printf("\n\n\n\n|||||||||||||||||||||||NEW TEST|||||||||||||||||||||\n");
 	pf = printf("PRINTF:%u$\n", -42);
