@@ -107,6 +107,7 @@ static char *ft_fill(char *str, char c, int nb)
 		i++;
 	}
 	strfilled[i] = '\0';
+	printf("strfilled=%s", strfilled);
 	return (strfilled);
 }
 
