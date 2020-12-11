@@ -195,7 +195,6 @@ int	ft_printf(const char *format, ...)
 				ft_putstr_fd(tmp, 1);
 				size += (int)ft_strlen(tmp);
 				free(tmp);
-				index++;
 			}
 		}
 		ft_putchar_fd(format[index], 1);
