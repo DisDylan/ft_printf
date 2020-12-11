@@ -64,24 +64,24 @@ static int ft_star_or_digit(const char *format, va_list arguments, int *index, i
 }
 
 // On assigne les valeurs passées en paramètres aux flags et/ou la width
-static void ft_get_flag(const char *format, ft_flags flags, va_list arguments, int *index, int *nindex)
+static void ft_get_flag(const char *format, ft_flags **flags, va_list arguments, int **index, int *nindex)
 {
 	char flag;
 
 	flag = format[0];
 	if (flag == '0' || flag == '.' || flag == '-')
 	{
-		*index += 1;
+		**index += 1;
 		*nindex += 1;
 	}
 	if (flag == '0')
-		flags->zero = ft_star_or_digit(format + 1, arguments, index, nindex);
+		flags->zero = ft_star_or_digit(format + 1, arguments, &**index, &*nindex);
 	if (flag == '.')
-		flags->dot = ft_star_or_digit(format + 1, arguments, index, nindex);
+		flags->dot = ft_star_or_digit(format + 1, arguments, &**index, &*nindex);
 	if (flag == '-')
 		flags->minus = 1;
 	if (ft_isdigit(flag) || flag == '*')
-		flags->width = ft_star_or_digit(format, arguments, index, nindex);
+		flags->width = ft_star_or_digit(format, arguments, &**index, &*nindex);
 }
 
 // On parcours les flags dans une boucle, tant que ce ne sont pas des caractères à convertir on y reste
@@ -93,7 +93,7 @@ static void ft_treat_flags(const char *format, int *index, va_list arguments, ft
 	while (!(ft_chrchr(format[new_index])))
 	{
 		printf("ok dans la boucle\n");
-		ft_get_flag(format + new_index, *flags, arguments, *index, &new_index);
+		ft_get_flag(format + new_index, &*flags, arguments, &*index, &new_index);
 		printf("ok après get flag");
 	}
 	*index += new_index;
