@@ -145,16 +145,22 @@ static char *ft_treat_all(char *str, ft_flags flags)
 	int size;
 	char *newstr;
 
+	printf("FT_TREAT_ALL: str vaut %s\n", str);
 	size = ft_strlen(str);
-	newstr = NULL;
 	if (flags.dot < size)
 		newstr = ft_substr(str, 0, flags.dot);
 	else
 		newstr = ft_strdup(str);
 	if (flags.width > (int)ft_strlen(newstr))
+	{
+		free(newstr);
 		newstr = ft_strdup((const char*)ft_fill(str, ' ', flags.width));
+	}
 	if (flags.zero > (int)ft_strlen(newstr))
+	{
+		free(newstr);
 		newstr = ft_strdup((const char*)ft_fill(str, ' ', flags.width));
+	}
 	free(str);
 	return (newstr);
 }
