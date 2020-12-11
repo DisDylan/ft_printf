@@ -169,7 +169,7 @@ int	ft_printf(const char *format, ...)
 	char *tmp;
 
 	flags = init_flags();
-	printable = "";
+	printable = NULL;
 	index = 0;
 	tmp = NULL;	
 	va_start(arguments, format);
