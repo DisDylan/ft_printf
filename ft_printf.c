@@ -90,7 +90,7 @@ static char *ft_fill(char *str, char c, int nb)
 	int size_fill;
 
 	size_fill = nb - (int)ft_strlen(str);
-	strfilled = (char*)malloc(sizeof(*strfilled) * nb + 1);
+	strfilled = (char*)malloc(sizeof(*strfilled) * (nb + 1));
 	i = 0;
 	while (i <= size_fill)
 	{
