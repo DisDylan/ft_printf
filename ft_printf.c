@@ -124,7 +124,6 @@ static char *ft_fill(char *str, char c, int nb)
 	char *strfilled;
 	int i;
 
-	printf("DANS FILL STR VAUT %s\n", str);
 	strfilled = (char*)malloc(sizeof(strfilled) * (nb + 1));
 	i = 0;
 	while (str[i])
@@ -132,7 +131,6 @@ static char *ft_fill(char *str, char c, int nb)
 		strfilled[i] = str[i];
 		i++;
 	}
-	printf("Après la première boucle strfilled vaut %s\n", strfilled);
 	while (i < nb)
 	{
 		strfilled[i] = c;
@@ -147,8 +145,6 @@ static char *ft_treat_all(char *str, ft_flags flags)
 {
 	int size;
 	char *newstr;
-
-	printf("FT_TREAT_ALL: nstr vaut %s\n", str);
 
 	size = ft_strlen(str);
 	if (flags.dot < size && flags.dot > 0)
@@ -166,7 +162,6 @@ static char *ft_treat_all(char *str, ft_flags flags)
 		newstr = ft_fill(str, ' ', flags.width);
 	}
 	free(str);
-	printf("FT_TREAT_ALL: newstr vaut %s\n", newstr);
 	return (newstr);
 }
 
@@ -184,7 +179,6 @@ int	ft_printf(const char *format, ...)
 	size = 0;
 	va_start(arguments, format);
 	// FONCTIONS TRAITEMENT DE LA CHAINE
-	printf("post boucle ok \n");
 	while (format[index])
 	{
 		if (format[index] == '%')
@@ -197,10 +191,7 @@ int	ft_printf(const char *format, ...)
 				index++;
 			}
 			ft_treat_flags(format + index, &index, arguments, &flags);
-			printf("treat_flags OK\n");
 			tmp = ft_treat_all(ft_treat_convert(format + index, arguments), flags);
-			printf("treat all OK\n");
-			printf("tmp vaut %s\n", tmp);
 			ft_putstr_fd(tmp, 1);
 			size += (int)ft_strlen(tmp) - 1;
 			free(tmp);
