@@ -104,8 +104,8 @@ static char *ft_fill(char *str, char c, int nb)
 	{
 		strfilled[size_fill] = str[i];
 		size_fill++;
+		printf("strfilled[i] = |%c|\n", strfilled[size_fill]);
 		i++;
-		printf("strfilled[i] = |%c|\n", strfilled[i]);
 	}
 	strfilled[size_fill] = '\0';
 	return (strfilled);
