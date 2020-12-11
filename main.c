@@ -127,6 +127,18 @@ int main(void)
 		printf(RED "| KO |\n" RESET);
 	max++;
 
+	printf("\nTEST: 025s\n");
+	pf = printf("PRINTF:%025s$\n", "Hello world");
+	pft = ft_printf("FT_ptf:%025s$\n", "Hello world");
+	if (pf == pft)
+	{
+		note++;
+		printf(GREEN "| OK |\n" RESET);
+	}
+	else
+		printf(RED "| KO |\n" RESET);
+	max++;
+
 	printf("\nTEST: 10.*s\n");
 	pf = printf("PRINTF:%10.*s$\n", 5, "abcedef");
 	pft = ft_printf("FT_ptf:%10.*s$\n", 5, "abcedef");
