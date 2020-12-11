@@ -159,6 +159,7 @@ static char *ft_treat_all(char *str, ft_flags flags)
 {
 	int size;
 	char *newstr;
+	char *tmp;
 
 	size = ft_strlen(str);
 	if (flags.dot < size && flags.dot > 0)
@@ -167,14 +168,17 @@ static char *ft_treat_all(char *str, ft_flags flags)
 		newstr = ft_strdup(str);
 	if (flags.width > size)
 	{
+		tmp = ft_strdup(newstr)
 		free(newstr);
-		newstr = ft_fill(newstr, ' ', flags.width);
+		newstr = ft_fill(tmp, ' ', flags.width);
 	}
 	if (flags.zero > size)
 	{
+		tmp = ft_strdup(newstr)
 		free(newstr);
-		newstr = ft_fill(newstr, '0', flags.width);
+		newstr = ft_fill(tmp, '0', flags.width);
 	}
+	free(tmp);
 	free(str);
 	return (newstr);
 }
