@@ -62,6 +62,25 @@ static int ft_star_or_digit(const char *format, va_list arguments, int *index)
 	return (flag_many);
 }
 
+// On rempli la chaîne avec le caractère passé en paramètre sur n caractères
+static char *ft_fill(char *str, char c, int nb)
+{
+	char *strfilled;
+	int i;
+
+	ft_bzero(strfilled, (size_t)nb)
+	while (str[i])
+	{
+		strfilled[i] = str[i];
+		i++;
+	}
+	while (i < nb)
+	{
+		strfilled[i] = c;
+	}
+	return (strfilled);
+}
+
 // On assigne les valeurs passées en paramètres aux flags et/ou la width
 static void ft_get_flag(const char *format, ft_flags *flags, va_list arguments, int *index)
 {
@@ -95,7 +114,7 @@ static void ft_treat_flags(const char *format, int *index, va_list arguments, ft
 }
 
 // On traite le caractère à convertir
-static char *ft_treat_convert(const char *format, char *printable, va_list arguments)
+static char *ft_treat_convert(const char *format, va_list arguments)
 {
 	char c;
 	char *str;
@@ -132,29 +151,10 @@ static char *ft_treat_all(char *str, ft_flags flags)
 		newstr = ft_strdup(str);
 	free(str);
 	if (flags.width > ft_strlen(newstr))
-		newstr = ft_strdup(ft_fill(str, ' ', flags.width));
+		newstr = ft_strdup((const char*)ft_fill(str, ' ', flags.width));
 	if (flags.zero > ft_strlen(newstr))
-		newstr = ft_strdup(ft_fill(str, ' ', flags.width));
+		newstr = ft_strdup((const char*)ft_fill(str, ' ', flags.width));
 	return (newstr);
-}
-
-// On rempli la chaîne avec le caractère passé en paramètre sur n caractères
-static char *ft_fill(char *str, char c, int nb)
-{
-	char *strfilled;
-	int i;
-
-	ft_bzero(strfilled, (size_t)nb)
-	while (str[i])
-	{
-		strfilled[i] = str[i];
-		i++;
-	}
-	while (i < nb)
-	{
-		strfilled[i] = c;
-	}
-	return (strfilled);
 }
 
 // Fonction principale où l'on va parcourir le format à la recherche d'un signe % pour effectuer une conversion
