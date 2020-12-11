@@ -64,6 +64,7 @@ static void ft_get_flag(const char *format, int *index, va_list arguments, ft_fl
 {
 	char flag;
 
+	printf("OK\n");
 	flag = format[*index];
 	while (!(ft_chrchr(format[*index])))
 	{
@@ -188,7 +189,6 @@ int	ft_printf(const char *format, ...)
 			if (format[index] != '%')
 			{
 				ft_get_flag(format, &index, arguments, &flags);
-				printf("OK\n");
 				tmp = ft_treat_all(ft_treat_convert(format, &index, arguments), flags);
 				ft_putstr_fd(tmp, 1);
 				size += (int)ft_strlen(tmp);
