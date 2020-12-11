@@ -83,16 +83,18 @@ static ft_flags ft_get_flag(const char *format, int *index, va_list arguments)
 }
 
 // On rempli la chaîne avec le caractère passé en paramètre sur n caractères
-static char *ft_fill_minus(char *str, char c, int nb)
+static char *ft_fill(char *str, char c, int nb)
 {
 	char *strfilled;
 	int i;
+	int size_fill;
 
+	size_fill = nb - (int)ft_strlen(str) - 1;
 	strfilled = (char*)malloc(sizeof(*strfilled) * nb + 1);
 	i = 0;
-	while (str[i])
+	while (i < size_fill])
 	{
-		strfilled[i] = str[i];
+		strfilled[i] = c;
 		i++;
 	}
 	while (i < nb)
