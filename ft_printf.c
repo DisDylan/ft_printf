@@ -62,11 +62,11 @@ static int ft_star_or_digit(const char *format, va_list arguments, int *index)
 // On assigne les valeurs passées en paramètres aux flags et/ou la width
 static void ft_get_flag(const char *format, int *index, va_list arguments, ft_flags *flags)
 {
-	char flag;
+	unsigned char flag;
 
 	while (!(ft_chrchr(format[*index])))
 	{
-		flag = format[*index];
+		flag = (unsigned char)format[*index];
 		if (flag == '0' || flag == '.' || flag == '-')
 			*index += 1;
 		if (flag == '0')
