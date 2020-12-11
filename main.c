@@ -77,7 +77,7 @@ int main(void)
 
 	printf("\n\n\n\n|||||||||||||||||||||||NEW TEST|||||||||||||||||||||\n");
 	pf = printf("PRINTF:%.5s$\n", "abcdef");
-	pft = ft_printf("FT_printf:%.5s$\n", "abcdef");
+	pft = ft_printf("FT_ptf:%.5s$\n", "abcdef");
 	if (pf == pft)
 		printf(GREEN "| OK |\n" RESET);
 	else
@@ -85,7 +85,7 @@ int main(void)
 
 	printf("\n\n\n\n|||||||||||||||||||||||NEW TEST|||||||||||||||||||||\n");
 	pf = printf("PRINTF:%10.5s$\n", "abcedef");
-	pft = ft_printf("FT_printf:%10.5s$\n", "abcedef");
+	pft = ft_printf("FT_ptf:%10.5s$\n", "abcedef");
 	if (pf == pft)
 		printf(GREEN "| OK |\n" RESET);
 	else
