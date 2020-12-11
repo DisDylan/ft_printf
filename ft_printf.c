@@ -82,6 +82,28 @@ static ft_flags ft_get_flag(const char *format, int *index, va_list arguments)
 	return (flags);
 }
 
+// On rempli la chaîne avec le caractère passé en paramètre sur n caractères
+static char *ft_fill_minus(char *str, char c, int nb)
+{
+	char *strfilled;
+	int i;
+
+	strfilled = (char*)malloc(sizeof(*strfilled) * nb + 1);
+	i = 0;
+	while (str[i])
+	{
+		strfilled[i] = str[i];
+		i++;
+	}
+	while (i < nb)
+	{
+		strfilled[i] = c;
+		i++;
+	}
+	strfilled[i] = '\0';
+	return (strfilled);
+}
+
 // On traite le caractère à convertir
 static char *ft_treat_convert(const char *format, int *index, va_list arguments)
 {
@@ -107,7 +129,7 @@ static char *ft_treat_convert(const char *format, int *index, va_list arguments)
 }
 
 // On rempli la chaîne avec le caractère passé en paramètre sur n caractères
-static char *ft_fill(char *str, char c, int nb)
+static char *ft_fill_minus(char *str, char c, int nb)
 {
 	char *strfilled;
 	int i;
@@ -175,7 +197,6 @@ int	ft_printf(const char *format, ...)
 			if (format[index] != '%')
 			{
 				flags = ft_get_flag(format, &index, arguments);
-				printf("value width: %d, dot: %d, zero: %d", flags.width, flags.dot, flags.zero);
 				tmp = ft_treat_all(ft_treat_convert(format, &index, arguments), flags);
 				ft_putstr_fd(tmp, 1);
 				size += (int)ft_strlen(tmp);
