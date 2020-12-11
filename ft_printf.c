@@ -71,11 +71,11 @@ static void ft_get_flag(const char *format, int *index, va_list arguments, ft_fl
 			*index += 1;
 		if (flag == '0')
 			flags->zero = ft_star_or_digit(format, arguments, index);
-		if (flag == '.')
+		else if (flag == '.')
 			flags->dot = ft_star_or_digit(format, arguments, index);
-		if (flag == '-')
+		else if (flag == '-')
 			flags->minus = 1;
-		if (ft_isdigit(flag) || flag == '*')
+		else if (ft_isdigit(flag) || flag == '*')
 			flags->width = ft_star_or_digit(format, arguments, index);
 		printf("\n_________\nFLAGS VALUES\nwidth: %d\ndot: %d\nzero: %d\n_________\n", flags->width, flags->dot, flags->zero);
 	}
