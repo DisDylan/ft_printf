@@ -42,7 +42,7 @@ static int ft_chrchr(char format_letter)
 }
 
 // On retourne soit la valeur d'un des arguments si *, sinon le nombre passé en paramètre
-static int ft_star_or_digit(const char *format, va_list arguments, int **index, int **nindex)
+static int ft_star_or_digit(const char *format, va_list arguments, int *index, int *nindex)
 {
 	int count;
 	int flag_many;
@@ -58,8 +58,8 @@ static int ft_star_or_digit(const char *format, va_list arguments, int **index, 
 		count += (int)ft_strlen(ft_itoa(ft_atoi(format)));
 		flag_many = ft_atoi(format);
 	}
-	**index += count;
-	**nindex += count;
+	*index += count;
+	*nindex += count;
 	return (flag_many);
 }
 
@@ -75,13 +75,13 @@ static void ft_get_flag(const char *format, ft_flags *flags, va_list arguments, 
 		*nindex += 1;
 	}
 	if (flag == '0')
-		flags->zero = ft_star_or_digit(format + 1, arguments, &*index, &*nindex);
+		flags->zero = ft_star_or_digit(format + 1, arguments, *index, *nindex);
 	if (flag == '.')
-		flags->dot = ft_star_or_digit(format + 1, arguments, &*index, &*nindex);
+		flags->dot = ft_star_or_digit(format + 1, arguments, *index, *nindex);
 	if (flag == '-')
 		flags->minus = 1;
 	if (ft_isdigit(flag) || flag == '*')
-		flags->width = ft_star_or_digit(format, arguments, &*index), &*nindex);
+		flags->width = ft_star_or_digit(format, arguments, *index, *nindex);
 }
 
 // On parcours les flags dans une boucle, tant que ce ne sont pas des caractères à convertir on y reste
