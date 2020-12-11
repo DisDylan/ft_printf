@@ -185,12 +185,7 @@ int	ft_printf(const char *format, ...)
 		{
 			size++;
 			index++;
-			if (format[index] == '%')
-			{
-				size++;
-				index++;
-			}
-			else
+			if (format[index] != '%')
 			{
 				ft_treat_flags(format + index, &index, arguments, &flags);
 				tmp = ft_treat_all(ft_treat_convert(format + index, arguments), flags);
@@ -198,7 +193,7 @@ int	ft_printf(const char *format, ...)
 				size += (int)ft_strlen(tmp) - 1;
 				free(tmp);
 				index++;
-			}	
+			}
 		}
 		ft_putchar_fd(format[index], 1);
 		index++;
