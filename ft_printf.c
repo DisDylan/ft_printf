@@ -171,14 +171,15 @@ static char *ft_treat_all(char *str, ft_flags flags)
 		tmp = ft_strdup(newstr);
 		free(newstr);
 		newstr = ft_fill(tmp, ' ', flags.width);
+		free(tmp);
 	}
 	if (flags.zero > size)
 	{
 		tmp = ft_strdup(newstr);
 		free(newstr);
 		newstr = ft_fill(tmp, '0', flags.width);
+		free(tmp);
 	}
-	free(tmp);
 	free(str);
 	return (newstr);
 }
