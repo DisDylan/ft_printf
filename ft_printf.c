@@ -183,7 +183,6 @@ int	ft_printf(const char *format, ...)
 			index++;
 			if (format[index] == '%')
 			{
-				printable[index] = '%';
 				index++;
 			}
 			ft_treat_flags(format + index, &index, arguments, &flags);
