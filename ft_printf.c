@@ -42,48 +42,44 @@ static int ft_chrchr(char format_letter)
 }
 
 // On retourne soit la valeur d'un des arguments si *, sinon le nombre passé en paramètre
-static int ft_star_or_digit(const char *format, va_list arguments, int *index, int *nindex)
+static int ft_star_or_digit(const char *format, va_list arguments, int *index)
 {
-	int count;
 	int flag_many;
 
-	count = 0;
-	if (format[0] == '*')
+	if (format[index] == '*')
 	{
-		count += 1;
+		*index += 1;
 		flag_many = va_arg(arguments, int);
 	}
 	else
 	{
-		count += (int)ft_strlen(ft_itoa(ft_atoi(format)));
+		*index += (int)ft_strlen(ft_itoa(ft_atoi(format))) - 1;
 		flag_many = ft_atoi(format);
 	}
-	*index += count;
-	*nindex += count;
 	return (flag_many);
 }
 
 // On assigne les valeurs passées en paramètres aux flags et/ou la width
-static void ft_get_flag(const char *format, ft_flags *flags, va_list arguments, int *index, int *nindex)
+static void ft_get_flag(const char *format, int *index, va_list arguments, ft_flags *flags)
 {
 	char flag;
 
-	flag = format[0];
-	if (flag == '0' || flag == '.' || flag == '-')
+	flag = format[index];
+	while (!(ft_chrchr(format[index])))
 	{
-		*index += 1;
-		*nindex += 1;
+		if (flag == '0' || flag == '.' || flag == '-')
+			*index += 1;
+		if (flag == '0')
+			flags->zero = ft_star_or_digit(format, arguments, &index);
+		if (flag == '.')
+			flags->dot = ft_star_or_digit(format, arguments, &index);
+		if (flag == '-')
+			flags->minus = 1;
+		if (ft_isdigit(flag) || flag == '*')
+			flags->width = ft_star_or_digit(format, arguments, &index);
 	}
-	if (flag == '0')
-		flags->zero = ft_star_or_digit(format + 1, arguments, &index, &nindex);
-	if (flag == '.')
-		flags->dot = ft_star_or_digit(format + 1, arguments, &index, &nindex);
-	if (flag == '-')
-		flags->minus = 1;
-	if (ft_isdigit(flag) || flag == '*')
-		flags->width = ft_star_or_digit(format, arguments, &index, &nindex);
 }
-
+/*
 // On parcours les flags dans une boucle, tant que ce ne sont pas des caractères à convertir on y reste
 static void ft_treat_flags(const char *format, int *index, va_list arguments, ft_flags *flags)
 {
@@ -98,9 +94,9 @@ static void ft_treat_flags(const char *format, int *index, va_list arguments, ft
 	}
 	*index += new_index;
 }
-
+*/
 // On traite le caractère à convertir
-static char *ft_treat_convert(const char *format, va_list arguments)
+static char *ft_treat_convert(const char *format, int index, va_list arguments)
 {
 	char c;
 	char *str;
@@ -193,9 +189,9 @@ int	ft_printf(const char *format, ...)
 			index++;
 			if (format[index] != '%')
 			{
-				ft_treat_flags(format + index, &index, arguments, &flags);
+				ft_get_flags(format, &index, arguments, &flags);
 				printf("flags %d width\n", flags.width);
-				tmp = ft_treat_all(ft_treat_convert(format + index, arguments), flags);
+				tmp = ft_treat_all(ft_treat_convert(format, &index, arguments), flags);
 				ft_putstr_fd(tmp, 1);
 				size += (int)ft_strlen(tmp);
 				free(tmp);
