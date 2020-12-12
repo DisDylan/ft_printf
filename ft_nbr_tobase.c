@@ -42,12 +42,12 @@ char	*ft_nbr_tobase(int nbr, char *base)
 		nb_final[++i] = nb % len;
 		nb /= len;
 	}
-	len = -1;
-	is_neg(&nb, &nbr);
+	len = 0;
 	while (i >= 0)
 	{
-		str[++len] = base[nb_final[i]];
+		str[len] = base[nb_final[i]];
 		i--;
+		len++;
 	}
 	return (str);
 }
