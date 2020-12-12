@@ -22,10 +22,6 @@ char	*ft_nbr_tobase(int nbr, char *base)
 
 	i = -1;
 	nb = nbr;
-	len = (int)ft_strlen(ft_itoa(nbr));
-	printf("value len : %d\n", len);
-	str = (char*)malloc(sizeof(char) * len + 1);
-	printf("str vaut [%s]\n", str);
 	len = 0;
 	while (base[len])
 		len++;
