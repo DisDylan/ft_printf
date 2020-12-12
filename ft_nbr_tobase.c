@@ -30,7 +30,7 @@ static void ft_ret_space(char *str)
 
 	while (str[i] != ' ')
 		i++;
-	tmp = (char*)malloc(sizeof(char*) * i);
+	tmp = (char*)malloc(sizeof(char*) * i + 1);
 	i = 0;
 	while (str[i] != ' ')
 	{
@@ -63,7 +63,6 @@ char	*ft_nbr_tobase(int nbr, char *base)
 	}
 	len = -1;
 	is_neg(&nb, &nbr);
-	ft_ret_space(str);
 	while (i >= 0)
 	{
 		str[++len] = base[nb_final[i]];
@@ -71,6 +70,7 @@ char	*ft_nbr_tobase(int nbr, char *base)
 		printf("str entier vaut : %s!\n", str);
 		i--;
 	}
+	ft_ret_space(str);
 	printf("Valeur de x : |%s|", str);
 	return (str);
 }
