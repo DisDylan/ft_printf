@@ -228,7 +228,7 @@ int main(void)
 
 	printf("\nTEST: X\n");
 	pf = printf("PRINTF:%X$\n", 666);
-	pft = ft_printf("FT_ptf:%-20d$\n", 666);
+	pft = ft_printf("FT_ptf:%X$\n", 666);
 	if (pf == pft)
 	{
 		note++;
