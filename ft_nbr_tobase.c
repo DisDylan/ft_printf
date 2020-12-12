@@ -18,12 +18,11 @@ char	*ft_nbr_tobase(int nbr, char *base)
 	int				len;
 	int				nb_final[50];
 	unsigned int	nb;
-	char			*str;
+	char			str[256];
 
 	i = -1;
 	nb = nbr;
 	len = 0;
-	str = NULL;
 	while (base[len])
 		len++;
 	while (nb)
