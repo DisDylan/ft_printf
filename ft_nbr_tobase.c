@@ -23,6 +23,7 @@ char	*ft_nbr_tobase(int nbr, char *base)
 	i = -1;
 	nb = nbr;
 	len = 0;
+	str = NULL;
 	while (base[len])
 		len++;
 	while (nb)
