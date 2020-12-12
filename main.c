@@ -274,9 +274,10 @@ int main(void)
 		printf(RED "| KO |\n" RESET);
 	max++;
 
+	void *nb = 5;
 	printf("\nTEST: p\n");
-	pf = printf("PRINTF:%p$\n", 5);
-	pft = ft_printf("FT_ptf:%p$\n", 5);
+	pf = printf("PRINTF:%p$\n", nb);
+	pft = ft_printf("FT_ptf:%p$\n", nb);
 	if (pf == pft)
 	{
 		note++;
