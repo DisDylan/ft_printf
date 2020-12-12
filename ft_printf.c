@@ -136,8 +136,15 @@ static char *ft_fill_minus(char *str, char c, int nb)
 	char *strfilled;
 	int i;
 
-	strfilled = (char*)malloc(sizeof(*strfilled) * nb + 1);
 	i = 0;
+	if (str[0] == '-')
+	{
+		i = 1;
+		strfilled = (char*)malloc(sizeof(*strfilled) * nb + 2);
+		strfilled[0] == '-';
+	}
+	else
+		strfilled = (char*)malloc(sizeof(*strfilled) * nb + 1);
 	while (str[i])
 	{
 		strfilled[i] = str[i];
