@@ -58,6 +58,18 @@ int main(void)
 		printf(RED "| KO |\n" RESET);
 	max++;
 
+	printf("\nTEST: u\n");
+	pf = printf("PRINTF:%u$\n", 42);
+	pft = ft_printf("FT_ptf:%u$\n", 42);
+	if (pf == pft)
+	{
+		note++;
+		printf(GREEN "| OK |\n" RESET);
+	}
+	else
+		printf(RED "| KO |\n" RESET);
+	max++;
+
 	printf("\nTEST: s\n");
 	pf = printf("PRINTF:%s$\n", "une string");
 	pft = ft_printf("FT_ptf:%s$\n", "une string");
