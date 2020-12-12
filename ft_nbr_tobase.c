@@ -34,7 +34,7 @@ char	*ft_nbr_tobase(int nbr, char *base)
 	i = -1;
 	len = 0;
 	nb = nbr;
-	str = (char*)malloc(sizeof(str) * ft_strlen(ft_itoa(nbr)));
+	str = (char*)malloc(sizeof(str) * ft_strlen(ft_itoa(nb)));
 	while (base[len])
 		len++;
 	while (nb)
