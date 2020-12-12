@@ -215,8 +215,8 @@ int main(void)
 	max++;
 
 	printf("\nTEST: x\n");
-	pf = printf("PRINTF:%x$\n", 666);
-	pft = ft_printf("FT_ptf:%x$\n", 666);
+	pf = printf("PRINTF:%x$\n", 4667);
+	pft = ft_printf("FT_ptf:%x$\n", 4667);
 	if (pf == pft)
 	{
 		note++;
@@ -227,8 +227,8 @@ int main(void)
 	max++;
 
 	printf("\nTEST: X\n");
-	pf = printf("PRINTF:%X$\n", 666);
-	pft = ft_printf("FT_ptf:%X$\n", 666);
+	pf = printf("PRINTF:%X$\n", 42);
+	pft = ft_printf("FT_ptf:%X$\n", 42);
 	if (pf == pft)
 	{
 		note++;
