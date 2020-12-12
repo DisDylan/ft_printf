@@ -215,10 +215,10 @@ int main(void)
 	max++;
 
 	if (note == max)
-		printf(GREEN "BRAVO:\n%d/%d\n", note, max);
+		printf(GREEN "\nBRAVO:\n%d/%d\n", note, max);
 	else
 	{
-		printf(RED "PERDU:\n%d/%d\n", note, max);
+		printf(RED "\nPERDU:\n%d/%d\n", note, max);
 	}
 	
 }

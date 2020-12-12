@@ -116,7 +116,7 @@ static char *ft_treat_convert(const char *format, int *index, va_list arguments)
 	if (c == 's')
 		str = ft_strdup(va_arg(arguments, char*));
 	//if (c == 'p')
-	//	str = ft_strdup(va_arg(arguments, int));
+	//	str = ft_strdup(&va_arg(arguments, int));
 	if (c == 'd' || c == 'i')
 		str = ft_strdup(ft_itoa(va_arg(arguments, int)));
 	if (c == 'u')
@@ -192,12 +192,10 @@ int	ft_printf(const char *format, ...)
 	int size;
 	char *tmp;
 
-	//flags = init_flags();
 	index = 0;
 	size = 0;
 	flags = init_flags();
 	va_start(arguments, format);
-	// FONCTIONS TRAITEMENT DE LA CHAINE
 	while (format[index])
 	{
 		if (format[index] == '%')
