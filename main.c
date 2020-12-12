@@ -214,6 +214,30 @@ int main(void)
 		printf(RED "| KO |\n" RESET);
 	max++;
 
+	printf("\nTEST: x\n");
+	pf = printf("PRINTF:%x$\n", 666);
+	pft = ft_printf("FT_ptf:%x$\n", 666);
+	if (pf == pft)
+	{
+		note++;
+		printf(GREEN "| OK |\n" RESET);
+	}
+	else
+		printf(RED "| KO |\n" RESET);
+	max++;
+
+	printf("\nTEST: X\n");
+	pf = printf("PRINTF:%X$\n", 666);
+	pft = ft_printf("FT_ptf:%-20d$\n", 666);
+	if (pf == pft)
+	{
+		note++;
+		printf(GREEN "| OK |\n" RESET);
+	}
+	else
+		printf(RED "| KO |\n" RESET);
+	max++;
+
 	if (note == max)
 		printf(GREEN "\nBRAVO:\n%d/%d\n", note, max);
 	else
