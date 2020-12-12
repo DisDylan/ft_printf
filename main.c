@@ -70,14 +70,14 @@ int main(void)
 		printf(RED "| KO |\n" RESET);
 	max++;
 
-	/*printf("\n\n\n\n|||||||||||||||||||||||NEW TEST|||||||||||||||||||||\n");
-	pf = printf("PRINTF:%c\n", 'c');
-	pft = ft_printf("FT_printf:%c\n", 'c');
+	printf("\nTEST: c\n");
+	pf = printf("PRINTF: %c\n", 'c');
+	pft = ft_printf("FT_ptf: %c\n", 'c');
 	printf("%d pour printf et %d pour ft\n", pf, pft);
 	if (pf == pft)
 		printf(GREEN "| OK |\n" RESET);
 	else
-		printf(RED "| KO |\n" RESET);*/
+		printf(RED "| KO |\n" RESET);
 
 	printf("\nTEST: 10s\n");
 	pf = printf("PRINTF:%10s$\n", "abcedef");
