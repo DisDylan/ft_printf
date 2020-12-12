@@ -129,7 +129,7 @@ int main(void)
 	else
 		printf(RED "| KO |\n" RESET);
 	max++;
-
+/*	OKOKOKOKOKOK
 	printf("\nTEST: 025s\n");
 	pf = printf("PRINTF:%025s$\n", "Hello world");
 	pft = ft_printf("FT_ptf:%025s$\n", "Hello world");
@@ -141,7 +141,7 @@ int main(void)
 	else
 		printf(RED "| KO |\n" RESET);
 	max++;
-
+*/
 	printf("\nTEST: 10.*s\n");
 	pf = printf("PRINTF:%10.*s$\n", 5, "abcedef");
 	pft = ft_printf("FT_ptf:%10.*s$\n", 5, "abcedef");
@@ -189,7 +189,7 @@ int main(void)
 	else
 		printf(RED "| KO |\n" RESET);
 	max++;
-
+/*	OKOKOKOKOK
 	printf("\nTEST: -010d\n");
 	pf = printf("PRINTF:%-010d$\n", 666);
 	pft = ft_printf("FT_ptf:%-010d$\n", 666);
@@ -201,7 +201,7 @@ int main(void)
 	else
 		printf(RED "| KO |\n" RESET);
 	max++;
-
+*/
 	printf("\nTEST: -20d\n");
 	pf = printf("PRINTF:%-20d$\n", 666);
 	pft = ft_printf("FT_ptf:%-20d$\n", 666);
