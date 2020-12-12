@@ -27,7 +27,7 @@ char	*ft_nbr_tobase(int nbr, char *base)
 	len = 0;
 	while (base[len])
 		len++;
-	while (nb)
+	while (nbr)
 	{
 		nb_final[++i] = nbr % len;
 		nbr /= len;
