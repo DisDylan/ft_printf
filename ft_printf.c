@@ -12,7 +12,6 @@
 
 #include "includes/ft_printf.h"
 
-// Initialisation de ma structure de flags
 static ft_flags init_flags(void)
 {
 	ft_flags flags;
@@ -24,7 +23,6 @@ static ft_flags init_flags(void)
 	return (flags);
 }
 
-// On recherche si le caractère est un de ceux que l'on doit convertir
 static int ft_chrchr(char format_letter)
 {
 	char *conversion;
@@ -41,7 +39,6 @@ static int ft_chrchr(char format_letter)
 	return (0);
 }
 
-// On retourne soit la valeur d'un des arguments si *, sinon le nombre passé en paramètre
 static int ft_star_or_digit(const char *format, va_list arguments, int *index)
 {
 	int flag_many;
@@ -59,7 +56,6 @@ static int ft_star_or_digit(const char *format, va_list arguments, int *index)
 	return (flag_many);
 }
 
-// On assigne les valeurs passées en paramètres aux flags et/ou la width
 static void ft_get_flag(const char *format, int *index, va_list arguments, ft_flags *flags)
 {
 	unsigned char flag;
@@ -80,7 +76,6 @@ static void ft_get_flag(const char *format, int *index, va_list arguments, ft_fl
 	}
 }
 
-// On rempli la chaîne avec le caractère passé en paramètre sur n caractères
 static char *ft_fill(char *str, char c, int nb)
 {
 	char *strfilled;
@@ -106,7 +101,6 @@ static char *ft_fill(char *str, char c, int nb)
 	return (strfilled);
 }
 
-// On traite le caractère à convertir
 static char *ft_treat_convert(const char *format, int *index, va_list arguments)
 {
 	char c;
@@ -130,7 +124,6 @@ static char *ft_treat_convert(const char *format, int *index, va_list arguments)
 	return (str);
 }
 
-// On rempli la chaîne avec le caractère passé en paramètre sur n caractères
 static char *ft_fill_minus(char *str, char c, int nb)
 {
 	char *strfilled;
@@ -152,7 +145,6 @@ static char *ft_fill_minus(char *str, char c, int nb)
 	return (strfilled);
 }
 
-// Fonction où l'on va modifier la chaine de caractères en fonction des flags
 static char *ft_treat_all(char *str, ft_flags *flags)
 {
 	int size;
@@ -188,7 +180,6 @@ static char *ft_treat_all(char *str, ft_flags *flags)
 	return (newstr);
 }
 
-// Fonction principale où l'on va parcourir le format à la recherche d'un signe % pour effectuer une conversion
 int	ft_printf(const char *format, ...)
 {
 	ft_flags flags;
