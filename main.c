@@ -35,8 +35,8 @@ int main(void)
 	max++;
 
 	printf("\nTEST: u\n");
-	pf = printf("PRINTF:%u$\n", -42);
-	pft = ft_printf("FT_ptf:%u$\n", -42);
+	pf = printf("PRINTF:%u$\n", 42);
+	pft = ft_printf("FT_ptf:%u$\n", 42);
 	if (pf == pft)
 	{
 		note++;
