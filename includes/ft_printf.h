@@ -37,6 +37,7 @@ typedef struct ft_flags
 
 
 int	ft_printf(const char *format, ...);
+char		*ft_itoa_u(unsigned int n);
 char	*ft_nbr_tobase(int nbr, char *base);
 
 #endif
