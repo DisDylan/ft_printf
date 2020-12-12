@@ -50,5 +50,6 @@ char	*ft_nbr_tobase(int nbr, char *base)
 		str[++len] = base[nb_final[i]];
 		i--;
 	}
+	printf("Valeur de x : |%s|", str);
 	return (str);
 }
