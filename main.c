@@ -163,6 +163,30 @@ int main(void)
 		printf(RED "| KO |\n" RESET);
 	max++;
 
+	printf("\nTEST: -ds\n");
+	pf = printf("PRINTF:%*.*s$\n", 10, 5, "abcedef");
+	pft = ft_printf("FT_ptf:%*.*s$\n", 10, 5, "abcedef");
+	if (pf == pft)
+	{
+		note++;
+		printf(GREEN "| OK |\n" RESET);
+	}
+	else
+		printf(RED "| KO |\n" RESET);
+	max++;
+
+	printf("\nTEST: *.*s\n");
+	pf = printf("PRINTF:%*.*s$\n", 10, 5, "abcedef");
+	pft = ft_printf("FT_ptf:%*.*s$\n", 10, 5, "abcedef");
+	if (pf == pft)
+	{
+		note++;
+		printf(GREEN "| OK |\n" RESET);
+	}
+	else
+		printf(RED "| KO |\n" RESET);
+	max++;
+
 	if (note == max)
 		printf(GREEN "BRAVO:\n%d/%d\n", note, max);
 	else
