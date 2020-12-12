@@ -274,6 +274,18 @@ int main(void)
 		printf(RED "| KO |\n" RESET);
 	max++;
 
+	printf("\nTEST: p\n");
+	pf = printf("PRINTF:%p$\n", 5);
+	pft = ft_printf("FT_ptf:%p$\n", 5);
+	if (pf == pft)
+	{
+		note++;
+		printf(GREEN "| OK |\n" RESET);
+	}
+	else
+		printf(RED "| KO |\n" RESET);
+	max++;
+
 	if (note == max)
 		printf(GREEN "\nBRAVO:\n%d/%d\n", note, max);
 	else
