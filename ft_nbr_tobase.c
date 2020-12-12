@@ -34,7 +34,7 @@ char	*ft_nbr_tobase(int nbr, char *base)
 	i = -1;
 	len = 0;
 	nb = nbr;
-	str = (char*)malloc(sizeof(str) * ft_strlen(ft_itoa(nb)));
+	str = (char*)malloc(sizeof(str) * (int)ft_strlen(ft_itoa(nb)));
 	while (base[len])
 		len++;
 	while (nb)
@@ -48,7 +48,7 @@ char	*ft_nbr_tobase(int nbr, char *base)
 	while (i >= 0)
 	{
 		str[++len] = base[nb_final[i]];
-		printf("str.len == %c && base.nb.i == %c", str[len], base[nb_final[i]]);
+		printf("str.len == %c && base.nb.i == %c\n", str[len], base[nb_final[i]]);
 		i--;
 	}
 	printf("Valeur de x : |%s|", str);
