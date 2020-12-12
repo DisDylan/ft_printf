@@ -73,11 +73,14 @@ int main(void)
 	printf("\nTEST: c\n");
 	pf = printf("PRINTF: %c\n", 'c');
 	pft = ft_printf("FT_ptf: %c\n", 'c');
-	printf("%d pour printf et %d pour ft\n", pf, pft);
 	if (pf == pft)
+	{
+		note++;
 		printf(GREEN "| OK |\n" RESET);
+	}
 	else
 		printf(RED "| KO |\n" RESET);
+	max++;
 
 	printf("\nTEST: 10s\n");
 	pf = printf("PRINTF:%10s$\n", "abcedef");
