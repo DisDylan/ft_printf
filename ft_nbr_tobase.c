@@ -49,7 +49,7 @@ char	*ft_nbr_tobase(int nbr, char *base)
 	{
 		str[++len] = base[nb_final[i]];
 		printf("str.len == %c && base.nb.i == %c\n", str[len], base[nb_final[i]]);
-		printf("str entier vaut : %s\n", str);
+		printf("str entier vaut : %s!\n", str);
 		i--;
 	}
 	printf("Valeur de x : |%s|", str);
