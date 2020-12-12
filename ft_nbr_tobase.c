@@ -18,17 +18,14 @@ char	*ft_nbr_tobase(int nbr, char *base)
 	int				len;
 	int				nb_final[50];
 	unsigned int	nb;
-	char			str[256];
+	char			*str;
 
 	i = -1;
 	nb = nbr;
-<<<<<<< HEAD
-=======
 	len = (int)ft_strlen(ft_itoa(nbr)) + 1;
 	printf("value len : %d\n", len);
 	str = (char*)malloc(sizeof(char) * len);
 	printf("str vaut [%s]\n", str);
->>>>>>> parent of 578fa8f... Update ft_nbr_tobase.c
 	len = 0;
 	while (base[len])
 		len++;
@@ -44,5 +41,5 @@ char	*ft_nbr_tobase(int nbr, char *base)
 		i--;
 		len++;
 	}
-	return (&*str);
+	return (str);
 }
