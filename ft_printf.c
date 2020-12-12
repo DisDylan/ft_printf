@@ -179,7 +179,7 @@ static char *ft_treat_all(char *str, ft_flags *flags)
 		tmp = ft_strdup(newstr);
 		free(newstr);
 		if (flags->minus == 1)
-			newstr = ft_fill(tmp, ' ', flags->zero);
+			newstr = ft_fill_minus(tmp, ' ', flags->zero);
 		else
 			newstr = ft_fill(tmp, '0', flags->zero);
 		free(tmp);
