@@ -22,7 +22,7 @@ static void	is_neg(unsigned int *nb, int *nbr)
 	if (*nbr == 0)
 }
 
-void	ft_nbr_tobase(int nbr, char *base)
+char	*ft_nbr_tobase(int nbr, char *base)
 {
 	int				i;
 	int				len;
@@ -49,4 +49,5 @@ void	ft_nbr_tobase(int nbr, char *base)
 		str[++len] = base[nb_final[i]];
 		i--;
 	}
+	return (str);
 }
