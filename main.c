@@ -275,7 +275,7 @@ int main(void)
 	max++;
 
 	void *nb;
-	nb = NULL;
+	nb = "ok";
 	printf("\nTEST: p\n");
 	pf = printf("PRINTF:%p$\n", nb);
 	pft = ft_printf("FT_ptf:%p$\n", nb);
