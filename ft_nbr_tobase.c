@@ -34,7 +34,6 @@ char	*ft_nbr_tobase(int nbr, char *base)
 	i = -1;
 	len = 0;
 	nb = nbr;
-	is_neg(&nb, &nbr);
 	str = (char*)malloc(sizeof(str) * (int)ft_strlen(ft_itoa(nb)));
 	while (base[len])
 		len++;
@@ -44,6 +43,7 @@ char	*ft_nbr_tobase(int nbr, char *base)
 		nb /= len;
 	}
 	len = -1;
+	is_neg(&nb, &nbr)
 	while (i >= 0)
 	{
 		str[++len] = base[nb_final[i]];
