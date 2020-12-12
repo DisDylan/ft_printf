@@ -123,6 +123,7 @@ static char *ft_treat_convert(const char *format, int *index, va_list arguments)
 	if (c == 'u')
 	{
 		nb = va_arg(arguments, unsigned int);
+		printf("u vaut : %u", nb);
 		str = ft_strdup(ft_itoa(nb));
 	}
 	if (c == 'x')
