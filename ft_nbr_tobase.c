@@ -24,6 +24,7 @@ char	*ft_nbr_tobase(int nbr, char *base)
 	len = 0;
 	nb = nbr;
 	str = ft_strtrim(ft_itoa(nbr), " ");
+	printf("str vaut [%s]\n", str);
 	while (base[len])
 		len++;
 	while (nb)
