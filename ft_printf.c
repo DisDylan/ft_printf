@@ -115,8 +115,8 @@ static char *ft_treat_convert(const char *format, int *index, va_list arguments)
 	}
 	if (c == 's')
 		str = ft_strdup(va_arg(arguments, char*));
-	//if (c == 'p')
-	//	str = ft_strdup(&va_arg(arguments, int));
+	if (c == 'p')
+		str = ft_strdup(&va_arg(arguments, int));
 	if (c == 'd' || c == 'i')
 		str = ft_strdup(ft_itoa(va_arg(arguments, int)));
 	if (c == 'u')
