@@ -17,11 +17,9 @@ char	*ft_nbr_tobase(int nbr, char *base)
 	int				i;
 	int				len;
 	int				nb_final[50];
-	unsigned int	nb;
 	char			*str;
 
 	i = -1;
-	nb = nbr;
 	len = (int)ft_strlen(ft_itoa(nbr)) + 1;
 	printf("value len : %d\n", len);
 	str = (char*)malloc(sizeof(char) * len);
@@ -31,8 +29,8 @@ char	*ft_nbr_tobase(int nbr, char *base)
 		len++;
 	while (nb)
 	{
-		nb_final[++i] = nb % len;
-		nb /= len;
+		nb_final[++i] = nbr % len;
+		nbr /= len;
 	}
 	len = 0;
 	while (i >= 0)
