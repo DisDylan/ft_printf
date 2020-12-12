@@ -23,7 +23,7 @@ char	*ft_nbr_tobase(int nbr, char *base)
 	i = -1;
 	len = 0;
 	nb = nbr;
-	str = ft_strtrim(ft_itoa(nbr), " ");
+	str = (char*)malloc(sizeof(str) * (int)ft_strlen(ft_itoa(nbr)));
 	printf("str vaut [%s]\n", str);
 	while (base[len])
 		len++;
