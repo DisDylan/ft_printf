@@ -52,7 +52,6 @@ char	*ft_nbr_tobase(int nbr, char *base)
 		printf("str entier vaut : %s!\n", str);
 		i--;
 	}
-	ft_ret_space(str);
 	printf("Valeur de x : |%s|", str);
 	return (str);
 }
