@@ -274,7 +274,7 @@ int main(void)
 		printf(RED "| KO |\n" RESET);
 	max++;
 
-	void *nb = 5;
+	void *nb;
 	printf("\nTEST: p\n");
 	pf = printf("PRINTF:%p$\n", nb);
 	pft = ft_printf("FT_ptf:%p$\n", nb);
