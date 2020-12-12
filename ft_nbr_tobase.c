@@ -21,10 +21,11 @@ char	*ft_nbr_tobase(int nbr, char *base)
 	char			*str;
 
 	i = -1;
-	len = 0;
 	nb = nbr;
-	str = (char*)malloc(sizeof(str) * (int)ft_strlen(ft_itoa(nbr)));
+	len = (int)ft_strlen(ft_itoa(nbr));
+	str = (char*)malloc(sizeof(str) * len);
 	printf("str vaut [%s]\n", str);
+	len = 0;
 	while (base[len])
 		len++;
 	while (nb)
