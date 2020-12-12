@@ -122,9 +122,9 @@ static char *ft_treat_convert(const char *format, int *index, va_list arguments)
 	if (c == 'u')
 		str = ft_strdup(ft_itoa(va_arg(arguments, unsigned int)));
 	if (c == 'x')
-		str = ft_strdup(ft_itoa(va_arg(arguments, int)));
+		str = ft_strdup(ft_nbr_tobase(va_arg(arguments, int), "0123456789abcdef"));
 	if (c == 'X')
-		str = ft_strdup(ft_itoa(va_arg(arguments, int)));
+		str = ft_strdup(ft_nbr_tobase(va_arg(arguments, int), "0123456789ABCDEF"));
 	return (str);
 }
 
