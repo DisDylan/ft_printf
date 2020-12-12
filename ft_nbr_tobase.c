@@ -19,7 +19,6 @@ static void	is_neg(unsigned int *nb, int *nbr)
 		*nbr *= -1;
 		*nb *= -1;
 	}
-	if (*nbr == 0)
 }
 
 char	*ft_nbr_tobase(int nbr, char *base)
