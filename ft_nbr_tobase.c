@@ -44,7 +44,6 @@ char	*ft_nbr_tobase(int nbr, char *base)
 	}
 	len = -1;
 	is_neg(&nb, &nbr);
-	printf("!!!str vaut : |%s|\n", str);
 	while (i >= 0)
 	{
 		str[++len] = base[nb_final[i]];
