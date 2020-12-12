@@ -163,9 +163,9 @@ int main(void)
 		printf(RED "| KO |\n" RESET);
 	max++;
 
-	printf("\nTEST: -ds\n");
-	pf = printf("PRINTF:%*.*s$\n", 10, 5, "abcedef");
-	pft = ft_printf("FT_ptf:%*.*s$\n", 10, 5, "abcedef");
+	printf("\nTEST: -d\n");
+	pf = printf("PRINTF:%-d$\n", 42);
+	pft = ft_printf("FT_ptf:%-d$\n", 42);
 	if (pf == pft)
 	{
 		note++;
@@ -175,9 +175,9 @@ int main(void)
 		printf(RED "| KO |\n" RESET);
 	max++;
 
-	printf("\nTEST: *.*s\n");
-	pf = printf("PRINTF:%*.*s$\n", 10, 5, "abcedef");
-	pft = ft_printf("FT_ptf:%*.*s$\n", 10, 5, "abcedef");
+	printf("\nTEST: -d\n");
+	pf = printf("PRINTF:%-ds$\n", 42);
+	pft = ft_printf("FT_ptf:%-d$\n", 42);
 	if (pf == pft)
 	{
 		note++;
