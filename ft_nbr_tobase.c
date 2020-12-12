@@ -23,25 +23,6 @@ static int	is_neg(unsigned int *nb, int *nbr)
 	return (0);
 }
 
-static void ft_ret_space(char *str)
-{
-	int i;
-	char *tmp;
-
-	while (str[i] != ' ')
-		i++;
-	tmp = (char*)malloc(sizeof(char*) * i + 1);
-	i = 0;
-	while (str[i] != ' ')
-	{
-		tmp[i] = str[i];
-		i++;
-	}
-	free(str);
-	str = ft_strdup(tmp);
-	free(tmp);
-}
-
 char	*ft_nbr_tobase(int nbr, char *base)
 {
 	int				i;
@@ -63,6 +44,7 @@ char	*ft_nbr_tobase(int nbr, char *base)
 	}
 	len = -1;
 	is_neg(&nb, &nbr);
+	printf("!!!str vaut : |%s|\n", str);
 	while (i >= 0)
 	{
 		str[++len] = base[nb_final[i]];
