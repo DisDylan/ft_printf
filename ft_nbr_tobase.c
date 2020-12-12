@@ -63,6 +63,7 @@ char	*ft_nbr_tobase(int nbr, char *base)
 	}
 	len = -1;
 	is_neg(&nb, &nbr);
+	ft_ret_space(str);
 	while (i >= 0)
 	{
 		str[++len] = base[nb_final[i]];
