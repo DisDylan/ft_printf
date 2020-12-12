@@ -120,7 +120,7 @@ static char *ft_treat_convert(const char *format, int *index, va_list arguments)
 	if (c == 'd' || c == 'i')
 		str = ft_strdup(ft_itoa(va_arg(arguments, int)));
 	if (c == 'u')
-		str = ft_strdup(ft_itoa((unsigned int)va_arg(arguments, int)));
+		str = ft_strdup(ft_itoa((unsigned int)va_arg(arguments, unsigned int)));
 	if (c == 'x')
 		str = ft_nbr_tobase(va_arg(arguments, int), "0123456789abcdef");
 	if (c == 'X')
