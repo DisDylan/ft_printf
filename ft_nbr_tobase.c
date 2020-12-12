@@ -12,17 +12,6 @@
 
 #include "includes/ft_printf.h"
 
-static int	is_neg(unsigned int *nb, int *nbr)
-{
-	if (*nbr < 0)
-	{
-		*nbr *= -1;
-		*nb *= -1;
-		return (1);
-	}
-	return (0);
-}
-
 char	*ft_nbr_tobase(int nbr, char *base)
 {
 	int				i;
