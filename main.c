@@ -275,7 +275,7 @@ int main(void)
 	max++;
 
 	void *nb;
-	(unsigned char*)nb = "okokok";
+	nb = NULL;
 	printf("\nTEST: p\n");
 	pf = printf("PRINTF:%p$\n", nb);
 	pft = ft_printf("FT_ptf:%p$\n", nb);
