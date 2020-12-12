@@ -176,8 +176,32 @@ int main(void)
 	max++;
 
 	printf("\nTEST: -d\n");
-	pf = printf("PRINTF:%-ds$\n", 42);
-	pft = ft_printf("FT_ptf:%-d$\n", 42);
+	pf = printf("PRINTF:%-d$\n", -42);
+	pft = ft_printf("FT_ptf:%-d$\n", -42);
+	if (pf == pft)
+	{
+		note++;
+		printf(GREEN "| OK |\n" RESET);
+	}
+	else
+		printf(RED "| KO |\n" RESET);
+	max++;
+
+	printf("\nTEST: -010d\n");
+	pf = printf("PRINTF:%-010d$\n", 666);
+	pft = ft_printf("FT_ptf:%-010d$\n", 666);
+	if (pf == pft)
+	{
+		note++;
+		printf(GREEN "| OK |\n" RESET);
+	}
+	else
+		printf(RED "| KO |\n" RESET);
+	max++;
+
+	printf("\nTEST: -20d\n");
+	pf = printf("PRINTF:%-20d$\n", 666);
+	pft = ft_printf("FT_ptf:%-20d$\n", 666);
 	if (pf == pft)
 	{
 		note++;
