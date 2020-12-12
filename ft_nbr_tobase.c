@@ -37,5 +37,6 @@ char	*ft_nbr_tobase(int nbr, char *base)
 		i--;
 		len++;
 	}
+	str = ft_strdup(str);
 	return (str);
 }
