@@ -30,5 +30,5 @@ fclean:		clean
 re:			fclean all
 
 test:
-			${GCC} ${CFLAGS} ${SRCS} -I ${HEADER} -L. -lft
+			${GCC} ${CFLAGS} ${SRCS} main.c -I ${HEADER}
 			./a.out
