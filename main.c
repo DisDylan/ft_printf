@@ -294,4 +294,23 @@ int main(void)
 	{
 		printf(RED "\nPERDU:\n%d/%d\n", note, max);
 	}
+	
+	printf(YELLOW "\nTEST: %5%\n" RESET);
+	pf = printf("PRINTF:%5%$\n", nb);
+	pft = ft_printf("FT_ptf:%5%$\n", nb);
+	if (pf == pft)
+	{
+		note++;
+		printf(GREEN "| OK |\n" RESET);
+	}
+	else
+		printf(RED "| KO |\n" RESET);
+	max++;
+
+	if (note == max)
+		printf(GREEN "\nBRAVO:\n%d/%d\n", note, max);
+	else
+	{
+		printf(RED "\nPERDU:\n%d/%d\n", note, max);
+	}
 }
