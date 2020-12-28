@@ -107,7 +107,7 @@ static char *ft_treat_convert(const char *format, int *index, va_list arguments)
 	char *str;
 
 	c = format[*index];
-	if (c == 'c')
+	if (c == 'c' || == '%')
 	{
 		str = (char*)malloc(sizeof(str) * 2);
 		str[0] = c;
