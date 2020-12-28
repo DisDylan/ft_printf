@@ -10,11 +10,11 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "includes/ft_printf.h"
+#include "libft.h"
 
-static long	ft_abs(unsigned int n)
+static long	ft_abs(int n)
 {
-	unsigned int nb;
+	long nb;
 
 	nb = n;
 	if (nb < 0)
@@ -39,9 +39,9 @@ static void	ft_strrev(char *str)
 	}
 }
 
-static unsigned int	ft_count(unsigned int n)
+static int	ft_count(int n)
 {
-	unsigned int		i;
+	int		i;
 	long	nb;
 
 	nb = n;
@@ -63,7 +63,7 @@ static char	*ft_zero(char *str)
 	return (str);
 }
 
-char		*ft_itoa_u(unsigned int n)
+char		*ft_itoa(int n)
 {
 	char	*str;
 	int		is_neg;
