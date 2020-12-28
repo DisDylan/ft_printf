@@ -6,7 +6,7 @@
 /*   By: dpoinsu <dpoinsu@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/12/09 12:12:04 by dpoinsu           #+#    #+#             */
-/*   Updated: 2020/12/28 16:24:07 by dpoinsu          ###   ########.fr       */
+/*   Updated: 2020/12/28 16:29:23 by dpoinsu          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -296,8 +296,8 @@ int main(void)
 	}
 	
 	printf(YELLOW "\nTEST: %5%\n" RESET);
-	pf = printf("PRINTF:%5%$\n", nb);
-	pft = ft_printf("FT_ptf:%5%$\n", nb);
+	pf = printf("PRINTF:%5%$\n");
+	pft = ft_printf("FT_ptf:%5%$\n");
 	if (pf == pft)
 	{
 		note++;
