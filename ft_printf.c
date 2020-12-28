@@ -107,6 +107,7 @@ static char *ft_treat_convert(const char *format, int *index, va_list arguments)
 	char *str;
 
 	c = format[*index];
+	printf(RED "OK ICI" RESET);
 	if (c == 'c' || c == '%')
 	{
 		str = (char*)malloc(sizeof(str) * 2);
