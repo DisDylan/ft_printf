@@ -111,14 +111,7 @@ static char *ft_treat_convert(const char *format, int *index, va_list arguments)
 	{
 		str = (char*)malloc(sizeof(str) * 2);
 		str[0] = va_arg(arguments, int);
-		if (str[0] == '\0')
-		{
-			free(str);
-			str = (char*)malloc(sizeof(str));
-			str[0] = '\0';
-		}
-		else
-			str[1] = '\0';
+		str[1] = '\0';
 	}
 	if (c == '%')
 	{
