@@ -325,6 +325,31 @@ int main(void)
 	else
 		printf(RED "| KO |\n" RESET);
 	max++;
+	
+	printf(YELLOW "\nTEST: .s\n" RESET);
+	pf = printf("PRINTF:%.s", "hello");
+	pft = ft_printf("FT_ptf:%.s", "hello");
+	if (pf == pft)
+	{
+		note++;
+		printf(GREEN "| OK |\n" RESET);
+	}
+	else
+		printf(RED "| KO |\n" RESET);
+	max++;
+	
+	printf(YELLOW "\nTEST: .0s\n" RESET);
+	pf = printf("PRINTF:%.0s", "hello");
+	pft = ft_printf("FT_ptf:%.0s", "hello");
+	if (pf == pft)
+	{
+		note++;
+		printf(GREEN "| OK |\n" RESET);
+	}
+	else
+		printf(RED "| KO |\n" RESET);
+	max++;
+
 
 	if (note == max)
 		printf(GREEN "\nBRAVO:\n%d/%d\n", note, max);
