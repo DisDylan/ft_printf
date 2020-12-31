@@ -16,9 +16,9 @@ static ft_flags init_flags(void)
 {
 	ft_flags flags;
 
-	flags.width = 0;
-	flags.minus = 0;
-	flags.zero = 0;
+	flags.width = -1;
+	flags.minus = -1;
+	flags.zero = -1;
 	flags.dot = -1;
 	return (flags);
 }
@@ -47,12 +47,12 @@ static int ft_star_or_digit(const char *format, va_list arguments, int *index)
 	if (format[*index] == '*')
 	{
 		*index += 1;
-		flag_many = va_arg(arguments, int);
+		flag_many = va_arg(arguments, int) + 1;
 	}
 	else if (ft_chrchr(format[*index]) == 0)
 	{
 		flag_many = ft_atoi(format + *index);
-		*index += (int)ft_strlen(ft_itoa(ft_atoi(format + *index)));
+		*index += (int)ft_strlen(ft_itoa(ft_atoi(format + *index))) + 1;
 	}
 	return (flag_many);
 }
