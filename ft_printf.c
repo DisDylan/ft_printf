@@ -16,10 +16,10 @@ static ft_flags init_flags(void)
 {
 	ft_flags flags;
 
-	flags.width = -1;
-	flags.minus = -1;
-	flags.zero = -1;
-	flags.dot = -1;
+	flags.width = 0;
+	flags.minus = 0;
+	flags.zero = 0;
+	flags.dot = 0;
 	return (flags);
 }
 
@@ -43,16 +43,16 @@ static int ft_star_or_digit(const char *format, va_list arguments, int *index)
 {
 	int flag_many;
 
-	flag_many = 0;
+	flag_many = -1;
 	if (format[*index] == '*')
 	{
 		*index += 1;
-		flag_many = va_arg(arguments, int) + 1;
+		flag_many = va_arg(arguments, int);
 	}
 	else if (ft_chrchr(format[*index]) == 0)
 	{
 		flag_many = ft_atoi(format + *index);
-		*index += (int)ft_strlen(ft_itoa(ft_atoi(format + *index))) + 1;
+		*index += (int)ft_strlen(ft_itoa(ft_atoi(format + *index)));
 	}
 	return (flag_many);
 }
@@ -165,7 +165,7 @@ static char *ft_treat_all(char *str, ft_flags *flags)
 	size = ft_strlen(str);
 	if (flags->dot < size && flags->dot > 0)
 		newstr = ft_substr(str, 0, flags->dot);
-	if (flags->dot == 0)
+	if (flags->dot == -1)
 	{
 		newstr = (char*)malloc(sizeof(newstr) * 1);
 		newstr[0] = '\0';
