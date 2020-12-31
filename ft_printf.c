@@ -215,9 +215,12 @@ int	ft_printf(const char *format, ...)
 				index++;
 			}
 		}
-		ft_putchar_fd(format[index], 1);
-		index++;
-		size++;
+		else
+		{
+			ft_putchar_fd(format[index], 1);
+			index++;
+			size++;
+		}
 	}
 	va_end(arguments);
 	return (size);
