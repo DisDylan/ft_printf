@@ -110,7 +110,7 @@ static char *ft_treat_convert(const char *format, int *index, va_list arguments)
 	if (c == 'c' || c == '%')
 	{
 		str = (char*)malloc(sizeof(str) * 2);
-		str[0] = va_arg(arguments, char);
+		str[0] = va_arg(arguments, int);
 		str[1] = '\0';
 	}
 	if (c == 's')
