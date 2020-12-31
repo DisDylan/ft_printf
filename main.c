@@ -340,6 +340,7 @@ int main(void)
 	
 	printf(YELLOW "\nTEST: .0s\n" RESET);
 	pf = printf("PRINTF:%.0s", "hello");
+	printf("break point !!\n");
 	pft = ft_printf("FT_ptf:%.0s", "hello");
 	if (pf == pft)
 	{
