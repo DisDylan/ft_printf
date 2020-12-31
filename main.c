@@ -326,7 +326,7 @@ int main(void)
 	
 	printf(YELLOW "\nTEST: .s\n" RESET);
 	pf = printf("PRINTF:%.s\n", "hello");
-	//pft = ft_printf("FT_ptf:%.s", "hello");
+	pft = ft_printf("FT_ptf:%.s", "hello");
 	if (pf == pft)
 	{
 		note++;
