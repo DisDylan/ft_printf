@@ -44,7 +44,7 @@ static int ft_star_or_digit(const char *format, va_list arguments, int *index)
 	int flag_many;
 
 	flag_many = 0;
-	if (format[*index] == '*' || !ft_isdigit(format + *index))
+	if (format[*index] == '*' || !ft_isdigit(format[*index]))
 	{
 		*index += 1;
 		flag_many = va_arg(arguments, int);
