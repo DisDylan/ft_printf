@@ -54,6 +54,8 @@ static int ft_star_or_digit(const char *format, va_list arguments, int *index)
 		flag_many = ft_atoi(format + *index);
 		*index += (int)ft_strlen(ft_itoa(ft_atoi(format + *index)));
 	}
+	if (flag_many == 0)
+		return (-1);
 	return (flag_many);
 }
 
