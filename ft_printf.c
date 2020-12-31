@@ -19,7 +19,7 @@ static ft_flags init_flags(void)
 	flags.width = 0;
 	flags.minus = 0;
 	flags.zero = 0;
-	flags.dot = 0;
+	flags.dot = -1;
 	return (flags);
 }
 
@@ -43,7 +43,7 @@ static int ft_star_or_digit(const char *format, va_list arguments, int *index)
 {
 	int flag_many;
 
-	printf("ok ici\n");
+	flag_many = 0;
 	if (format[*index] == '*')
 	{
 		*index += 1;
