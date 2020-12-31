@@ -127,7 +127,7 @@ static char *ft_treat_convert(const char *format, int *index, va_list arguments)
 		str = ft_nbr_tobase(va_arg(arguments, int), "0123456789ABCDEF");
 	if (ft_chrchr(c))
 		*index += 1;
-	printf(CYAN "\n%s\n", str RESET);
+	printf(CYAN "\n%s\n", str);
 	return (str);
 }
 
