@@ -49,9 +49,7 @@ static int ft_star_or_digit(const char *format, va_list arguments, int *index)
 		*index += 1;
 		flag_many = va_arg(arguments, int);
 	}
-	else if (ft_chrchr(format[*index]))
-		return (flag_many);
-	else
+	else if (ft_chrchr(format[*index]) == 0)
 	{
 		flag_many = ft_atoi(format + *index);
 		*index += (int)ft_strlen(ft_itoa(ft_atoi(format + *index)));
