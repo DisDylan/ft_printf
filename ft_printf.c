@@ -72,7 +72,10 @@ static void ft_get_flag(const char *format, int *index, va_list arguments, ft_fl
 		if (flag == '0')
 			flags->zero = ft_star_or_digit(format, arguments, index);
 		else if (flag == '.')
+		{
 			flags->dot = ft_star_or_digit(format, arguments, index);
+			printf("ok pour dot\n");
+		}
 		else if (flag == '-')
 			flags->minus = 1;
 		else if (ft_isdigit(flag) || flag == '*')
