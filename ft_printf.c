@@ -44,7 +44,7 @@ static int ft_star_or_digit(const char *format, va_list arguments, int *index)
 	int flag_many;
 
 	flag_many = 0;
-	if (format[*index] == '*' || !ft_isdigit(format[*index]))
+	if (format[*index] == '*')
 	{
 		*index += 1;
 		flag_many = va_arg(arguments, int);
@@ -56,6 +56,7 @@ static int ft_star_or_digit(const char *format, va_list arguments, int *index)
 		flag_many = ft_atoi(format + *index);
 		*index += (int)ft_strlen(ft_itoa(ft_atoi(format + *index)));
 	}
+	printf("ok pour prec\n");
 	return (flag_many);
 }
 
@@ -77,7 +78,6 @@ static void ft_get_flag(const char *format, int *index, va_list arguments, ft_fl
 		else if (ft_isdigit(flag) || flag == '*')
 			flags->width = ft_star_or_digit(format, arguments, index);
 	}
-	printf("boucle ok\n");
 }
 
 static char *ft_fill(char *str, char c, int nb)
