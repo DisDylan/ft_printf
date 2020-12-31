@@ -168,7 +168,7 @@ static char *ft_treat_all(char *str, ft_flags *flags)
 	size = ft_strlen(str);
 	if (flags->dot < size && flags->dot > 0)
 		newstr = ft_substr(str, 0, flags->dot);
-	else if (flags->dot == -1)
+	else if (flags->dot <= -1)
 	{
 		newstr = (char*)malloc(sizeof(newstr) * 1);
 		newstr[0] = '\0';
