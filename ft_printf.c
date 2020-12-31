@@ -65,6 +65,7 @@ static void ft_get_flag(const char *format, int *index, va_list arguments, ft_fl
 
 	while (!(ft_chrchr(format[*index])))
 	{
+		printf("%c\n", format[*index]);
 		flag = (unsigned char)format[*index];
 		if (flag == '0' || flag == '.' || flag == '-')
 			*index += 1;
@@ -77,6 +78,7 @@ static void ft_get_flag(const char *format, int *index, va_list arguments, ft_fl
 		else if (ft_isdigit(flag) || flag == '*')
 			flags->width = ft_star_or_digit(format, arguments, index);
 	}
+	printf("boucle ok\n");
 }
 
 static char *ft_fill(char *str, char c, int nb)
