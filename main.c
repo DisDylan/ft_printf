@@ -287,13 +287,6 @@ int main(void)
 	else
 		printf(RED "| KO |\n" RESET);
 	max++;
-
-	if (note == max)
-		printf(GREEN "\nBRAVO:\n%d/%d\n", note, max);
-	else
-	{
-		printf(RED "\nPERDU:\n%d/%d\n", note, max);
-	}
 	
 	printf(YELLOW "\nTEST: %5%\n" RESET);
 	pf = printf("PRINTF:%5%$\n");
@@ -306,13 +299,6 @@ int main(void)
 	else
 		printf(RED "| KO |\n" RESET);
 	max++;
-
-	if (note == max)
-		printf(GREEN "\nBRAVO:\n%d/%d\n", note, max);
-	else
-	{
-		printf(RED "\nPERDU:\n%d/%d\n", note, max);
-	}
 	
 	printf(YELLOW "\nTEST: allPrintable\n" RESET);
 	pf = printf("PRINTF: %c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c\n",' ','!','"','#','$','%','&','\'','(',')','*','+',',','-','.','/','0','1','2','3','4','5','6','7','8','9',':',';','<','=','>','?','@','A','B','C','D','E','F','G','H','I','J','K','L','M','N','O','P','Q','R','S','T','U','V','W', 'X', 'Y','Z','[','\\',']','^','_','`','a','b','c','d','e','f','g','h','i','j','k','l','m','n','o','p','q','r','s','t','u','v','w','x','y','z','{','|','}','~');
