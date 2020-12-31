@@ -44,7 +44,7 @@ static int ft_star_or_digit(const char *format, va_list arguments, int *index)
 	int flag_many;
 
 	flag_many = 0;
-	if (format[*index] == '*')
+	if (format[*index] == '*' || !ft_isdigit(format + *index))
 	{
 		*index += 1;
 		flag_many = va_arg(arguments, int);
@@ -54,7 +54,6 @@ static int ft_star_or_digit(const char *format, va_list arguments, int *index)
 		flag_many = ft_atoi(format + *index);
 		*index += (int)ft_strlen(ft_itoa(ft_atoi(format + *index)));
 	}
-	printf("ok ici\n");
 	return (flag_many);
 }
 
