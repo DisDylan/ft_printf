@@ -230,5 +230,6 @@ int	ft_printf(const char *format, ...)
 		}
 	}
 	va_end(arguments);
+	printf("%d", size);
 	return (size);
 }
