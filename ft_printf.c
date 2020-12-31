@@ -43,6 +43,7 @@ static int ft_star_or_digit(const char *format, va_list arguments, int *index)
 {
 	int flag_many;
 
+	printf("ok ici\n");
 	if (format[*index] == '*')
 	{
 		*index += 1;
