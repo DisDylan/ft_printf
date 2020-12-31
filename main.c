@@ -312,7 +312,7 @@ int main(void)
 		printf(RED "| KO |\n" RESET);
 	max++;
 	
-	printf(YELLOW "\nTEST: %c = \\0\n" RESET);
+	printf(YELLOW "\nTEST: c = \\0\n" RESET);
 	pf = printf("PRINTF:%c$\n", '\0');
 	pft = ft_printf("FT_ptf:%c$\n", '\0');
 	if (pf == pft)
