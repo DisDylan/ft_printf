@@ -49,14 +49,13 @@ static int ft_star_or_digit(const char *format, va_list arguments, int *index)
 		*index += 1;
 		flag_many = va_arg(arguments, int);
 	}
-	else if (!ft_isdigit(format[*index]))
-		*index += 1;
+	else if (ft_chrchr(format[*index]))
+		return (flag_many);
 	else
 	{
 		flag_many = ft_atoi(format + *index);
 		*index += (int)ft_strlen(ft_itoa(ft_atoi(format + *index)));
 	}
-	printf("ok pour prec\n");
 	return (flag_many);
 }
 
@@ -66,18 +65,13 @@ static void ft_get_flag(const char *format, int *index, va_list arguments, ft_fl
 
 	while (!(ft_chrchr(format[*index])))
 	{
-		printf("%c\n", format[*index]);
-		scanf("entrée");
 		flag = (unsigned char)format[*index];
 		if (flag == '0' || flag == '.' || flag == '-')
 			*index += 1;
 		if (flag == '0')
 			flags->zero = ft_star_or_digit(format, arguments, index);
 		else if (flag == '.')
-		{
 			flags->dot = ft_star_or_digit(format, arguments, index);
-			printf("ok pour dot\n");
-		}
 		else if (flag == '-')
 			flags->minus = 1;
 		else if (ft_isdigit(flag) || flag == '*')
