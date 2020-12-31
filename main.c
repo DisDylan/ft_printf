@@ -356,3 +356,9 @@ int main(void)
 		printf(RED "\nPERDU:\n%d/%d\n", note, max);
 	}
 }
+
+
+/* A VOIR PLUS TARD
+
+C NULL TERM
+STRING PREC TRUNC

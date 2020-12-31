@@ -56,6 +56,7 @@ static int ft_star_or_digit(const char *format, va_list arguments, int *index)
 	}
 	if (flag_many == 0)
 		return (-1);
+	printf("flagmany: %d\n", flag_many);
 	return (flag_many);
 }
 
