@@ -123,7 +123,16 @@ static char *ft_treat_convert(const char *format, int *index, va_list arguments,
 		str[1] = '\0';
 	}
 	if (c == 's')
-		str = ft_strdup(va_arg(arguments, char*));
+	{
+		str = va_arg(arguments, char*);
+		if (!str)
+			{
+				str = (char*)malloc(sizeof(*str) * 7)
+				str = "(null)\0";
+			}
+		else
+			str = ft_strdup(str);
+	}
 	if (c == 'p')
 		str = ft_strdup(va_arg(arguments, void*));
 	if (c == 'd' || c == 'i')
