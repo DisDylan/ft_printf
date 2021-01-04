@@ -127,7 +127,7 @@ static char *ft_treat_convert(const char *format, int *index, va_list arguments,
 		str = va_arg(arguments, char*);
 		if (!str)
 			{
-				str = (char*)malloc(sizeof(*str) * 7)
+				str = (char*)malloc(sizeof(*str) * 7);
 				str = "(null)\0";
 			}
 		else
