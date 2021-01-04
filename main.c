@@ -315,8 +315,6 @@ int main(void)
 	printf(YELLOW "\nTEST: c = \\0\n" RESET);
 	pf = printf("PRINTF:%c$\n", '\0');
 	pft = ft_printf("FT_ptf:%c$\n", '\0');
-	printf("%d\n", pf);
-	printf("%d\n", pft);
 	if (pf == pft)
 	{
 		note++;
@@ -365,6 +363,18 @@ int main(void)
 	printf(YELLOW "\nTEST: -7.5s\n" RESET);
 	pf = printf("PRINTF:%-7.5s$\n", "hello world");
 	pft = ft_printf("FT_ptf:%-7.5s$\n", "hello world");
+	if (pf == pft)
+	{
+		note++;
+		printf(GREEN "| OK |\n" RESET);
+	}
+	else
+		printf(RED "| KO |\n" RESET);
+	max++;
+	
+	printf(YELLOW "\nTEST: -7.5s\n" RESET);
+	pf = printf("PRINTF:hello, %s.", NULL);
+	pft = ft_printf("FT_ptf:hello, %s.", NULL);
 	if (pf == pft)
 	{
 		note++;
