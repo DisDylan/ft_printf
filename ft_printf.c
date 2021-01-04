@@ -136,6 +136,7 @@ static char *ft_treat_convert(const char *format, int *index, va_list arguments,
 		str = ft_nbr_tobase(va_arg(arguments, int), "0123456789ABCDEF");
 	if (str[0] == '\0')
 		*size += 1;
+	printf("ici ca passe \n");
 	return (str);
 }
 
