@@ -325,8 +325,8 @@ int main(void)
 	max++;
 	
 	printf(YELLOW "\nTEST: .s\n" RESET);
-	pf = printf("PRINTF:%.s\n", "hello");
-	pft = ft_printf("FT_ptf:%.s\n", "hello");
+	pf = printf("PRINTF:%.s$\n", "hello");
+	pft = ft_printf("FT_ptf:%.s$\n", "hello");
 	if (pf == pft)
 	{
 		note++;
@@ -337,8 +337,8 @@ int main(void)
 	max++;
 	
 	printf(YELLOW "\nTEST: .0s\n" RESET);
-	pf = printf("PRINTF:%.0s\n", "hello");
-	pft = ft_printf("FT_ptf:%.0s\n", "hello");
+	pf = printf("PRINTF:%.0s$\n", "hello");
+	pft = ft_printf("FT_ptf:%.0s$\n", "hello");
 	if (pf == pft)
 	{
 		note++;
@@ -349,8 +349,8 @@ int main(void)
 	max++;
 	
 	printf(YELLOW "\nTEST: 7.5s\n" RESET);
-	pf = printf("PRINTF:%7.5s\n", "hello world");
-	pft = ft_printf("FT_ptf:%7.5s\n", "hello world");
+	pf = printf("PRINTF:%7.5s$\n", "hello world");
+	pft = ft_printf("FT_ptf:%7.5s$\n", "hello world");
 	if (pf == pft)
 	{
 		note++;
@@ -361,8 +361,8 @@ int main(void)
 	max++;
 	
 	printf(YELLOW "\nTEST: -7.5s\n" RESET);
-	pf = printf("PRINTF:%-7.5s\n", "hello world");
-	pft = ft_printf("FT_ptf:%-7.5s\n", "hello world");
+	pf = printf("PRINTF:%-7.5s$\n", "hello world");
+	pft = ft_printf("FT_ptf:%-7.5s$\n", "hello world");
 	if (pf == pft)
 	{
 		note++;
