@@ -108,6 +108,7 @@ static char *ft_treat_convert(const char *format, int *index, va_list arguments,
 {
 	char c;
 	char *str;
+	char *save;
 
 	c = format[*index];
 	if (c == 'c')
@@ -124,14 +125,14 @@ static char *ft_treat_convert(const char *format, int *index, va_list arguments,
 	}
 	if (c == 's')
 	{
-		str = va_arg(arguments, char*);
+		save = va_arg(arguments, char*);
 		if (!str)
 			{
 				str = (char*)malloc(sizeof(*str) * 7);
 				str = "(null)\0";
 			}
 		else
-			str = ft_strdup(str);
+			str = ft_strdup(save);
 	}
 	if (c == 'p')
 		str = ft_strdup(va_arg(arguments, void*));
