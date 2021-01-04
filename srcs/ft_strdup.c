@@ -20,7 +20,7 @@ char	*ft_strdup(const char *s)
 	i = 0;
 	while (s[i])
 		i++;
-	printf("ici ca passe \n");
+	printf("ici ca passe3 \n");
 	if (!(str = malloc(sizeof(*str) * (i + 1))))
 		return (0);
 	i = 0;
