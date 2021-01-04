@@ -124,7 +124,10 @@ static char *ft_treat_convert(const char *format, int *index, va_list arguments,
 		str[1] = '\0';
 	}
 	if (c == 's')
+	{
+		printf("ici ca passe \n");
 		str = ft_strdup(va_arg(arguments, char*));
+	}
 	if (c == 'p')
 		str = ft_strdup(va_arg(arguments, void*));
 	if (c == 'd' || c == 'i')
