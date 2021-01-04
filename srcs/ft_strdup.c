@@ -18,7 +18,6 @@ char	*ft_strdup(const char *s)
 	int i;
 
 	i = 0;
-	printf("ok la");
 	if (*s == '\0')
 		return ((char*)ft_calloc(sizeof(char), (ft_strlen(s) + 1)));
 	while (s[i])
