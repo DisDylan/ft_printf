@@ -104,7 +104,7 @@ static char *ft_fill(char *str, char c, int nb)
 	return (strfilled);
 }
 
-static char *ft_treat_convert(const char *format, int *index, va_list arguments)
+static char *ft_treat_convert(const char *format, int *index, va_list arguments, int *size)
 {
 	char c;
 	char *str;
@@ -116,7 +116,7 @@ static char *ft_treat_convert(const char *format, int *index, va_list arguments)
 		str[0] = va_arg(arguments, int);
 		str[1] = '\0';
 		if (str[0] == '\0')
-			*index += 1;
+			*size += 1;
 	}
 	if (c == '%')
 	{
@@ -220,7 +220,7 @@ int	ft_printf(const char *format, ...)
 			index++;
 			ft_get_flag(format, &index, arguments, &flags);
 			tmp = ft_treat_all(
-				ft_treat_convert(format, &index, arguments), &flags);
+				ft_treat_convert(format, &index, arguments, &size), &flags);
 			ft_putstr_fd(tmp, 1);
 			size += (int)ft_strlen(tmp);
 			free(tmp);
