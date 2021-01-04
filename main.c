@@ -315,6 +315,8 @@ int main(void)
 	printf(YELLOW "\nTEST: c = \\0\n" RESET);
 	pf = printf("PRINTF:%c$\n", '\0');
 	pft = ft_printf("FT_ptf:%c$\n", '\0');
+	printf("%d\n", pf);
+	printf("%d\n", pft);
 	if (pf == pft)
 	{
 		note++;
