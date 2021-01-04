@@ -19,11 +19,6 @@ char	*ft_strdup(const char *s)
 
 	i = 0;
 	printf("ok la");
-	if (!s)
-	{
-		str = malloc(sizeof(*str) * 7);
-		str = "(null)";
-	}
 	while (s[i])
 		i++;
 	if (!(str = malloc(sizeof(*str) * (i + 1))))
