@@ -371,10 +371,23 @@ int main(void)
 	else
 		printf(RED "| KO |\n" RESET);
 	max++;
-	
+	/* A CORRIGER
 	printf(YELLOW "\nTEST: s == NULL\n" RESET);
 	pf = printf("PRINTF:hello, %s.", NULL);
 	pft = ft_printf("FT_ptf:hello, %s.", NULL);
+	if (pf == pft)
+	{
+		note++;
+		printf(GREEN "| OK |\n" RESET);
+	}
+	else
+		printf(RED "| KO |\n" RESET);
+	max++;
+	*/
+	
+	printf(YELLOW "\nTEST: -7.5s\n" RESET);
+	pf = printf("PRINTF:%-7.5s$\n", "hello world");
+	pft = ft_printf("FT_ptf:%-7.5s$\n", "hello world");
 	if (pf == pft)
 	{
 		note++;
