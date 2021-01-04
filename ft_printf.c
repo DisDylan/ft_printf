@@ -174,6 +174,7 @@ static char *ft_treat_all(char *str, ft_flags *flags)
 	}
 	else
 		newstr = ft_strdup(str);
+	size = ft_strlen(newstr);
 	if (flags->width > size)
 	{
 		tmp = ft_strdup(newstr);
