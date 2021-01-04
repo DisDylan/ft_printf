@@ -115,8 +115,6 @@ static char *ft_treat_convert(const char *format, int *index, va_list arguments,
 		str = (char*)malloc(sizeof(str) * 2);
 		str[0] = va_arg(arguments, int);
 		str[1] = '\0';
-		if (str[0] == '\0')
-			*size += 1;
 	}
 	if (c == '%')
 	{
@@ -136,6 +134,8 @@ static char *ft_treat_convert(const char *format, int *index, va_list arguments,
 		str = ft_nbr_tobase(va_arg(arguments, int), "0123456789abcdef");
 	if (c == 'X')
 		str = ft_nbr_tobase(va_arg(arguments, int), "0123456789ABCDEF");
+	if (str[0] == '\0')
+		*size += 1;
 	return (str);
 }
 

@@ -372,7 +372,7 @@ int main(void)
 		printf(RED "| KO |\n" RESET);
 	max++;
 	
-	printf(YELLOW "\nTEST: -7.5s\n" RESET);
+	printf(YELLOW "\nTEST: %s == NULL\n" RESET);
 	pf = printf("PRINTF:hello, %s.", NULL);
 	pft = ft_printf("FT_ptf:hello, %s.", NULL);
 	if (pf == pft)
