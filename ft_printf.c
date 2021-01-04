@@ -110,7 +110,7 @@ static char *ft_treat_convert(const char *format, int *index, va_list arguments,
 	char *str;
 
 	c = format[*index];
-	printf("ici ca passe \n");
+	printf("ici ca passe0 \n");
 	if (c == 'c')
 	{
 		str = (char*)malloc(sizeof(str) * 2);
@@ -125,7 +125,7 @@ static char *ft_treat_convert(const char *format, int *index, va_list arguments,
 	}
 	if (c == 's')
 	{
-		printf("ici ca passe \n");
+		printf("ici ca passe1 \n");
 		str = ft_strdup(va_arg(arguments, char*));
 		printf("ici ca passe2\n");
 	}
