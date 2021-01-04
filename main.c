@@ -348,9 +348,9 @@ int main(void)
 		printf(RED "| KO |\n" RESET);
 	max++;
 	
-	printf(YELLOW "\nTEST: .0s\n" RESET);
-	pf = printf("PRINTF:%.0s\n", "hello");
-	pft = ft_printf("FT_ptf:%.0s\n", "hello");
+	printf(YELLOW "\nTEST: 16s\n" RESET);
+	pf = printf("PRINTF:%16s\n", "hello");
+	pft = ft_printf("FT_ptf:%16s\n", "hello");
 	if (pf == pft)
 	{
 		note++;
@@ -360,9 +360,33 @@ int main(void)
 		printf(RED "| KO |\n" RESET);
 	max++;
 	
-	printf(YELLOW "\nTEST: .0s\n" RESET);
-	pf = printf("PRINTF:%.0s\n", "hello");
-	pft = ft_printf("FT_ptf:%.0s\n", "hello");
+	printf(YELLOW "\nTEST: 32s\n" RESET);
+	pf = printf("PRINTF:%32s\n", "hello");
+	pft = ft_printf("FT_ptf:%32s\n", "hello");
+	if (pf == pft)
+	{
+		note++;
+		printf(GREEN "| OK |\n" RESET);
+	}
+	else
+		printf(RED "| KO |\n" RESET);
+	max++;
+	
+	printf(YELLOW "\nTEST: -16s\n" RESET);
+	pf = printf("PRINTF:%-16s\n", "hello");
+	pft = ft_printf("FT_ptf:%-16s\n", "hello");
+	if (pf == pft)
+	{
+		note++;
+		printf(GREEN "| OK |\n" RESET);
+	}
+	else
+		printf(RED "| KO |\n" RESET);
+	max++;
+	
+	printf(YELLOW "\nTEST: -32s\n" RESET);
+	pf = printf("PRINTF:%-32s\n", "hello");
+	pft = ft_printf("FT_ptf:%-32s\n", "hello");
 	if (pf == pft)
 	{
 		note++;
