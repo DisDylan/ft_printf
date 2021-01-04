@@ -219,6 +219,8 @@ int	ft_printf(const char *format, ...)
 			ft_get_flag(format, &index, arguments, &flags);
 			tmp = ft_treat_all(
 				ft_treat_convert(format, &index, arguments), &flags);
+			if (tmp[0] == '\0')
+				size += 1;
 			ft_putstr_fd(tmp, 1);
 			size += (int)ft_strlen(tmp);
 			free(tmp);
