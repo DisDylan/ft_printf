@@ -127,6 +127,7 @@ static char *ft_treat_convert(const char *format, int *index, va_list arguments,
 	{
 		printf("ici ca passe \n");
 		str = ft_strdup(va_arg(arguments, char*));
+		printf("ici ca passe2\n");
 	}
 	if (c == 'p')
 		str = ft_strdup(va_arg(arguments, void*));
