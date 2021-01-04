@@ -18,9 +18,11 @@ char	*ft_strdup(const char *s)
 	int i;
 
 	i = 0;
+	if (!s)
+		str = malloc(sizeof(*str) * 7);
+		str = "(null)";
 	while (s[i])
 		i++;
-	printf("ici ca passe3 \n");
 	if (!(str = malloc(sizeof(*str) * (i + 1))))
 		return (0);
 	i = 0;
