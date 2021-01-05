@@ -1,7 +1,7 @@
 
 #include "../includes/ft_printf.h"
 
-static int	ft_min_uint(char *unsi_int, t_flags flags)
+static int	ft_min_uint(char *unsi_int, ft_flags flags)
 {
 	int char_count;
 
@@ -12,7 +12,7 @@ static int	ft_min_uint(char *unsi_int, t_flags flags)
 	return (char_count);
 }
 
-static int	ft_flag_uint(char *unsi_int, t_flags flags)
+static int	ft_flag_uint(char *unsi_int, ft_flags flags)
 {
 	int char_count;
 
@@ -34,7 +34,7 @@ static int	ft_flag_uint(char *unsi_int, t_flags flags)
 	return (char_count);
 }
 
-int			ft_uint(unsigned int unsi, t_flags flags)
+int			ft_uint(unsigned int unsi, ft_flags flags)
 {
 	char	*unsi_int;
 	int		char_count;

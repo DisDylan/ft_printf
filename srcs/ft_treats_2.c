@@ -1,6 +1,6 @@
 #include "../includes/ft_printf.h"
 
-static int	ft_min_int(char *d_i, int save_i, t_flags flags)
+static int	ft_min_int(char *d_i, int save_i, ft_flags flags)
 {
 	int char_count;
 
@@ -13,7 +13,7 @@ static int	ft_min_int(char *d_i, int save_i, t_flags flags)
 	return (char_count);
 }
 
-static int	ft_flag_int(char *d_i, int save_i, t_flags flags)
+static int	ft_flag_int(char *d_i, int save_i, ft_flags flags)
 {
 	int char_count;
 
@@ -34,7 +34,7 @@ static int	ft_flag_int(char *d_i, int save_i, t_flags flags)
 	return (char_count);
 }
 
-int			ft_int(int i, t_flags flags)
+int			ft_int(int i, ft_flags flags)
 {
 	char	*d_i;
 	int		save_i;

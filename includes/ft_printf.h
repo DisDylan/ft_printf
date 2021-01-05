@@ -52,5 +52,9 @@ int ft_treat_convert(char c, ft_flags flags, va_list arguments);
 int			ft_pointer(unsigned long long ull, ft_flags flags);
 int				ft_string(char *str, ft_flags flags);
 int		ft_char(char c, ft_flags flags);
+int			ft_int(int i, ft_flags flags);
+int			ft_uint(unsigned int unsi, ft_flags flags);
+int				ft_hexa(unsigned int ui, int lower, ft_flags flags);
+int		ft_percent(ft_flags flags);
 
 #endif

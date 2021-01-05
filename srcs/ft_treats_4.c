@@ -1,7 +1,7 @@
 
 #include "../includes/ft_printf.h"
 
-static int		ft_min_hexa(char *hexa, t_flags flags)
+static int		ft_min_hexa(char *hexa, ft_flags flags)
 {
 	int char_count;
 
@@ -12,7 +12,7 @@ static int		ft_min_hexa(char *hexa, t_flags flags)
 	return (char_count);
 }
 
-static int		ft_flag_hexa(char *hexa, t_flags flags)
+static int		ft_flag_hexa(char *hexa, ft_flags flags)
 {
 	int char_count;
 
@@ -34,7 +34,7 @@ static int		ft_flag_hexa(char *hexa, t_flags flags)
 	return (char_count);
 }
 
-int				ft_hexa(unsigned int ui, int lower, t_flags flags)
+int				ft_hexa(unsigned int ui, int lower, ft_flags flags)
 {
 	char	*hexa;
 	int		char_count;
@@ -64,7 +64,7 @@ int		ft_putstrprec(char *str, int prec)
 	return (char_count);
 }
 
-int		ft_treat_percent(t_flags flags)
+int		ft_percent(ft_flags flags)
 {
 	int char_count;
 
