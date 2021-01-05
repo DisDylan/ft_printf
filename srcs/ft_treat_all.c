@@ -6,7 +6,7 @@ int ft_chrchr(char c)
 			|| (c == 'u') || (c == 'x') || (c == 'X') || (c == '%'));
 }
 
-int		ft_is_flags(char c)
+int		ft_is_flag(char c)
 {
 	return ((c == '-') || (c == ' ') || (c == '0') || (c == '.') || (c == '*'));
 }

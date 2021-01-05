@@ -59,3 +59,33 @@ int			ft_flag_dot(const char *format, int start,
 	}
 	return (i);
 }
+
+int 		ft_get_flag(const char *format, int index, va_list arguments, ft_flags *flags)
+{
+	unsigned char flag;
+	char			flag;
+
+	while (format[index])
+	{
+		flag = format[index];
+		if (!ft_isdigit(flag) && !ft_chrchr(flag) && !ft_is_flag(flag))
+			break;
+		if (flag == '0' && flags->width == 0 && flags->minus == 0)
+			flags->zero = 1;
+		if (flag == '.')
+			index = ft_dot(format, index, flags, arguments);
+		if (flag == '-')
+			*flags = ft_minus(*flags);
+		if (flag == '*')
+			*flags = ft_width(*flags, arguments);
+		if (ft_isdigit(flag))
+			*flags = ft_flags_digit(*flags, flag);
+		if (ft_chrchr(flag))
+		{
+			flags->type = flag;
+			break;
+		}
+		index++;
+	}
+	return (index);
+}

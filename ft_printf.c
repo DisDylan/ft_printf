@@ -23,165 +23,41 @@ static ft_flags init_flags(void)
 	return (flags);
 }
 
-static int ft_star_or_digit(const char *format, va_list arguments, int *index)
+int			ft_treat_all(const char *format, va_list arguments)
 {
-	int flag_many;
-
-	flag_many = -1;
-	if (format[*index] == '*')
-	{
-		*index += 1;
-		flag_many = va_arg(arguments, int);
-	}
-	else if (ft_chrchr(format[*index]) == 0)
-	{
-		flag_many = ft_atoi(format + *index);
-		*index += (int)ft_strlen(ft_itoa(ft_atoi(format + *index)));
-	}
-	if (flag_many == 0)
-		return (-1);
-	return (flag_many);
-}
-
-static void ft_get_flag(const char *format, int index, va_list arguments, ft_flags *flags)
-{
-	unsigned char flag;
-
-	while (format[index])
-	{
-		flag = (unsigned char)format[*index];
-		if (flag == '0' || flag == '.' || flag == '-')
-			*index += 1;
-		if (flag == '0')
-			flags->zero = ft_star_or_digit(format, arguments, index);
-		else if (flag == '.')
-			flags->dot = ft_star_or_digit(format, arguments, index);
-		else if (flag == '-')
-			flags->minus = 1;
-		else if (ft_isdigit(flag) || flag == '*')
-			flags->width = ft_star_or_digit(format, arguments, index);
-	}
-}
-
-static char *ft_fill(char *str, char c, int nb)
-{
-	char *strfilled;
-	int i;
-	int size_fill;
-
-	size_fill = nb - (int)ft_strlen(str);
-	strfilled = (char*)malloc(sizeof(*strfilled) * (nb + 1));
-	i = 0;
-	while (i <= size_fill)
-	{
-		strfilled[i] = (unsigned char)c;
-		i++;
-	}
-	i = 0;
-	while (size_fill <= nb)
-	{
-		strfilled[size_fill] = str[i];
-		size_fill++;
-		i++;
-	}
-	strfilled[size_fill] = '\0';
-	return (strfilled);
-}
-
-static char *ft_fill_minus(char *str, char c, int nb)
-{
-	char *strfilled;
-	int i;
+	int			i;
+	ft_flags		flags;
+	int			char_count;
 
 	i = 0;
-	strfilled = (char*)malloc(sizeof(*strfilled) * nb + 1);
-	while (str[i])
+	char_count = 0;
+	while (format[i])
 	{
-		strfilled[i] = str[i];
+		flags = ft_init_flags();
+		if (format[i] == '%')
+		{
+			i++;
+			i = ft_get_flag(format, i, arguments, &flags);
+			if (ft_chrchr(format[i]))
+				char_count += ft_treat_convert((char)flags.type, flags, arguments);
+			else if (save[i])
+				char_count += ft_putchar_fd(format[i], 1);
+		}
+		else if (save[i] != '%')
+			char_count += ft_putchar_fd(format[i], 1);
 		i++;
 	}
-	while (i < nb)
-	{
-		strfilled[i] = c;
-		i++;
-	}
-	strfilled[i] = '\0';
-	return (strfilled);
+	return (char_count);
 }
 
-static char *ft_treat_all(char *str, ft_flags *flags)
+int			ft_printf(const char *format, ...)
 {
-	int size;
-	char *newstr;
-	char *tmp;
+	va_list		arguments;
+	int			char_count;
 
-	size = ft_strlen(str);
-	if (flags->dot < size && flags->dot > 0)
-		newstr = ft_substr(str, 0, flags->dot);
-	else if (flags->dot <= -1)
-	{
-		newstr = (char*)malloc(sizeof(newstr) * 1);
-		newstr[0] = '\0';
-	}
-	else
-		newstr = ft_strdup(str);
-	size = ft_strlen(newstr);
-	if (flags->width > size)
-	{
-		tmp = ft_strdup(newstr);
-		free(newstr);
-		if (flags->minus == 1)
-			newstr = ft_fill_minus(tmp, ' ', flags->width);
-		else
-			newstr = ft_fill(tmp, ' ', flags->width);
-		free(tmp);
-	}
-	if (flags->zero > size)
-	{
-		tmp = ft_strdup(newstr);
-		free(newstr);
-		if (flags->minus == 1)
-			newstr = ft_fill_minus(tmp, ' ', flags->zero);
-		else
-			newstr = ft_fill(tmp, '0', flags->zero);
-		free(tmp);
-	}
-	free(str);
-	return (newstr);
-}
-
-int	ft_printf(const char *format, ...)
-{
-	ft_flags flags;
-	va_list arguments;
-	int index;
-	int size;
-	char *tmp;
-
-	index = 0;
-	size = 0;
-	flags = init_flags();
+	char_count = 0;
 	va_start(arguments, format);
-	while (format[index])
-	{
-		if (format[index] == '%')
-		{
-			index++;
-			ft_get_flag(format, &index, arguments, &flags);
-			tmp = ft_treat_all(
-				ft_treat_convert(format, &index, arguments, &size), &flags);
-			ft_putstr_fd(tmp, 1);
-			size += (int)ft_strlen(tmp);
-			free(tmp);
-			index++;
-		}
-		else
-		{
-			ft_putchar_fd(format[index], 1);
-			index++;
-			size++;
-		}
-	}
+	char_count += ft_treat_all(format, arguments);
 	va_end(arguments);
-	return (size);
+	return (char_count);
 }
