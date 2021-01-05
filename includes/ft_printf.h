@@ -47,6 +47,7 @@ ft_flags		ft_flag_width(va_list arguments, ft_flags flags);
 ft_flags		ft_flag_digit(char c, ft_flags flags);
 int 		ft_get_flag(const char *format, int index, va_list arguments, ft_flags *flags);
 int ft_chrchr(char c);
+int		ft_is_flag(char c);
 int ft_treat_convert(char c, ft_flags flags, va_list arguments);
 
 #endif

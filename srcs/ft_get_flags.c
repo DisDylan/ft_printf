@@ -30,7 +30,7 @@ ft_flags		ft_flag_digit(char c, ft_flags flags)
 ft_flags		ft_flag_width(va_list arguments, ft_flags flags)
 {
 	flags.star = 1;
-	flags.width = va_arg(args, int);
+	flags.width = va_arg(argumentss, int);
 	if (flags.width < 0)
 	{
 		flags.minus = 1;
@@ -44,11 +44,10 @@ int			ft_flag_dot(const char *format, int start,
 {
 	int i;
 
-	i = start;
-	i++;
+	i = start + 1;
 	if (format[i] == '*')
 	{
-		flags->dot = va_arg(args, int);
+		flags->dot = va_arg(arguments, int);
 		i++;
 	}
 	else
@@ -63,7 +62,6 @@ int			ft_flag_dot(const char *format, int start,
 int 		ft_get_flag(const char *format, int index, va_list arguments, ft_flags *flags)
 {
 	unsigned char flag;
-	char			flag;
 
 	while (format[index])
 	{
