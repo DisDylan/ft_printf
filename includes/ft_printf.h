@@ -49,5 +49,8 @@ int 		ft_get_flag(const char *format, int index, va_list arguments, ft_flags *fl
 int ft_chrchr(char c);
 int		ft_is_flag(char c);
 int ft_treat_convert(char c, ft_flags flags, va_list arguments);
+int			ft_pointer(unsigned long long ull, ft_flags flags);
+int				ft_string(char *str, ft_flags flags);
+int		ft_char(char c, ft_flags flags);
 
 #endif
