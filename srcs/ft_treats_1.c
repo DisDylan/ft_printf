@@ -77,7 +77,7 @@ int			ft_pointer(unsigned long long ull, ft_flags flags)
 		char_count += ft_putstrprec("0x", 2);
 		return (char_count += ft_put_width(flags.width, 0, 1));
 	}
-	str = ft_nbr_tobase(ull, 16);
+	str = ft_pointer_base(ull, 16);
 	str = ft_str_tolower(str);
 	if ((size_t)flags.dot < ft_strlen(str))
 		flags.dot = ft_strlen(str);
@@ -86,5 +86,6 @@ int			ft_pointer(unsigned long long ull, ft_flags flags)
 	char_count += ft_put_width(flags.width, ft_strlen(str) + 2, 0);
 	if (flags.minus == 0)
 		char_count += ft_flag_pointer(str, flags);
+	free(str);
 	return (char_count);
 }
