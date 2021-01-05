@@ -72,9 +72,9 @@ int 		ft_get_flag(const char *format, int index, va_list arguments, ft_flags *fl
 		if (format[index] == '-')
 			*flags = ft_minus(*flags);
 		if (format[index] == '*' || ft_isdigit(format[index]))
-			index = ft_width(arguments, *flags);
+			*flags = ft_width(arguments, *flags);
 		if (ft_isdigit(format[index]))
-			index = ft_digit(format[index], *flags);
+			*flags = ft_digit(format[index], *flags);
 		if (ft_chrchr(format[index]))
 		{
 			flags->type = format[index];
