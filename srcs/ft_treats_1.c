@@ -51,6 +51,7 @@ int				ft_string(char *str, ft_flags flags)
 	int char_count;
 
 	char_count = 0;
+	printf("OK EARLY STRING\n");
 	if (!str)
 		str = "(null)";
 	if (flags.dot >= 0 && (size_t)flags.dot > ft_strlen(str))
