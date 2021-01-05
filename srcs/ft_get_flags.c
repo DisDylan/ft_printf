@@ -27,7 +27,7 @@ ft_flags		ft_digit(char c, ft_flags flags)
 	return (flags);
 }
 
-int		ft_width(const char *format, , int start, va_list arguments, ft_flags flags)
+int		ft_width(const char *format, , int start, va_list arguments, ft_flags *flags)
 {
 	int i;
 
@@ -79,7 +79,7 @@ int 		ft_get_flag(const char *format, int index, va_list arguments, ft_flags *fl
 		if (flag == '0' && flags->width == 0 && flags->minus == 0)
 			flags->zero = 1;
 		if (flag == '.')
-			index = ft_dot(format, index, flags, arguments);
+			index = ft_dot(format, index, *flags, arguments);
 		if (flag == '-')
 			*flags = ft_minus(*flags);
 		if (flag == '*')
