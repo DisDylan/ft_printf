@@ -33,6 +33,5 @@ int ft_treat_convert(char c, ft_flags flags, va_list arguments)
 		char_count += ft_hexa(va_arg(arguments, unsigned int), 0, flags);
 	else if (c == '%')
 		char_count += ft_percent(flags);
-	printf("ok ici CONVERT\n");
 	return (char_count);
 }
