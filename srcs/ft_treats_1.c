@@ -56,14 +56,18 @@ int				ft_string(char *str, ft_flags flags)
 		str = "(null)";
 	if (flags.dot >= 0 && (size_t)flags.dot > ft_strlen(str))
 		flags.dot = ft_strlen(str);
+	printf("OK2\n");
 	if (flags.minus == 1)
 		char_count += ft_flag_str(str, flags);
+	printf("OK2\n");
 	if (flags.dot >= 0)
 		char_count += ft_put_width(flags.width, flags.dot, 0);
 	else
 		char_count += ft_put_width(flags.width, ft_strlen(str), 0);
+	printf("OK2\n");
 	if (flags.minus == 0)
 		char_count += ft_flag_str(str, flags);
+	printf("OK2\n");
 	return (char_count);
 }
 
