@@ -71,7 +71,7 @@ int 		ft_get_flag(const char *format, int index, va_list arguments, ft_flags *fl
 			index = ft_dot(format, index, flags, arguments);
 		if (format[index] == '-')
 			*flags = ft_minus(*flags);
-		if (format[index] == '*' || ft_isdigit(format[index]))
+		if (format[index] == '*')
 			*flags = ft_width(arguments, *flags);
 		if (ft_isdigit(format[index]))
 			*flags = ft_digit(format[index], *flags);
