@@ -27,7 +27,7 @@ ft_flags		ft_digit(char c, ft_flags flags)
 	return (flags);
 }
 
-int		ft_width(const char *format, , int start, va_list arguments, ft_flags *flags)
+int		ft_width(const char *format, int start, va_list arguments, ft_flags *flags)
 {
 	int i;
 
