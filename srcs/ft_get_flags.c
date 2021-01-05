@@ -31,7 +31,7 @@ int		ft_width(const char *format, int index, va_list arguments, ft_flags *flags)
 {
 	int i;
 
-	i = start + 1;
+	i = index + 1;
 	if (format[i] == '*')
 	{
 		flags->width = va_arg(arguments, int);
