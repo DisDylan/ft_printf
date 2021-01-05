@@ -27,23 +27,16 @@ ft_flags		ft_digit(char c, ft_flags flags)
 	return (flags);
 }
 
-int		ft_width(const char *format, int index, va_list arguments, ft_flags *flags)
+ft_flags		ft_width(va_list arguments, ft_flags flags)
 {
-	int i;
-
-	i = index + 1;
-	if (format[i] == '*')
+	flags.star = 1;
+	flags.width = va_arg(arguments, int);
+	if (flags.width < 0)
 	{
-		flags->width = va_arg(arguments, int);
-		i++;
+		flags.minus = 1;
+		flags.width *= -1;
 	}
-	else
-	{
-		flags->width = 0;
-		while (ft_isdigit(format[i]))
-			flags->width = (flags->width * 10) + (format[i++] - '0');
-	}
-	return (i);
+	return (flags);
 }
 
 int			ft_dot(const char *format, int start,
@@ -68,24 +61,23 @@ int			ft_dot(const char *format, int start,
 
 int 		ft_get_flag(const char *format, int index, va_list arguments, ft_flags *flags)
 {
-	unsigned char flag;
-
 	while (format[index])
 	{
-		flag = format[index];
-		if (!ft_isdigit(flag) && !ft_chrchr(flag) && !ft_is_flag(flag))
+		if (!ft_isdigit(format[index]) && !ft_chrchr(format[index]) && !ft_is_flag(format[index]))
 			break;
-		if (flag == '0' && flags->width == 0 && flags->minus == 0)
+		if (format[index] == '0' && flags->width == 0 && flags->minus == 0)
 			flags->zero = 1;
-		if (flag == '.')
+		if (format[index] == '.')
 			index = ft_dot(format, index, flags, arguments);
-		if (flag == '-')
+		if (format[index] == '-')
 			*flags = ft_minus(*flags);
-		if (flag == '*' || ft_isdigit(flag))
-			index = ft_width(format, index, arguments, flags);
-		if (ft_chrchr(flag))
+		if (format[index] == '*' || ft_isdigit(format[index]))
+			index = ft_width(arguments, *flags);
+		if (ft_isdigit(format[index])
+			i = ft_digit(format[i], *flags);
+		if (ft_chrchr(format[index]))
 		{
-			flags->type = flag;
+			flags->type = format[index];
 			break;
 		}
 		index++;
