@@ -49,6 +49,7 @@ int			ft_treat_all(const char *format, va_list arguments)
 			char_count += ft_putchar_fd(format[i], 1);
 		i++;
 	}
+	printf("WIDTH = %d\n", flags.width);
 	return (char_count);
 }
 
