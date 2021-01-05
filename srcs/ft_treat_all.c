@@ -17,21 +17,21 @@ int ft_treat_convert(char c, ft_flags flags, va_list arguments)
 
 	char_count = 0;
 	if (c == 'c')
-		char_count = ft_treat_char(va_arg(args, int), flags);
+		char_count = ft_char(va_arg(arguments, int), flags);
 	else if (c == 's')
-		char_count = ft_treat_string(va_arg(args, char *), flags);
+		char_count = ft_string(va_arg(arguments, char *), flags);
 	else if (c == 'p')
-		char_count = ft_treat_pointer(va_arg(args, unsigned long long), flags);
+		char_count = ft_pointer(va_arg(arguments, unsigned long long), flags);
 	else if (c == 'd' || c == 'i')
-		char_count = ft_treat_int(va_arg(args, int), flags);
+		char_count = ft_int(va_arg(arguments, int), flags);
 	else if (c == 'u')
-		char_count += ft_treat_uint((unsigned int)va_arg(args, unsigned int),
+		char_count += ft_u_int((unsigned int)va_arg(arguments, unsigned int),
 		flags);
 	else if (c == 'x')
-		char_count += ft_treat_hexa(va_arg(args, unsigned int), 1, flags);
+		char_count += ft_hexa(va_arg(arguments, unsigned int), 1, flags);
 	else if (c == 'X')
-		char_count += ft_treat_hexa(va_arg(args, unsigned int), 0, flags);
+		char_count += ft_hexa(va_arg(arguments, unsigned int), 0, flags);
 	else if (c == '%')
-		char_count += ft_treat_percent(flags);
+		char_count += ft_percent(flags);
 	return (char_count);
 }
