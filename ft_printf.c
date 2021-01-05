@@ -23,21 +23,17 @@ static ft_flags init_flags(void)
 	return (flags);
 }
 
-static int ft_chrchr(char format_letter)
+static int ft_chrchr(char c)
 {
-	char *conversion;
-	int i;
-
-	conversion = "cspdiuxX%";
-	i = 0;
-	while (conversion[i])
-	{
-		if (conversion[i] == format_letter)
-			return (1);
-		i++;
-	}
-	return (0);
+	return ((c == 'c') || (c == 's') || (c == 'p') || (c == 'd') || (c == 'i')
+			|| (c == 'u') || (c == 'x') || (c == 'X') || (c == '%'));
 }
+
+int		ft_is_flags(char c)
+{
+	return ((c == '-') || (c == ' ') || (c == '0') || (c == '.') || (c == '*'));
+}
+
 
 static int ft_star_or_digit(const char *format, va_list arguments, int *index)
 {
@@ -59,11 +55,11 @@ static int ft_star_or_digit(const char *format, va_list arguments, int *index)
 	return (flag_many);
 }
 
-static void ft_get_flag(const char *format, int *index, va_list arguments, ft_flags *flags)
+static void ft_get_flag(const char *format, int index, va_list arguments, ft_flags *flags)
 {
 	unsigned char flag;
 
-	while (!(ft_chrchr(format[*index])))
+	while (format[index])
 	{
 		flag = (unsigned char)format[*index];
 		if (flag == '0' || flag == '.' || flag == '-')
@@ -104,39 +100,29 @@ static char *ft_fill(char *str, char c, int nb)
 	return (strfilled);
 }
 
-static char *ft_treat_convert(const char *format, int *index, va_list arguments, int *size)
+static int *ft_treat_convert(const char *format, int *index, va_list arguments, int *size)
 {
-	char c;
-	char *str;
+	int char_count;
 
-	c = format[*index];
+	char_count = 0;
 	if (c == 'c')
-	{
-		str = (char*)malloc(sizeof(str) * 2);
-		str[0] = va_arg(arguments, int);
-		str[1] = '\0';
-	}
-	if (c == '%')
-	{
-		str = (char*)malloc(sizeof(str) * 2);
-		str[0] = '%';
-		str[1] = '\0';
-	}
-	if (c == 's')
-		str = ft_strdup(va_arg(arguments, char*));
-	if (c == 'p')
-		str = ft_strdup(va_arg(arguments, void*));
-	if (c == 'd' || c == 'i')
-		str = ft_strdup(ft_itoa(va_arg(arguments, int)));
-	if (c == 'u')
-		str = ft_strdup(ft_itoa_u((unsigned int)va_arg(arguments, unsigned int)));
-	if (c == 'x')
-		str = ft_nbr_tobase(va_arg(arguments, int), "0123456789abcdef");
-	if (c == 'X')
-		str = ft_nbr_tobase(va_arg(arguments, int), "0123456789ABCDEF");
-	if (str[0] == '\0')
-		*size += 1;
-	return (str);
+		char_count = ft_treat_char(va_arg(args, int), flags);
+	else if (c == 's')
+		char_count = ft_treat_string(va_arg(args, char *), flags);
+	else if (c == 'p')
+		char_count = ft_treat_pointer(va_arg(args, unsigned long long), flags);
+	else if (c == 'd' || c == 'i')
+		char_count = ft_treat_int(va_arg(args, int), flags);
+	else if (c == 'u')
+		char_count += ft_treat_uint((unsigned int)va_arg(args, unsigned int),
+		flags);
+	else if (c == 'x')
+		char_count += ft_treat_hexa(va_arg(args, unsigned int), 1, flags);
+	else if (c == 'X')
+		char_count += ft_treat_hexa(va_arg(args, unsigned int), 0, flags);
+	else if (c == '%')
+		char_count += ft_treat_percent(flags);
+	return (char_count);
 }
 
 static char *ft_fill_minus(char *str, char c, int nb)
