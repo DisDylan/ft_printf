@@ -27,7 +27,7 @@ ft_flags		ft_flag_digit(char c, ft_flags flags)
 	return (flags);
 }
 
-ft_flags		ft_flag_width(va_list args, ft_flags flags)
+ft_flags		ft_flag_width(va_list arguments, ft_flags flags)
 {
 	flags.star = 1;
 	flags.width = va_arg(args, int);
@@ -40,7 +40,7 @@ ft_flags		ft_flag_width(va_list args, ft_flags flags)
 }
 
 int			ft_flag_dot(const char *format, int start,
-			ft_flags *flags, va_list args)
+			ft_flags *flags, va_list arguments)
 {
 	int i;
 
