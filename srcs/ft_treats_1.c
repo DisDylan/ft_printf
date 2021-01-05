@@ -66,6 +66,7 @@ int				ft_string(char *str, ft_flags flags)
 	{
 		printf("ok avant put width\n");
 		char_count += ft_put_width(flags.width, ft_strlen(str), 0);
+		printf("ok après \n");
 	}
 	printf("OK2\n");
 	if (flags.minus == 0)
