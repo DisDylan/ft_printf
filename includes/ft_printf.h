@@ -59,5 +59,6 @@ int		ft_percent(ft_flags flags);
 int		ft_put_width(int width, int minus, int has_zero);
 int		ft_putstrprec(char *str, int prec);
 char	*ft_str_tolower(char *str);
+char		*ft_pointer_base(unsigned long long ull, int base);
 
 #endif
