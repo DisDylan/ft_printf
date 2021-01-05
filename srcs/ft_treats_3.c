@@ -34,7 +34,7 @@ static int	ft_flag_uint(char *unsi_int, ft_flags flags)
 	return (char_count);
 }
 
-int			ft_uint(unsigned int unsi, ft_flags flags)
+int			ft_u_int(unsigned int unsi, ft_flags flags)
 {
 	char	*unsi_int;
 	int		char_count;
