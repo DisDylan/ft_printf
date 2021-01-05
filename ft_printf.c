@@ -19,7 +19,9 @@ static ft_flags init_flags(void)
 	flags.width = 0;
 	flags.minus = 0;
 	flags.zero = 0;
-	flags.dot = 0;
+	flags.dot = -1;
+	flags.star = 0;
+	flags.type = 0;
 	return (flags);
 }
 
@@ -33,7 +35,7 @@ int			ft_treat_all(const char *format, va_list arguments)
 	char_count = 0;
 	while (format[i])
 	{
-		flags = ft_init_flags();
+		flags = init_flags();
 		if (format[i] == '%')
 		{
 			i++;
