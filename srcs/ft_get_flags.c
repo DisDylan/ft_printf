@@ -79,11 +79,11 @@ int 		ft_get_flag(const char *format, int index, va_list arguments, ft_flags *fl
 		if (flag == '0' && flags->width == 0 && flags->minus == 0)
 			flags->zero = 1;
 		if (flag == '.')
-			index = ft_dot(format, index, *flags, arguments);
+			index = ft_dot(format, index, flags, arguments);
 		if (flag == '-')
 			*flags = ft_minus(*flags);
 		if (flag == '*')
-			index = ft_width(format, index, arguments, *flags);
+			index = ft_width(format, index, arguments, flags);
 		if (ft_isdigit(flag))
 			*flags = ft_digit(flag, *flags);
 		if (ft_chrchr(flag))
