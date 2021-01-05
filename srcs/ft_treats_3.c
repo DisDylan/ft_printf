@@ -58,6 +58,7 @@ int		ft_put_width(int width, int minus, int has_zero)
 	int char_count;
 
 	char_count = 0;
+	printf("OK PUTWIDTH\n");
 	while (width - minus > 0)
 	{
 		if (has_zero)
