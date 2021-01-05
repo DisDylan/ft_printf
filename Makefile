@@ -24,9 +24,11 @@ ${NAME}:	${OBJS}
 all:		${NAME}
 
 clean:
+			${MAKE} clean -C ./libft
 			${RM} ${OBJS}
 
 fclean:		clean
+				${MAKE} fclean -C ./libft
 				${RM} ${NAME}
 
 re:			fclean all
