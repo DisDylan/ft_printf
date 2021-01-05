@@ -59,7 +59,7 @@ int				ft_string(char *str, ft_flags flags)
 	printf("OK2\n");
 	if (flags.minus == 1)
 		char_count += ft_flag_str(str, flags);
-	printf("OK2\n");
+	printf("%d & %d\n", flags.width, flags.dot);
 	if (flags.dot >= 0)
 		char_count += ft_put_width(flags.width, flags.dot, 0);
 	else
