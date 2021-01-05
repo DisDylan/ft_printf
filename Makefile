@@ -1,4 +1,4 @@
-SRCS	= ft_printf.c srcs/ft_itoa_u.c srcs/ft_nbr_tobase.c
+SRCS	= ft_printf.c srcs/ft_itoa_u.c srcs/ft_nbr_tobase.c srcs/ft_get_flags.c srcs/ft_treat_all.c srcs/ft_treats_1.c
 
 OBJS	= ${SRCS:.c=.o}
 
