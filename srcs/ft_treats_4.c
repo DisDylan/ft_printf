@@ -47,7 +47,7 @@ int				ft_hexa(unsigned int ui, int lower, ft_flags flags)
 		char_count += ft_put_width(flags.width, 0, 0);
 		return (char_count);
 	}
-	hexa = ft_nbr_tobase((unsigned long long)ui, "0123456789ABCDEF");
+	hexa = ft_pointer_base((unsigned long long)ui, 16);
 	if (lower == 1)
 		hexa = ft_str_tolower(hexa);
 	char_count += ft_flag_hexa(hexa, flags);
