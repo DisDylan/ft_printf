@@ -44,6 +44,7 @@ int		ft_width(const char *format, int index, va_list arguments, ft_flags *flags)
 			flags->width = (flags->width * 10) + (format[i++] - '0');
 	}
 	return (i);
+}
 
 int			ft_dot(const char *format, int start,
 			ft_flags *flags, va_list arguments)
