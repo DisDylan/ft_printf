@@ -7,7 +7,7 @@ static int		ft_min_hexa(char *hexa, ft_flags flags)
 
 	char_count = 0;
 	if (flags.dot >= 0)
-		char_count += ft_width(flags.dot - 1, ft_strlen(hexa) - 1, 1);
+		char_count += ft_put_width(flags.dot - 1, ft_strlen(hexa) - 1, 1);
 	char_count += ft_putstrprec(hexa, ft_strlen(hexa));
 	return (char_count);
 }
@@ -24,10 +24,10 @@ static int		ft_flag_hexa(char *hexa, ft_flags flags)
 	if (flags.dot >= 0)
 	{
 		flags.width -= flags.dot;
-		char_count += ft_width(flags.width, 0, 0);
+		char_count += ft_put_width(flags.width, 0, 0);
 	}
 	else
-		char_count += ft_width(flags.width,
+		char_count += ft_put_width(flags.width,
 		ft_strlen(hexa), flags.zero);
 	if (flags.minus == 0)
 		char_count += ft_min_hexa(hexa, flags);
@@ -44,7 +44,7 @@ int				ft_hexa(unsigned int ui, int lower, ft_flags flags)
 				+ ui);
 	if (flags.dot == 0 && ui == 0)
 	{
-		char_count += ft_width(flags.width, 0, 0);
+		char_count += ft_put_width(flags.width, 0, 0);
 		return (char_count);
 	}
 	hexa = ft_nbr_tobase((unsigned long long)ui, 16);
@@ -71,7 +71,7 @@ int		ft_percent(ft_flags flags)
 	char_count = 0;
 	if (flags.minus == 1)
 		char_count += ft_putstrprec("%", 1);
-	char_count += ft_width(flags.width, 1, flags.zero);
+	char_count += ft_put_width(flags.width, 1, flags.zero);
 	if (flags.minus == 0)
 		char_count += ft_putstrprec("%", 1);
 	return (char_count);

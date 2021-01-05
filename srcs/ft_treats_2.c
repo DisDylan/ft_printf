@@ -6,9 +6,9 @@ static int	ft_min_int(char *d_i, int save_i, ft_flags flags)
 
 	char_count = 0;
 	if (save_i < 0 && flags.dot >= 0)
-		ft_putchar('-');
+		ft_putchar_fd('-', 1);
 	if (flags.dot >= 0)
-		char_count += ft_treat_width(flags.dot - 1, ft_strlen(d_i) - 1, 1);
+		char_count += ft_put_width(flags.dot - 1, ft_strlen(d_i) - 1, 1);
 	char_count += ft_putstrprec(d_i, ft_strlen(d_i));
 	return (char_count);
 }
@@ -25,10 +25,10 @@ static int	ft_flag_int(char *d_i, int save_i, ft_flags flags)
 	if (flags.dot >= 0)
 	{
 		flags.width -= flags.dot;
-		char_count += ft_treat_width(flags.width, 0, 0);
+		char_count += ft_put_width(flags.width, 0, 0);
 	}
 	else
-		char_count += ft_treat_width(flags.width, ft_strlen(d_i), flags.zero);
+		char_count += ft_put_width(flags.width, ft_strlen(d_i), flags.zero);
 	if (flags.minus == 0)
 		char_count += ft_min_int(d_i, save_i, flags);
 	return (char_count);
