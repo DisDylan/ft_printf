@@ -82,6 +82,5 @@ int 		ft_get_flag(const char *format, int index, va_list arguments, ft_flags *fl
 		}
 		index++;
 	}
-	printf("ok ici\n");
 	return (index);
 }
