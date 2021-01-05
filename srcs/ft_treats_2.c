@@ -44,7 +44,7 @@ int			ft_int(int i, ft_flags flags)
 	char_count = 0;
 	if (flags.dot == 0 && i == 0)
 	{
-		char_count += ft_treat_width(flags.width, 0, 0);
+		char_count += ft_put_width(flags.width, 0, 0);
 		return (char_count);
 	}
 	if (i < 0 && (flags.dot >= 0 || flags.zero == 1))
