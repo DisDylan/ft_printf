@@ -41,8 +41,10 @@ int			ft_treat_all(const char *format, va_list arguments)
 			i++;
 			i = ft_get_flag(format, i, arguments, &flags);
 			if (ft_chrchr(format[i]))
+			{
 				char_count += ft_treat_convert((char)flags.type, flags, arguments);
-			printf("ok ici\n");
+				printf("ok ici\n");
+			}
 			else if (format[i])
 				char_count += ft_putchar_fd(format[i], 1);
 		}
