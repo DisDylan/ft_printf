@@ -27,17 +27,23 @@ ft_flags		ft_digit(char c, ft_flags flags)
 	return (flags);
 }
 
-ft_flags		ft_width(va_list arguments, ft_flags flags)
+int		ft_width(const char *format, int index, va_list arguments, ft_flags *flags)
 {
-	flags.star = 1;
-	flags.width = va_arg(arguments, int);
-	if (flags.width < 0)
+	int i;
+
+	i = start + 1;
+	if (format[i] == '*')
 	{
-		flags.minus = 1;
-		flags.width *= -1;
+		flags->width = va_arg(arguments, int);
+		i++;
 	}
-	return (flags);
-}
+	else
+	{
+		flags->width = 0;
+		while (ft_isdigit(format[i]))
+			flags->width = (flags->width * 10) + (format[i++] - '0');
+	}
+	return (i);
 
 int			ft_dot(const char *format, int start,
 			ft_flags *flags, va_list arguments)
@@ -74,10 +80,8 @@ int 		ft_get_flag(const char *format, int index, va_list arguments, ft_flags *fl
 			index = ft_dot(format, index, flags, arguments);
 		if (flag == '-')
 			*flags = ft_minus(*flags);
-		if (flag == '*')
-			*flags = ft_width(arguments, *flags);
-		if (ft_isdigit(flag))
-			*flags = ft_digit(flag, *flags);
+		if (flag == '*' || ft_isdigit(flag))
+			index = ft_width(format, index, arguments, flags);
 		if (ft_chrchr(flag))
 		{
 			flags->type = flag;

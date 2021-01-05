@@ -43,7 +43,7 @@ int			ft_printf(const char *format, ...);
 char		*ft_itoa_u(unsigned int n);
 char		*ft_nbr_tobase(unsigned long long nbr, char *base);
 ft_flags		ft_minus(ft_flags flags);
-ft_flags		ft_width(va_list arguments, ft_flags flags);
+int		ft_width(const char *format, int index, va_list arguments, ft_flags *flags);
 ft_flags		ft_digit(char c, ft_flags flags);
 int 		ft_get_flag(const char *format, int index, va_list arguments, ft_flags *flags);
 int ft_chrchr(char c);
