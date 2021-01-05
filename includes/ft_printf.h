@@ -56,5 +56,7 @@ int			ft_int(int i, ft_flags flags);
 int			ft_u_int(unsigned int unsi, ft_flags flags);
 int				ft_hexa(unsigned int ui, int lower, ft_flags flags);
 int		ft_percent(ft_flags flags);
+int		ft_put_width(int width, int minus, int has_zero);
+int		ft_putstrprec(char *str, int prec);
 
 #endif
