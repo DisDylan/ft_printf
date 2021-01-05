@@ -39,10 +39,10 @@ int		ft_char(char c, ft_flags flags)
 
 	char_count = 0;
 	if (flags.minus == 1)
-		ft_putchar(c);
+		ft_putchar_fd(c, 1);
 	char_count = ft_put_width(flags.width, 1, 0);
 	if (flags.minus == 0)
-		ft_putchar(c);
+		ft_putchar_fd(c, 1);
 	return (char_count + 1);
 }
 
