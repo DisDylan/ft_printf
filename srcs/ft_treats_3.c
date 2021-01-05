@@ -1,7 +1,18 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   ft_treats_3.c                                      :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: dpoinsu <dpoinsu@student.42.fr>            +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2021/01/05 16:32:37 by dpoinsu           #+#    #+#             */
+/*   Updated: 2021/01/05 16:48:33 by dpoinsu          ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
 
 #include "../includes/ft_printf.h"
 
-static int	ft_min_uint(char *unsi_int, ft_flags flags)
+static int	ft_min_uint(char *unsi_int, t_flags flags)
 {
 	int char_count;
 
@@ -12,7 +23,7 @@ static int	ft_min_uint(char *unsi_int, ft_flags flags)
 	return (char_count);
 }
 
-static int	ft_flag_uint(char *unsi_int, ft_flags flags)
+static int	ft_flag_uint(char *unsi_int, t_flags flags)
 {
 	int char_count;
 
@@ -34,7 +45,7 @@ static int	ft_flag_uint(char *unsi_int, ft_flags flags)
 	return (char_count);
 }
 
-int			ft_u_int(unsigned int unsi, ft_flags flags)
+int			ft_u_int(unsigned int unsi, t_flags flags)
 {
 	char	*unsi_int;
 	int		char_count;
@@ -53,7 +64,7 @@ int			ft_u_int(unsigned int unsi, ft_flags flags)
 	return (char_count);
 }
 
-int		ft_put_width(int width, int minus, int has_zero)
+int			ft_put_width(int width, int minus, int has_zero)
 {
 	int char_count;
 

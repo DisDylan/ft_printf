@@ -1,7 +1,18 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   ft_treats_4.c                                      :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: dpoinsu <dpoinsu@student.42.fr>            +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2021/01/05 16:34:07 by dpoinsu           #+#    #+#             */
+/*   Updated: 2021/01/05 16:51:05 by dpoinsu          ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
 
 #include "../includes/ft_printf.h"
 
-static int		ft_min_hexa(char *hexa, ft_flags flags)
+static int		ft_min_hexa(char *hexa, t_flags flags)
 {
 	int char_count;
 
@@ -12,7 +23,7 @@ static int		ft_min_hexa(char *hexa, ft_flags flags)
 	return (char_count);
 }
 
-static int		ft_flag_hexa(char *hexa, ft_flags flags)
+static int		ft_flag_hexa(char *hexa, t_flags flags)
 {
 	int char_count;
 
@@ -34,7 +45,7 @@ static int		ft_flag_hexa(char *hexa, ft_flags flags)
 	return (char_count);
 }
 
-int				ft_hexa(unsigned int ui, int lower, ft_flags flags)
+int				ft_hexa(unsigned int ui, int lower, t_flags flags)
 {
 	char	*hexa;
 	int		char_count;
@@ -54,7 +65,7 @@ int				ft_hexa(unsigned int ui, int lower, ft_flags flags)
 	return (char_count);
 }
 
-int		ft_putstrprec(char *str, int prec)
+int				ft_putstrprec(char *str, int prec)
 {
 	int char_count;
 
@@ -64,7 +75,7 @@ int		ft_putstrprec(char *str, int prec)
 	return (char_count);
 }
 
-int		ft_percent(ft_flags flags)
+int				ft_percent(t_flags flags)
 {
 	int char_count;
 

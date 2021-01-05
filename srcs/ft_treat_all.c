@@ -1,6 +1,18 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   ft_treat_all.c                                     :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: dpoinsu <dpoinsu@student.42.fr>            +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2021/01/05 16:23:50 by dpoinsu           #+#    #+#             */
+/*   Updated: 2021/01/05 16:38:43 by dpoinsu          ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "../includes/ft_printf.h"
 
-int ft_chrchr(char c)
+int		ft_chrchr(char c)
 {
 	return ((c == 'c') || (c == 's') || (c == 'p') || (c == 'd') || (c == 'i')
 			|| (c == 'u') || (c == 'x') || (c == 'X') || (c == '%'));
@@ -11,7 +23,7 @@ int		ft_is_flag(char c)
 	return ((c == '-') || (c == ' ') || (c == '0') || (c == '.') || (c == '*'));
 }
 
-int ft_treat_convert(char c, ft_flags flags, va_list arguments)
+int		ft_treat_convert(char c, t_flags flags, va_list arguments)
 {
 	int char_count;
 

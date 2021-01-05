@@ -6,7 +6,7 @@
 /*   By: dpoinsu <dpoinsu@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/12/02 11:30:55 by dpoinsu           #+#    #+#             */
-/*   Updated: 2020/12/28 10:39:38 by dpoinsu          ###   ########.fr       */
+/*   Updated: 2021/01/05 16:10:25 by dpoinsu          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,7 +27,7 @@
 # define CYAN    "\x1b[36m"
 # define RESET   "\x1b[0m"
 
-typedef struct ft_flags
+typedef	struct	s_flags
 {
 	int	width;
 	int	minus;
@@ -36,29 +36,29 @@ typedef struct ft_flags
 	int type;
 	int star;
 	int printed;
-} ft_flags;
+}				t_flags;
 
-
-int			ft_printf(const char *format, ...);
-char		*ft_itoa_u(unsigned int n);
-char		*ft_nbr_tobase(unsigned long long nbr, char *base);
-ft_flags		ft_minus(ft_flags flags);
-ft_flags		ft_width(va_list arguments, ft_flags flags);
-ft_flags		ft_digit(char c, ft_flags flags);
-int 		ft_get_flag(const char *format, int index, va_list arguments, ft_flags *flags);
-int ft_chrchr(char c);
-int		ft_is_flag(char c);
-int ft_treat_convert(char c, ft_flags flags, va_list arguments);
-int			ft_pointer(unsigned long long ull, ft_flags flags);
-int				ft_string(char *str, ft_flags flags);
-int		ft_char(char c, ft_flags flags);
-int			ft_int(int i, ft_flags flags);
-int			ft_u_int(unsigned int unsi, ft_flags flags);
-int				ft_hexa(unsigned int ui, int lower, ft_flags flags);
-int		ft_percent(ft_flags flags);
-int		ft_put_width(int width, int minus, int has_zero);
-int		ft_putstrprec(char *str, int prec);
-char	*ft_str_tolower(char *str);
-char		*ft_pointer_base(unsigned long long ull, int base);
+int				ft_printf(const char *format, ...);
+char			*ft_itoa_u(unsigned int n);
+char			*ft_nbr_tobase(unsigned long long nbr, char *base);
+t_flags			ft_minus(t_flags flags);
+t_flags			ft_width(va_list arguments, t_flags flags);
+t_flags			ft_digit(char c, t_flags flags);
+int				ft_get_flag(const char *format, int index, va_list arguments,
+		t_flags *flags);
+int				ft_chrchr(char c);
+int				ft_is_flag(char c);
+int				ft_treat_convert(char c, t_flags flags, va_list arguments);
+int				ft_pointer(unsigned long long ull, t_flags flags);
+int				ft_string(char *str, t_flags flags);
+int				ft_char(char c, t_flags flags);
+int				ft_int(int i, t_flags flags);
+int				ft_u_int(unsigned int unsi, t_flags flags);
+int				ft_hexa(unsigned int ui, int lower, t_flags flags);
+int				ft_percent(t_flags flags);
+int				ft_put_width(int width, int minus, int has_zero);
+int				ft_putstrprec(char *str, int prec);
+char			*ft_str_tolower(char *str);
+char			*ft_pointer_base(unsigned long long ull, int base);
 
 #endif

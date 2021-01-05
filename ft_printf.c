@@ -6,15 +6,15 @@
 /*   By: dpoinsu <dpoinsu@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/12/02 11:29:12 by dpoinsu           #+#    #+#             */
-/*   Updated: 2020/12/09 16:58:37 by dpoinsu          ###   ########.fr       */
+/*   Updated: 2021/01/05 16:10:57 by dpoinsu          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "includes/ft_printf.h"
 
-static ft_flags init_flags(void)
+static t_flags		init_flags(void)
 {
-	ft_flags flags;
+	t_flags flags;
 
 	flags.width = 0;
 	flags.minus = 0;
@@ -25,10 +25,10 @@ static ft_flags init_flags(void)
 	return (flags);
 }
 
-int			ft_treat_all(const char *format, va_list arguments)
+int					ft_treat_all(const char *format, va_list arguments)
 {
 	int			i;
-	ft_flags		flags;
+	t_flags		flags;
 	int			char_count;
 
 	i = 0;
@@ -41,7 +41,8 @@ int			ft_treat_all(const char *format, va_list arguments)
 			i++;
 			i = ft_get_flag(format, i, arguments, &flags);
 			if (ft_chrchr(format[i]))
-				char_count += ft_treat_convert((char)flags.type, flags, arguments);
+				char_count += ft_treat_convert((char)flags.type,
+						flags, arguments);
 			else if (format[i])
 				char_count += ft_putchar_fd(format[i], 1);
 		}
@@ -52,7 +53,7 @@ int			ft_treat_all(const char *format, va_list arguments)
 	return (char_count);
 }
 
-int			ft_printf(const char *format, ...)
+int					ft_printf(const char *format, ...)
 {
 	va_list		arguments;
 	int			char_count;

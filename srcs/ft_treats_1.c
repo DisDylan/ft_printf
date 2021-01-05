@@ -1,6 +1,18 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   ft_treats_1.c                                      :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: dpoinsu <dpoinsu@student.42.fr>            +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2021/01/05 16:29:15 by dpoinsu           #+#    #+#             */
+/*   Updated: 2021/01/05 16:49:32 by dpoinsu          ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "../includes/ft_printf.h"
 
-static int		ft_flag_str(char *str, ft_flags flags)
+static int		ft_flag_str(char *str, t_flags flags)
 {
 	int char_count;
 
@@ -17,7 +29,7 @@ static int		ft_flag_str(char *str, ft_flags flags)
 	return (char_count);
 }
 
-static int	ft_flag_pointer(char *str, ft_flags flags)
+static int		ft_flag_pointer(char *str, t_flags flags)
 {
 	int char_count;
 
@@ -33,7 +45,7 @@ static int	ft_flag_pointer(char *str, ft_flags flags)
 	return (char_count);
 }
 
-int		ft_char(char c, ft_flags flags)
+int				ft_char(char c, t_flags flags)
 {
 	int char_count;
 
@@ -46,7 +58,7 @@ int		ft_char(char c, ft_flags flags)
 	return (char_count + 1);
 }
 
-int				ft_string(char *str, ft_flags flags)
+int				ft_string(char *str, t_flags flags)
 {
 	int char_count;
 
@@ -66,7 +78,7 @@ int				ft_string(char *str, ft_flags flags)
 	return (char_count);
 }
 
-int			ft_pointer(unsigned long long ull, ft_flags flags)
+int				ft_pointer(unsigned long long ull, t_flags flags)
 {
 	char	*str;
 	int		char_count;

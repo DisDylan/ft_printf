@@ -1,6 +1,18 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   ft_treats_2.c                                      :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: dpoinsu <dpoinsu@student.42.fr>            +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2021/01/05 16:30:54 by dpoinsu           #+#    #+#             */
+/*   Updated: 2021/01/05 16:50:27 by dpoinsu          ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "../includes/ft_printf.h"
 
-static int	ft_min_int(char *d_i, int save_i, ft_flags flags)
+static int		ft_min_int(char *d_i, int save_i, t_flags flags)
 {
 	int char_count;
 
@@ -13,7 +25,7 @@ static int	ft_min_int(char *d_i, int save_i, ft_flags flags)
 	return (char_count);
 }
 
-static int	ft_flag_int(char *d_i, int save_i, ft_flags flags)
+static int		ft_flag_int(char *d_i, int save_i, t_flags flags)
 {
 	int char_count;
 
@@ -34,7 +46,7 @@ static int	ft_flag_int(char *d_i, int save_i, ft_flags flags)
 	return (char_count);
 }
 
-int			ft_int(int i, ft_flags flags)
+int				ft_int(int i, t_flags flags)
 {
 	char	*d_i;
 	int		save_i;
@@ -62,7 +74,7 @@ int			ft_int(int i, ft_flags flags)
 	return (char_count);
 }
 
-char	*ft_str_tolower(char *str)
+char			*ft_str_tolower(char *str)
 {
 	int i;
 

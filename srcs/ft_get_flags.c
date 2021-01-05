@@ -5,21 +5,21 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: dpoinsu <dpoinsu@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2020/12/02 11:29:12 by dpoinsu           #+#    #+#             */
-/*   Updated: 2020/12/09 16:58:37 by dpoinsu          ###   ########.fr       */
+/*   Created: 2021/01/05 16:27:02 by dpoinsu           #+#    #+#             */
+/*   Updated: 2021/01/05 16:52:18 by dpoinsu          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/ft_printf.h"
 
-ft_flags		ft_minus(ft_flags flags)
+t_flags		ft_minus(t_flags flags)
 {
 	flags.minus = 1;
 	flags.zero = 0;
 	return (flags);
 }
 
-ft_flags		ft_digit(char c, ft_flags flags)
+t_flags		ft_digit(char c, t_flags flags)
 {
 	if (flags.star == 1)
 		flags.width = 0;
@@ -27,7 +27,7 @@ ft_flags		ft_digit(char c, ft_flags flags)
 	return (flags);
 }
 
-ft_flags		ft_width(va_list arguments, ft_flags flags)
+t_flags		ft_width(va_list arguments, t_flags flags)
 {
 	flags.star = 1;
 	flags.width = va_arg(arguments, int);
@@ -40,7 +40,7 @@ ft_flags		ft_width(va_list arguments, ft_flags flags)
 }
 
 int			ft_dot(const char *format, int start,
-			ft_flags *flags, va_list arguments)
+			t_flags *flags, va_list arguments)
 {
 	int i;
 
@@ -59,12 +59,14 @@ int			ft_dot(const char *format, int start,
 	return (i);
 }
 
-int 		ft_get_flag(const char *format, int index, va_list arguments, ft_flags *flags)
+int			ft_get_flag(const char *format, int index, va_list arguments,
+		t_flags *flags)
 {
 	while (format[index])
 	{
-		if (!ft_isdigit(format[index]) && !ft_chrchr(format[index]) && !ft_is_flag(format[index]))
-			break;
+		if (!ft_isdigit(format[index]) && !ft_chrchr(format[index]) &&
+				!ft_is_flag(format[index]))
+			break ;
 		if (format[index] == '0' && flags->width == 0 && flags->minus == 0)
 			flags->zero = 1;
 		if (format[index] == '.')
@@ -78,7 +80,7 @@ int 		ft_get_flag(const char *format, int index, va_list arguments, ft_flags *fl
 		if (ft_chrchr(format[index]))
 		{
 			flags->type = format[index];
-			break;
+			break ;
 		}
 		index++;
 	}

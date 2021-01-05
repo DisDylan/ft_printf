@@ -6,13 +6,13 @@
 /*   By: dpoinsu <dpoinsu@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/18 16:09:12 by dpoinsu           #+#    #+#             */
-/*   Updated: 2020/12/28 10:41:58 by dpoinsu          ###   ########.fr       */
+/*   Updated: 2021/01/05 16:39:44 by dpoinsu          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/ft_printf.h"
 
-static long	ft_abs(unsigned int n)
+static long			ft_abs(unsigned int n)
 {
 	unsigned int nb;
 
@@ -22,7 +22,7 @@ static long	ft_abs(unsigned int n)
 	return (nb);
 }
 
-static void	ft_strrev(char *str)
+static void			ft_strrev(char *str)
 {
 	size_t	length;
 	size_t	i;
@@ -42,7 +42,7 @@ static void	ft_strrev(char *str)
 static unsigned int	ft_count(unsigned int n)
 {
 	unsigned int		i;
-	long	nb;
+	long				nb;
 
 	nb = n;
 	i = 0;
@@ -56,14 +56,14 @@ static unsigned int	ft_count(unsigned int n)
 	return (i + 1);
 }
 
-static char	*ft_zero(char *str)
+static char			*ft_zero(char *str)
 {
 	str[0] = '0';
 	str[1] = '\0';
 	return (str);
 }
 
-char		*ft_itoa_u(unsigned int n)
+char				*ft_itoa_u(unsigned int n)
 {
 	char	*str;
 	int		is_neg;
