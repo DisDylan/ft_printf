@@ -16,7 +16,9 @@ CFLAGS	= -Wall -Wextra -Werror
 				${GCC} ${CFLAGS} -c $< -o ${<:.c=.o} -I ${HEADER}
 
 ${NAME}:	${OBJS}
-				ar -rc ${NAME} ${OBJS}
+				${MAKE} -C ./libft
+				cp libft/libft.a ${NAME}
+				ar -rcs ${NAME} ${OBJS}
 				ranlib ${NAME}
 
 all:		${NAME}
