@@ -12,13 +12,13 @@
 
 #include "../includes/ft_printf.h"
 
-char	*ft_nbr_tobase(int nbr, char *base)
+char	*ft_nbr_tobase(unsigned long long nbr, char *base)
 {
-	int				i;
-	int				len;
-	int				nb_final[50];
-	unsigned int	nb;
-	char			*str;
+	int					i;
+	int					len;
+	int					nb_final[50];
+	unsigned long long	nb;
+	char				*str;
 
 	i = -1;
 	nb = nbr;
